@@ -906,6 +906,68 @@ online medicine delivery, online prescriptions, book doctor appointment online, 
           90% { transform: translate(1px, 2px) rotate(0deg); }
           100% { transform: translate(1px, -2px) rotate(-1deg); }
         }
+.quiz-containerXY {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .questionXY {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .optionsXY {
+      list-style: none;
+      padding: 0;
+    }
+    .optionsXY li {
+      margin-bottom: 10px;
+    }
+    .optionsXY button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .optionsXY button.correct {
+      background-color: #d4edda;
+      border-color: #28a745;
+      color: #155724;
+    }
+    .optionsXY button.wrong {
+      background-color: #f8d7da;
+      border-color: #dc3545;
+      color: #721c24;
+    }
+    #next-btnXY, #restart-btnXY {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
+    #scoreXY {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .symbolXY {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+	    
     </style>
 
 
@@ -1667,7 +1729,7 @@ impactful such sessions can be in promoting healthier lifestyles.</b>
                                 <p class="ntHotLink Quiz-Hotlink " style="color:#5f7c8d; background:#fff;">HEALTH QUIZ</p>
 <p class="p--class--typo--Story" style="line-height:1.5;">
 
-Every year, on the 1st of July, we mark Doctor’s Day to recognize the remarkable role doctors play in addressing our health concerns. <br>
+Every year, on the 1st of July, we mark Doctor's Day to recognize the remarkable role doctors play in addressing our health concerns. <br>
 					Here’s a quick quiz to help you connect everyday symptoms with the right specialist.
 	
 </p>
@@ -1681,79 +1743,23 @@ Every year, on the 1st of July, we mark Doctor’s Day to recognize the remarkab
 
 
 
-                                <div id="replyScreen" class="ANS-Reply-screen" style="position:absolute; width:100%; height:240px;  overflow:hidden; background:#02425bf0;  display: none; flex-direction: column; justify-content: center; align-items: center;">
+                                <div class="quiz-containerXY">
+    <div class="questionXY" id="questionXY">questionXY text</div>
+    <ul class="optionsXY" id="optionsXY"></ul>
+    <button id="next-btnXY">Next</button>
+    <button id="restart-btnXY">Restart Quiz</button>
+    <div id="scoreXY"></div>
+  </div>
 
 
 
-                                    <span id="replyIconCORRECT" class="material-symbols-outlined" style="font-size:60px; color:#fff;">task_alt</span>
-
-                                    <span id="replyIconWRONG" class="material-symbols-outlined" style="font-size:60px; color:#fff;">cancel</span>
-
-                                    <p id="message" style="font-size:24px !important; margin: 0 0 4rem 0; display:block; color:#fff;"><b>Correct, Well Done!</b></p>
-
-
-                                </div>
+                               
 
 
 
+                               
 
-                                <p id="progress" class="txt-12--bold" style="text-transform: uppercase; padding:1rem 1rem 0 1rem; margin:0 0 12px 0 !important;">
-                                    <br>
-                                    <hr>
-                                </p>
-
-
-
-                                <div class="quiz-question-wrap" style="display:flex; justify-content: space-between; padding:0rem 1rem 0 1rem; align-items: flex-start; min-height:100px;">
-
-
-                                    <!--QUETION GOES HERE -->
-                                    <h3 id="question-text" class="txt-24--bold fade-in" style="width: 450px; color:#5f7c8d;"><b></b></h3>
-
-                                    <span class="quiz-question-icon">
-                      
-                      <img id="Qicon" style="width:100px; margin: 0;" class="question-icon fade-in" src="">
-                      
-                      </span>
-
-                                </div>
-
-                                <div class="Ans-BTN-Wrap buttons" style="display:flex; padding:0rem 1rem 0 1rem; align-items: center; width: 420px;
-    justify-content: space-between;">
-
-                                    <div onclick="checkAnswer(true)" class="ANS-BTN" style="display: flex;
-    border: 1px solid #5d5d5d;
-    border-radius: 10px;
-    width: 180px;
-    align-items: center;
-    justify-content: center;
-    height: 28px;
-    padding: .5rem;">
-
-                                        <span class="material-symbols-outlined">check_circle</span>
-
-                                        <p style="font-size:14px; margin-left:.25rem; font-weight:600;">Yes, It's True</p>
-
-                                    </div>
-
-
-                                    <div onclick="checkAnswer(false)" class="ANS-BTN" style="display: flex;
-    border: 1px solid #5d5d5d;
-    border-radius: 10px;
-    width: 180px;
-    align-items: center;
-    justify-content: center;
-    height: 28px;
-    padding: .5rem;">
-
-                                        <span class="material-symbols-outlined">error</span>
-
-                                        <p style="font-size:14px; margin-left:.25rem; font-weight:600;">No, It's False</p>
-
-                                    </div>
-
-
-                                </div>
+                                
 
 
 
@@ -2229,184 +2235,111 @@ It has been a pleasure working with you and your team, and we look forward to st
     </section>
 
 
-    <script>
-        // Quiz questions and answers
-    const quiz = [
-    { question: "Drinking 8 glasses of water a day is the universal rule for staying hydrated.", answer: false, icon: "images/qzans1.png" },
-    { question: "Exercising right before bed improves sleep quality.", answer: false, icon: "images/qzans2.png" },
-    { question: "The skin is the largest organ in the human body. ", answer: true, icon: "images/qzans3.png" },
-    { question: "Sunscreen should only be applied on sunny days to protect your skin.", answer: false, icon: "images/qzans4.png" },
-    { question: "Eating carrots can improve your eyesight to the point of giving you perfect vision.", answer: false, icon: "images/qzans5.png" },
-    { question: "Cracking your knuckles causes arthritis.", answer: true, icon: "images/qzans6.png" },
-    { question: "Smiling, even when you're not happy, can actually make you feel better.", answer: true, icon: "images/qzans7.png" },
-    { question: "Sleeping with wet hair causes you to catch a cold. ", answer: false, icon: "images/qzans8.png" },
-    { question: "Skipping breakfast slows down your metabolism.", answer: false, icon: "images/qzans9.png" },
-    { question: "Eating chocolate causes acne breakouts.", answer: false, icon: "images/qzans10.png" }
+     <script>
+    const quizData = [
+      {
+        questionXY: "What is the capital of France?",
+        optionsXY: ["Berlin", "Madrid", "Paris", "London"],
+        answer: "Paris"
+      },
+      {
+        questionXY: "Which planet is known as the Red Planet?",
+        optionsXY: ["Earth", "Mars", "Jupiter", "Saturn"],
+        answer: "Mars"
+      },
+      {
+        questionXY: "What is the largest ocean on Earth?",
+        optionsXY: ["Indian", "Pacific", "Atlantic", "Arctic"],
+        answer: "Pacific"
+      }
     ];
-    
-    let currentQuestion = 0;
-    let score = 0;
-    
-    let preloadedImages = {};
-    
-    // Preload all images
-    function preloadImages() {
-    quiz.forEach((item, index) => {
-    const img = new Image();
-    img.src = item.icon;
-    preloadedImages[index] = img;
-    });
-    }
-    
-    // Call this function **before** the quiz starts
-    preloadImages();
-    
-    // Load question
-    function loadQuestion() {
-    if (currentQuestion < quiz.length) {
-    const questionImage = document.getElementById("Qicon");    
-    questionImage.src = preloadedImages[currentQuestion].src;    
-    document.getElementById("question-text").textContent = quiz[currentQuestion].question;
-    document.getElementById("progress").textContent = `Question ${currentQuestion + 1} of ${quiz.length}`;
-    document.getElementById("message").textContent = ""; // Clear previous message
-    document.getElementById("replyScreen").style.display = "none"; 
-    document.querySelector(".buttons").style.display = "flex"; // Show buttons
-    } else {
-    showResults();
-    }
-    }
-    
-    // Check answer and show feedback
-    function checkAnswer(userAnswer) {
-    document.querySelector(".buttons").style.display = "none"; // Hide buttons temporarily
-    
-    if (userAnswer === quiz[currentQuestion].answer) {
-    document.getElementById("replyScreen").style.display = "flex"; 
-    document.getElementById("replyScreen").style.backgroundColor = "#02425bf0";
-    document.getElementById("message").textContent = "Correct, Well Done!";
-    document.getElementById("message").style.color = "white";
-    document.getElementById("replyIconCORRECT").style.display = "block";
-    document.getElementById("replyIconWRONG").style.display = "none";
-    score++;
-    } else {
-    document.getElementById("replyScreen").style.display = "flex"; 
-    document.getElementById("replyScreen").style.backgroundColor = "#000000f0";
-    document.getElementById("message").textContent = "Sorry, Wrong Answer!";
-    document.getElementById("message").style.color = "white";
-    document.getElementById("replyIconWRONG").style.display = "block";
-    document.getElementById("replyIconCORRECT").style.display = "none";
-    
-    }
-    
-    // Wait 2 seconds before loading next question
-    setTimeout(() => {
-    currentQuestion++;
-    loadQuestion();
-    }, 2000);
-    }
-    
-    // Show final score
-    function showResults() {
-    document.querySelector(".quiz-container").innerHTML = `
-    
-    <div id="replyScreen" class="ANS-Score-screen" style="">
-    
-    
-    <p style="font-size:24px !important; text-align:center; margin: 0 0 2rem 0; display:block; color:#fff;"><u>Quiz Completed!</u><br><br><b> Your Health Awareness score is:<br> ${score} out of ${quiz.length} </b></p>
-    
-    <button onclick="restartQuiz()">Restart Quiz</button>
-    
-    </div>
-    
-    
-    `;
-    }
-    
-    // Restart quiz
-    function restartQuiz() {
-    currentQuestion = 0;
-    score = 0;
-    document.querySelector(".quiz-container").innerHTML = `
-    
-     
-                    <div id="replyScreen" class="ANS-Reply-screen" style="position:absolute; width:100%; height:240px;  overflow:hidden; background:#02425bf0;  display: none; flex-direction: column; justify-content: center; align-items: center;">
-                        
-                       
-                        
-                        <span id="replyIconCORRECT" class="material-symbols-outlined" style="font-size:60px; color:#fff;">task_alt</span>
-                        
-                         <span id="replyIconWRONG" class="material-symbols-outlined" style="font-size:60px; color:#fff;">cancel</span>
-                        
-                         <p id="message" style="font-size:24px !important; margin: 0 0 4rem 0; display:block; color:#fff;"><b>Correct, Well Done!</b></p>
-                        
-                        
-                    </div>
-                    
-                    
-                    
-                    
-                     <p id="progress" class="txt-12--bold" style="text-transform: uppercase; padding:1rem 1rem 0 1rem; margin:0 0 12px 0 !important;"><br><hr></p>
-                     
-                    
-                     
-                     <div class="quiz-question-wrap" style="display:flex; justify-content: space-between; padding:0rem 1rem 0 1rem; align-items: flex-start; min-height:100px;">
-                         
-                         
-                     <!--QUETION GOES HERE -->
-                      <h3 id="question-text" class="txt-24--bold fade-in" style="width: 450px; color:#5f7c8d;"><b></b></h3>
-                      
-                      <span class="quiz-question-icon">
-                      <img id="Qicon" style="width:100px; margin: 0;" class="question-icon fade-in" src="">
-                      </span>
-                      
-                      </div>
-                      
-                      <div  class="Ans-BTN-Wrap buttons" style="display:flex; padding:0rem 1rem 0 1rem; align-items: center; width: 420px;
-        justify-content: space-between;">
-                          
-                          <div onclick="checkAnswer(true)" class="ANS-BTN" style="display: flex;
-        border: 1px solid #5d5d5d;
-        border-radius: 10px;
-        width: 180px;
-        align-items: center;
-        justify-content: center;
-        height: 28px;
-        padding: .5rem;">
-                              
-                              <span class="material-symbols-outlined">check_circle</span>
-                              
-                              <p style="font-size:14px; margin-left:.25rem; font-weight:600;">Yes, It's True</p>
-                              
-                          </div>
-                          
-                          
-                           <div onclick="checkAnswer(false)" class="ANS-BTN" style="display: flex;
-        border: 1px solid #5d5d5d;
-        border-radius: 10px;
-        width: 180px;
-        align-items: center;
-        justify-content: center;
-        height: 28px;
-        padding: .5rem;">
-                              
-                              <span class="material-symbols-outlined">error</span>
-                              
-                              <p style="font-size:14px; margin-left:.25rem; font-weight:600;">No, It's False</p>
-                              
-                          </div>
-                         
-                          
-                      </div>
-                      
-    
-    `;
-    loadQuestion();
-    }
-    
-    // Load first question
-    window.onload = loadQuestion;
-    </script>
 
+    let currentquestionXY = 0;
+    let scoreXY = 0;
+
+    const questionXYEl = document.getElementById("questionXY");
+    const optionsXYEl = document.getElementById("optionsXY");
+    const nextBtn = document.getElementById("next-btnXY");
+    const restartBtn = document.getElementById("restart-btnXY");
+    const scoreXYEl = document.getElementById("scoreXY");
+
+    function loadquestionXY() {
+      const current = quizData[currentquestionXY];
+      questionXYEl.textContent = current.questionXY;
+      optionsXYEl.innerHTML = "";
+      scoreXYEl.textContent = "";
+      nextBtn.style.display = "none";
+      restartBtn.style.display = "none";
+
+      current.optionsXY.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+
+        // symbolXY span
+        const symbolXYSpan = document.createElement("span");
+        symbolXYSpan.classList.add("symbolXY");
+        symbolXYSpan.textContent = ""; // placeholder
+        btn.appendChild(symbolXYSpan);
+
+        btn.onclick = () => selectAnswer(btn, current.answer);
+        const li = document.createElement("li");
+        li.appendChild(btn);
+        optionsXYEl.appendChild(li);
+      });
+    }
+
+    function selectAnswer(selectedBtn, correctAnswer) {
+      const buttons = optionsXYEl.querySelectorAll("button");
+
+      buttons.forEach(button => {
+        const optionText = button.childNodes[0].textContent;
+        const symbolXYSpan = button.querySelector(".symbolXY");
+        button.disabled = true;
+
+        if (optionText === correctAnswer) {
+          button.classList.add("correct");
+          symbolXYSpan.textContent = "✔️";
+        } else {
+          if (button === selectedBtn) {
+            button.classList.add("wrong");
+            symbolXYSpan.textContent = "❌";
+          }
+        }
+      });
+
+      if (selectedBtn.childNodes[0].textContent === correctAnswer) {
+        scoreXY++;
+      }
+
+      nextBtn.style.display = "inline-block";
+    }
+
+    nextBtn.addEventListener("click", () => {
+      currentquestionXY++;
+      if (currentquestionXY < quizData.length) {
+        loadquestionXY();
+      } else {
+        showscoreXY();
+      }
+    });
+
+    restartBtn.addEventListener("click", () => {
+      currentquestionXY = 0;
+      scoreXY = 0;
+      loadquestionXY();
+    });
+
+    function showscoreXY() {
+      questionXYEl.textContent = "🎉 Quiz Completed!";
+      optionsXYEl.innerHTML = "";
+      nextBtn.style.display = "none";
+      scoreXYEl.textContent = `Your scoreXY: ${scoreXY} / ${quizData.length}`;
+      restartBtn.style.display = "inline-block";
+    }
+
+    // Load the first questionXY
+    loadquestionXY();
+  </script>
 
 
 </body>
