@@ -947,7 +947,7 @@ online medicine delivery, online prescriptions, book doctor appointment online, 
       color: #155724;
     }
 .EndBTNX {}
-	    .EndBTNX:hover {box-shadow: none;}
+	    .EndBTNX:hover {box-shadow: none !important;}
 	    
     .optionsXY button.wrong {
       background-color: #f8d7da;
@@ -975,6 +975,16 @@ online medicine delivery, online prescriptions, book doctor appointment online, 
       font-weight: bold;
       font-size: 16px;
     }
+
+.QuestionIMG {
+width:200px;
+position:absolute;
+right:0;
+bottom:0;
+background:grey;	
+height:300px;	
+	
+}
 
 	    
     </style>
@@ -1762,6 +1772,9 @@ Every year, on the 1<sup>st</sup> of July, we mark Doctor's Day to recognize the
 					<hr>
     <ul class="optionsXY" id="optionsXY"></ul>
     <button id="next-btnXY" style="position:absolute; bottom:0;">Read the next Symptoms</button>
+    <span class="QuestionIMG"></span>
+
+					
     <button id="restart-btnXY">Restart Quiz</button>
     <div id="scoreXY"></div>
   </div>
