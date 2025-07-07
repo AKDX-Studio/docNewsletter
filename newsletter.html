@@ -1805,7 +1805,7 @@ Every year, on the 1<sup>st</sup> of July, we mark Doctor's Day to recognize the
 					<br><hr>
     <ul class="optionsXY" id="optionsXY"></ul>
     <button id="next-btnXY" style="position:absolute; bottom:20px;">Read the next Symptoms</button>
-    <span class="QuestionIMG"></span>
+    <span class="QuestionIMG" id="QuestionXIMG"></span>
 
  <div class="ScoreContainer" id="ScoreXContainer" style="" >
 
@@ -2351,6 +2351,7 @@ It has been a pleasure working with you and your team, and we look forward to st
     const scoreXYEl = document.getElementById("scoreXY");
     const QCounterTXT = document.getElementById("QCounterTXT");
     const ScoreXContainer = document.getElementById("ScoreXContainer");
+    const QuestionXIMG = document.getElementById("QuestionXIMG");
 	     
     function loadquestionXY() {
       const current = quizData[currentquestionXY];
@@ -2363,6 +2364,7 @@ It has been a pleasure working with you and your team, and we look forward to st
       restartBtn.style.display = "none";
       optionsXYEl.style.display = "block";
       nextBtn.style.display = "inline-block";
+      QuestionXIMG.style.display = "block";
 
       current.optionsXY.forEach(option => {
         const btn = document.createElement("button");
@@ -2432,6 +2434,8 @@ It has been a pleasure working with you and your team, and we look forward to st
       restartBtn.style.display = "inline-block";
       QCounterTXT.style.display = "none";
       ScoreXContainer.style.display = "flex";
+      QuestionXIMG.style.display = "none";
+
     }
 
     // Load the first questionXY
