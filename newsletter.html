@@ -969,7 +969,10 @@ online medicine delivery, online prescriptions, book doctor appointment online, 
       display: none;
     }
     #scoreXY {
-      font-size: 20px;
+      font-size: 24px;
+    line-height: 1.2121212121;
+    font-weight: 600;
+    letter-spacing: -.009em;
       text-align: center;
       margin-top: 20px;
     }
@@ -1000,7 +1003,18 @@ width: 275px;
     align-content: center;
     flex-wrap: wrap;	    
 	    }
-
+.ScoreContainer {
+	display: flex;
+    background: #e3dcff;
+    justify-content: center;
+    flex-direction: column;
+    height: 200px;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 1px 4px 9px 0px #0000008f;
+	position: relative;
+    top: -26px;
+}
 	    
     </style>
 
@@ -1793,7 +1807,13 @@ Every year, on the 1<sup>st</sup> of July, we mark Doctor's Day to recognize the
     <button id="next-btnXY" style="position:absolute; bottom:20px;">Read the next Symptoms</button>
     <span class="QuestionIMG"></span>
 
- <div class="ScoreContainer" style="display:flex; background:grey;" >
+ <div class="ScoreContainer" style="" >
+
+<h3 class="txt-24--bold Quiz-Headline" style="color:#fff;">
+					
+					<b>Quiz Completed Successfully</b>
+				</h3>	
+	 
 	<div id="scoreXY"></div>				
     <button id="restart-btnXY">Restart Quiz</button>
  </div>
@@ -2404,7 +2424,7 @@ It has been a pleasure working with you and your team, and we look forward to st
       optionsXYEl.innerHTML = "";
       optionsXYEl.style.display = "none";
       nextBtn.style.display = "none";
-      scoreXYEl.textContent = `Your scoreXY: ${scoreXY} / ${quizData.length}`;
+      scoreXYEl.textContent = `Your score is: ${scoreXY} / ${quizData.length}`;
       restartBtn.style.display = "inline-block";
       QCounterTXT.style.display = "none";
     }
