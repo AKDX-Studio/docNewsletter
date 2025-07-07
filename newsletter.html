@@ -1780,7 +1780,7 @@ Every year, on the 1<sup>st</sup> of July, we mark Doctor's Day to recognize the
 
 
 <div class="Question-inlineBOX" style="display:flex;">
-	<div class="questionCounter" style="">
+	<div class="questionCounter" id="QCounterTXT" style="">
 	1/5
 	</div>
 					
@@ -2286,27 +2286,32 @@ It has been a pleasure working with you and your team, and we look forward to st
       {
         questionXY: "A persistent cough & shortness of breath have been bothering you for days. It’s time to consult someone who can help ease your lungs. Who would it be?",
         optionsXY: ["Dermatologist", "Lung Specialist", "Diet and Health Coach", "Cosmetologist"],
-        answer: "Lung Specialist"
+        answer: "Lung Specialist",
+	countXY: "1/5"
       },
       {
         questionXY: "Strands of hair have become a regular sight on your pillow, and your scalp feels dry and rough. Which doctor should you visit?",
         optionsXY: ["Pediatric Pulmonologist", "Hair Fall and Skin Specialist", "Family Physician", "Neonatologist"],
-        answer: "Hair Fall and Skin Specialist"
+        answer: "Hair Fall and Skin Specialist",
+	countXY: "2/5"
       },
       {
         questionXY: "Frequent mood swings and stress are starting to take a toll on your daily life. Who is the right expert to guide you through this?",
         optionsXY: ["Mental Health Counselor", "Infectious Disease Specialist", "General Physician", "Women's Health Specialist"],
-        answer: "Mental Health Counselor"
+        answer: "Mental Health Counselor",
+	countXY: "3/5"
       },
 	   {
         questionXY: "Despite your best efforts, controlling your blood sugar feels overwhelming. Who is the specialist you need?",
         optionsXY: ["Diabetes Specialist", "Obstetrician", "Internal Medicine Specialist", "Sexologist"],
-        answer: "Diabetes Specialist"
+        answer: "Diabetes Specialist",
+	countXY: "4/5"
       },
 	    {
         questionXY: "Acne and pigmentation are becoming more noticeable, and over-the-counter solutions just aren’t enough. Which doctor would you consult?",
         optionsXY: ["Dermatologist", "Lung Specialist", "De-Addiction Therapist", "Psychiatrist"],
-        answer: "Dermatologist"
+        answer: "Dermatologist",
+	countXY: "5/5"
       }
 
 	    
@@ -2320,10 +2325,12 @@ It has been a pleasure working with you and your team, and we look forward to st
     const nextBtn = document.getElementById("next-btnXY");
     const restartBtn = document.getElementById("restart-btnXY");
     const scoreXYEl = document.getElementById("scoreXY");
+    const QCounterTXT = document.getElementById("QCounterTXT");
 
     function loadquestionXY() {
       const current = quizData[currentquestionXY];
       questionXYEl.textContent = current.questionXY;
+      QCounterTXT.textContent = current.countXY;
       optionsXYEl.innerHTML = "";
       scoreXYEl.textContent = "";
       nextBtn.style.display = "none";
