@@ -2362,6 +2362,14 @@ It has been a pleasure working with you and your team, and we look forward to st
     const ScoreXContainer = document.getElementById("ScoreXContainer");
     const QuestionXIMG = document.getElementById("QuestionXIMG");
     
+function preloadImages() {
+  quizData.forEach(q => {
+    if (q.image) {
+      const img = new Image();
+      img.src = q.image;
+    }
+  });
+}
 
 	     
     function loadquestionXY() {
@@ -2457,7 +2465,7 @@ It has been a pleasure working with you and your team, and we look forward to st
       QuestionXIMG.style.display = "none";
 
     }
-
+preloadImages();
     // Load the first questionXY
     loadquestionXY();
   </script>
