@@ -946,7 +946,8 @@ online medicine delivery, online prescriptions, book doctor appointment online, 
       border-color: #28a745;
       color: #155724;
     }
-
+.EndBTNX {}
+	    .EndBTNX:hover {box-shadow: none;}
 	    
     .optionsXY button.wrong {
       background-color: #f8d7da;
@@ -2321,6 +2322,7 @@ It has been a pleasure working with you and your team, and we look forward to st
         const optionText = button.childNodes[0].textContent;
         const symbolXYSpan = button.querySelector(".symbolXY");
         button.disabled = true;
+	button.classList.add("EndBTNX");
 
         if (optionText === correctAnswer) {
           button.classList.add("correct");
