@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Quiz: Odd One Out</title>
+    <title>Memory Quiz: Alpha-Numeric Sequence</title>
     <style>
         * {
             box-sizing: border-box;
@@ -51,7 +51,7 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
-            margin: 60px 0 20px; /* Increased top margin by 20px */
+            margin: 60px 0 20px;
         }
         
         .card {
@@ -62,7 +62,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2.5rem;
+            font-size: 5.5rem;
             font-weight: bold;
             color: white;
             transition: all 0.2s ease;
@@ -303,7 +303,7 @@
                 generateQuestion();
             }
             
-            // Generate a new question
+            // Generate a new question with unique alpha-numeric values
             function generateQuestion() {
                 // Clear previous cards
                 cardsRow.innerHTML = '';
@@ -312,11 +312,9 @@
                 flipButton.style.display = 'block';
                 instructionText.classList.remove('visible');
                 
-                // Generate original cards (3 of one type, 1 different)
-                const mainCard = getRandomCard();
-                const oddCard = getDifferentCard(mainCard);
-                
-                originalCards = [mainCard, mainCard, mainCard, oddCard];
+                // Generate 4 unique alpha-numeric values
+                const uniqueValues = generateUniqueValues(4);
+                originalCards = [...uniqueValues];
                 
                 // Display original cards
                 originalCards.forEach((card, index) => {
@@ -338,6 +336,25 @@
                 });
             }
             
+            // Generate unique alpha-numeric values
+            function generateUniqueValues(count) {
+                const values = [];
+                const alphaNumerics = ['A', 'B', 'C', 'D', 'E', 'F', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+                
+                // Shuffle the alphaNumerics array
+                for (let i = alphaNumerics.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [alphaNumerics[i], alphaNumerics[j]] = [alphaNumerics[j], alphaNumerics[i]];
+                }
+                
+                // Take the first 'count' elements
+                for (let i = 0; i < count; i++) {
+                    values.push(alphaNumerics[i]);
+                }
+                
+                return values;
+            }
+            
             // Flip and shuffle the cards
             function flipCards() {
                 if (cardsFlipped) return;
@@ -348,12 +365,16 @@
                 // Create a shuffled version with one card replaced
                 shuffledCards = [...originalCards];
                 
-                // Replace one random card with a new one
+                // Replace one random card with a new unique value
                 const replaceIndex = Math.floor(Math.random() * 4);
                 let newCard;
-                do {
-                    newCard = getRandomCard();
-                } while (newCard === originalCards[replaceIndex]);
+                
+                // Get all possible values that aren't in the original set
+                const allValues = ['A', 'B', 'C', 'D', 'E', 'F', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+                const availableValues = allValues.filter(value => !originalCards.includes(value));
+                
+                // Select a random value from available ones
+                newCard = availableValues[Math.floor(Math.random() * availableValues.length)];
                 
                 shuffledCards[replaceIndex] = newCard;
                 
@@ -473,22 +494,6 @@
                 resultsModal.classList.remove('active');
                 startGame();
             });
-            
-            // Helper function to get a random card
-            function getRandomCard() {
-                const cards = ['A', 'K', 'Q', 'J', '10', '9', '8', '7'];
-                return cards[Math.floor(Math.random() * cards.length)];
-            }
-            
-            // Helper function to get a different card
-            function getDifferentCard(mainCard) {
-                let differentCard;
-                do {
-                    differentCard = getRandomCard();
-                } while (differentCard === mainCard);
-                
-                return differentCard;
-            }
         });
     </script>
 </body>
