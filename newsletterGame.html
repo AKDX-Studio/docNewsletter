@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Quiz: Odd One Out</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .instructions {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: left;
+            font-size: 1rem;
+            color: #444;
+        }
+        
+        .score-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            user-select: none;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card.selected {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 3px #ffc107, 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card.correct {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+        
+        .card.incorrect {
+            background: linear-gradient(135deg, #dc3545, #fd7e14);
+        }
+        
+        .feedback {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
+        
+        .correct-feedback {
+            color: #28a745;
+        }
+        
+        .incorrect-feedback {
+            color: #dc3545;
+        }
+        
+        .next-btn, .restart-btn {
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .next-btn:hover, .restart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .next-btn:active, .restart-btn:active {
+            transform: translateY(0);
+        }
+        
+        .results {
+            margin-top: 30px;
+        }
+        
+        .results h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .final-score {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4e54c8;
+            margin: 20px 0;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Memory Quiz: Odd One Out</h1>
+        
+        <div class="instructions">
+            <p><strong>How to play:</strong> Memorize the four cards. After clicking any card, they will flip and rearrange, with one card replaced. Select the new card that wasn't originally there!</p>
+        </div>
+        
+        <div class="score-container">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="question">Question: <span id="question">1</span>/4</div>
+        </div>
+        
+        <div class="cards-container" id="cards-container">
+            <!-- Cards will be generated here -->
+        </div>
+        
+        <div class="feedback" id="feedback"></div>
+        
+        <button class="next-btn hidden" id="next-btn">Next Question</button>
+        
+        <div class="results hidden" id="results">
+            <h2>Quiz Completed!</h2>
+            <p>Your final score:</p>
+            <div class="final-score" id="final-score">0</div>
+            <button class="restart-btn" id="restart-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM elements
+            const cardsContainer = document.getElementById('cards-container');
+            const scoreElement = document.getElementById('score');
+            const questionElement = document.getElementById('question');
+            const feedbackElement = document.getElementById('feedback');
+            const nextButton = document.getElementById('next-btn');
+            const resultsSection = document.getElementById('results');
+            const finalScoreElement = document.getElementById('final-score');
+            const restartButton = document.getElementById('restart-btn');
+            
+            // Game state
+            let score = 0;
+            let currentQuestion = 1;
+            let originalCards = [];
+            let shuffledCards = [];
+            let oddOneOut = null;
+            let canSelect = false;
+            
+            // Start the game
+            startGame();
+            
+            // Initialize the game
+            function startGame() {
+                score = 0;
+                currentQuestion = 1;
+                scoreElement.textContent = score;
+                questionElement.textContent = currentQuestion;
+                feedbackElement.textContent = '';
+                nextButton.classList.add('hidden');
+                resultsSection.classList.add('hidden');
+                
+                generateQuestion();
+            }
+            
+            // Generate a new question
+            function generateQuestion() {
+                // Clear previous cards
+                cardsContainer.innerHTML = '';
+                feedbackElement.textContent = '';
+                nextButton.classList.add('hidden');
+                canSelect = false;
+                
+                // Generate original cards (3 of one type, 1 different)
+                const mainCard = getRandomCard();
+                const oddCard = getDifferentCard(mainCard);
+                
+                originalCards = [mainCard, mainCard, mainCard, oddCard];
+                oddOneOut = oddCard;
+                
+                // Display original cards
+                originalCards.forEach((card, index) => {
+                    const cardElement = document.createElement('div');
+                    cardElement.className = 'card';
+                    cardElement.textContent = card;
+                    cardElement.dataset.value = card;
+                    
+                    // First click flips the cards
+                    cardElement.addEventListener('click', () => {
+                        if (!canSelect && currentQuestion <= 4) {
+                            flipCards();
+                        }
+                    });
+                    
+                    cardsContainer.appendChild(cardElement);
+                });
+            }
+            
+            // Flip and shuffle the cards
+            function flipCards() {
+                // Create a shuffled version with one card replaced
+                shuffledCards = [...originalCards];
+                
+                // Replace one random card with a new one
+                const replaceIndex = Math.floor(Math.random() * 4);
+                let newCard;
+                do {
+                    newCard = getRandomCard();
+                } while (newCard === originalCards[replaceIndex]);
+                
+                shuffledCards[replaceIndex] = newCard;
+                
+                // Update the odd one out
+                oddOneOut = newCard;
+                
+                // Shuffle the array
+                for (let i = shuffledCards.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]];
+                }
+                
+                // Update the cards display
+                const cardElements = cardsContainer.querySelectorAll('.card');
+                cardElements.forEach((cardElement, index) => {
+                    setTimeout(() => {
+                        cardElement.textContent = shuffledCards[index];
+                        cardElement.dataset.value = shuffledCards[index];
+                        
+                        // After flipping, allow selection
+                        if (index === 3) {
+                            canSelect = true;
+                            
+                            // Add selection event listeners
+                            cardElements.forEach(el => {
+                                const clickHandler = () => {
+                                    if (canSelect) {
+                                        checkAnswer(el.dataset.value);
+                                        // Remove event listeners after selection
+                                        cardElements.forEach(card => {
+                                            card.removeEventListener('click', clickHandler);
+                                        });
+                                    }
+                                };
+                                el.addEventListener('click', clickHandler);
+                            });
+                        }
+                    }, 300 * index); // Stagger the flip animation
+                });
+            }
+            
+            // Check if the selected card is correct
+            function checkAnswer(selectedValue) {
+                const cardElements = cardsContainer.querySelectorAll('.card');
+                
+                if (selectedValue === oddOneOut) {
+                    // Correct answer
+                    score++;
+                    scoreElement.textContent = score;
+                    feedbackElement.textContent = 'Correct! Well done!';
+                    feedbackElement.className = 'feedback correct-feedback';
+                    
+                    // Highlight the correct card
+                    cardElements.forEach(card => {
+                        if (card.dataset.value === oddOneOut) {
+                            card.classList.add('correct');
+                        }
+                    });
+                } else {
+                    // Incorrect answer
+                    feedbackElement.textContent = `Incorrect! The odd one out was ${oddOneOut}.`;
+                    feedbackElement.className = 'feedback incorrect-feedback';
+                    
+                    // Highlight the incorrect and correct cards
+                    cardElements.forEach(card => {
+                        if (card.dataset.value === selectedValue) {
+                            card.classList.add('incorrect');
+                        } else if (card.dataset.value === oddOneOut) {
+                            card.classList.add('correct');
+                        }
+                    });
+                }
+                
+                // Show next button or results
+                if (currentQuestion < 4) {
+                    nextButton.classList.remove('hidden');
+                } else {
+                    setTimeout(showResults, 1500);
+                }
+            }
+            
+            // Move to the next question
+            nextButton.addEventListener('click', () => {
+                currentQuestion++;
+                questionElement.textContent = currentQuestion;
+                generateQuestion();
+            });
+            
+            // Show results when game is over
+            function showResults() {
+                finalScoreElement.textContent = `${score}/4`;
+                resultsSection.classList.remove('hidden');
+            }
+            
+            // Restart the game
+            restartButton.addEventListener('click', startGame);
+            
+            // Helper function to get a random card
+            function getRandomCard() {
+                const cards = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6'];
+                return cards[Math.floor(Math.random() * cards.length)];
+            }
+            
+            // Helper function to get a different card
+            function getDifferentCard(mainCard) {
+                let differentCard;
+                do {
+                    differentCard = getRandomCard();
+                } while (differentCard === mainCard);
+                
+                return differentCard;
+            }
+        });
+    </script>
+</body>
+</html>
