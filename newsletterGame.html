@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Quiz: Alpha-Numeric Sequence</title>
+    <title>Memory Quiz: Improved Alpha-Numeric Mix</title>
     <style>
         * {
             box-sizing: border-box;
@@ -62,7 +62,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 5.5rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: white;
             transition: all 0.2s ease;
@@ -109,7 +109,7 @@
         }
         
         .instruction-text {
-            margin: 10px 0 0px;
+            margin: 10px 0 20px;
             font-size: 1.2rem;
             color: #4e54c8;
             font-weight: 600;
@@ -303,7 +303,7 @@
                 generateQuestion();
             }
             
-            // Generate a new question with unique alpha-numeric values
+            // Generate a new question with guaranteed mix of letters and numbers
             function generateQuestion() {
                 // Clear previous cards
                 cardsRow.innerHTML = '';
@@ -312,8 +312,8 @@
                 flipButton.style.display = 'block';
                 instructionText.classList.remove('visible');
                 
-                // Generate 4 unique alpha-numeric values
-                const uniqueValues = generateUniqueValues(4);
+                // Generate 4 unique values with guaranteed mix of letters and numbers
+                const uniqueValues = generateMixedValues(4);
                 originalCards = [...uniqueValues];
                 
                 // Display original cards
@@ -336,20 +336,41 @@
                 });
             }
             
-            // Generate unique alpha-numeric values
-            function generateUniqueValues(count) {
+            // Generate values with guaranteed mix of letters and numbers
+            function generateMixedValues(count) {
+                const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+                const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
                 const values = [];
-                const alphaNumerics = ['A', 'B', 'C', 'D', 'E', 'F', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
                 
-                // Shuffle the alphaNumerics array
-                for (let i = alphaNumerics.length - 1; i > 0; i--) {
+                // Ensure at least one letter and one number
+                const numLetters = Math.floor(Math.random() * (count - 1)) + 1; // 1 to (count-1)
+                const numNumbers = count - numLetters;
+                
+                // Shuffle the arrays
+                for (let i = letters.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
-                    [alphaNumerics[i], alphaNumerics[j]] = [alphaNumerics[j], alphaNumerics[i]];
+                    [letters[i], letters[j]] = [letters[j], letters[i]];
                 }
                 
-                // Take the first 'count' elements
-                for (let i = 0; i < count; i++) {
-                    values.push(alphaNumerics[i]);
+                for (let i = numbers.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+                }
+                
+                // Add letters
+                for (let i = 0; i < numLetters; i++) {
+                    values.push(letters[i]);
+                }
+                
+                // Add numbers
+                for (let i = 0; i < numNumbers; i++) {
+                    values.push(numbers[i]);
+                }
+                
+                // Shuffle the final array
+                for (let i = values.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [values[i], values[j]] = [values[j], values[i]];
                 }
                 
                 return values;
@@ -367,14 +388,22 @@
                 
                 // Replace one random card with a new unique value
                 const replaceIndex = Math.floor(Math.random() * 4);
+                
+                // Determine if we should replace with a letter or number
+                const isCurrentlyLetter = /[A-F]/.test(originalCards[replaceIndex]);
                 let newCard;
                 
-                // Get all possible values that aren't in the original set
-                const allValues = ['A', 'B', 'C', 'D', 'E', 'F', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-                const availableValues = allValues.filter(value => !originalCards.includes(value));
-                
-                // Select a random value from available ones
-                newCard = availableValues[Math.floor(Math.random() * availableValues.length)];
+                if (isCurrentlyLetter) {
+                    // Replace with a number not in the original set
+                    const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+                    const availableNumbers = numbers.filter(num => !originalCards.includes(num));
+                    newCard = availableNumbers[Math.floor(Math.random() * availableNumbers.length)];
+                } else {
+                    // Replace with a letter not in the original set
+                    const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+                    const availableLetters = letters.filter(letter => !originalCards.includes(letter));
+                    newCard = availableLetters[Math.floor(Math.random() * availableLetters.length)];
+                }
                 
                 shuffledCards[replaceIndex] = newCard;
                 
