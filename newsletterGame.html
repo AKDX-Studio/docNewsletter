@@ -32,6 +32,7 @@
             flex-direction: column;
             align-items: center;
             position: relative;
+            overflow: hidden;
         }
         
         .score-display {
@@ -50,7 +51,7 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
-            margin: 40px 0 20px;
+            margin: 60px 0 20px; /* Increased top margin by 20px */
         }
         
         .card {
@@ -96,13 +97,10 @@
             transform: rotateY(180deg);
         }
         
-        .card:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        
+        /* Hover effect only for flipped cards */
         .card.flipped:hover {
             transform: rotateY(180deg) translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         
         .card.selected {
@@ -151,8 +149,9 @@
             margin-top: 20px;
         }
         
+        /* Modals positioned inside the container */
         .modal {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -165,6 +164,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            border-radius: 12px;
         }
         
         .modal.active {
@@ -231,33 +231,34 @@
         <div class="instruction-text" id="instruction-text">Click the Odd One Out!</div>
         
         <button class="btn" id="flip-btn">Flip Cards</button>
-    </div>
-    
-    <!-- Modal for correct answer -->
-    <div class="modal correct-modal" id="correct-modal">
-        <div class="modal-content">
-            <h2>Correct!</h2>
-            <p>Well done! You found the odd one out.</p>
-            <button class="btn" id="modal-next-btn">Next Question</button>
+        
+        <!-- All modals inside the container -->
+        <!-- Modal for correct answer -->
+        <div class="modal correct-modal" id="correct-modal">
+            <div class="modal-content">
+                <h2>Correct!</h2>
+                <p>Well done! You found the odd one out.</p>
+                <button class="btn" id="modal-next-btn">Next Question</button>
+            </div>
         </div>
-    </div>
-    
-    <!-- Modal for incorrect answer -->
-    <div class="modal incorrect-modal" id="incorrect-modal">
-        <div class="modal-content">
-            <h2>Incorrect!</h2>
-            <p>The odd one out was: <span id="correct-answer"></span></p>
-            <button class="btn" id="modal-next-btn-incorrect">Next Question</button>
+        
+        <!-- Modal for incorrect answer -->
+        <div class="modal incorrect-modal" id="incorrect-modal">
+            <div class="modal-content">
+                <h2>Incorrect!</h2>
+                <p>The odd one out was: <span id="correct-answer"></span></p>
+                <button class="btn" id="modal-next-btn-incorrect">Next Question</button>
+            </div>
         </div>
-    </div>
-    
-    <!-- Results modal -->
-    <div class="modal" id="results-modal">
-        <div class="modal-content">
-            <h2>Quiz Completed!</h2>
-            <p>Your final score:</p>
-            <div class="final-score" id="final-score">0</div>
-            <button class="btn btn-restart" id="restart-btn">Play Again</button>
+        
+        <!-- Results modal -->
+        <div class="modal" id="results-modal">
+            <div class="modal-content">
+                <h2>Quiz Completed!</h2>
+                <p>Your final score:</p>
+                <div class="final-score" id="final-score">0</div>
+                <button class="btn btn-restart" id="restart-btn">Play Again</button>
+            </div>
         </div>
     </div>
 
