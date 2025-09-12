@@ -31,13 +31,26 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+        }
+        
+        .score-display {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #4e54c8;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
         
         .cards-row {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            margin-bottom: 30px;
+            margin: 40px 0 20px;
         }
         
         .card {
@@ -51,7 +64,7 @@
             font-size: 2.5rem;
             font-weight: bold;
             color: white;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             user-select: none;
             position: relative;
@@ -83,9 +96,32 @@
             transform: rotateY(180deg);
         }
         
+        .card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card.flipped:hover {
+            transform: rotateY(180deg) translateY(-5px) scale(1.03);
+        }
+        
         .card.selected {
             transform: scale(0.95) rotateY(180deg);
             box-shadow: 0 0 0 3px #ffc107, 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .instruction-text {
+            margin: 10px 0 20px;
+            font-size: 1.2rem;
+            color: #4e54c8;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            height: 24px;
+        }
+        
+        .instruction-text.visible {
+            opacity: 1;
         }
         
         .btn {
@@ -182,27 +218,17 @@
         .hidden {
             display: none;
         }
-        
-        .score-display {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            color: #4e54c8;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="score-display">Score: <span id="score">0</span> | Q: <span id="question">1</span>/4</div>
+        <div class="score-display">Q: <span id="question">1</span>/4 | Score: <span id="score">0</span></div>
         
         <div class="cards-row" id="cards-row">
             <!-- Cards will be generated here -->
         </div>
+        
+        <div class="instruction-text" id="instruction-text">Click the Odd One Out!</div>
         
         <button class="btn" id="flip-btn">Flip Cards</button>
     </div>
@@ -242,6 +268,7 @@
             const scoreElement = document.getElementById('score');
             const questionElement = document.getElementById('question');
             const flipButton = document.getElementById('flip-btn');
+            const instructionText = document.getElementById('instruction-text');
             const correctModal = document.getElementById('correct-modal');
             const incorrectModal = document.getElementById('incorrect-modal');
             const correctAnswerElement = document.getElementById('correct-answer');
@@ -270,6 +297,7 @@
                 scoreElement.textContent = score;
                 questionElement.textContent = currentQuestion;
                 cardsFlipped = false;
+                instructionText.classList.remove('visible');
                 
                 generateQuestion();
             }
@@ -281,6 +309,7 @@
                 canSelect = false;
                 cardsFlipped = false;
                 flipButton.style.display = 'block';
+                instructionText.classList.remove('visible');
                 
                 // Generate original cards (3 of one type, 1 different)
                 const mainCard = getRandomCard();
@@ -336,13 +365,13 @@
                     [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]];
                 }
                 
-                // Flip the cards with animation
+                // Flip the cards with animation (faster)
                 const cardElements = cardsRow.querySelectorAll('.card');
                 cardElements.forEach((cardElement, index) => {
-                    // Flip the card
+                    // Flip the card (faster animation)
                     setTimeout(() => {
                         cardElement.classList.add('flipped');
-                    }, 300 * index);
+                    }, 150 * index);
                     
                     // Update the card value after flip
                     setTimeout(() => {
@@ -354,10 +383,11 @@
                         if (index === 3) {
                             setTimeout(() => {
                                 canSelect = true;
+                                instructionText.classList.add('visible');
                                 setupCardSelection();
-                            }, 500);
+                            }, 300);
                         }
-                    }, 300 * index + 250);
+                    }, 150 * index + 120);
                 });
             }
             
@@ -394,6 +424,9 @@
                 cardElements.forEach(card => {
                     card.removeEventListener('click', handleCardSelection);
                 });
+                
+                // Hide instruction text
+                instructionText.classList.remove('visible');
             }
             
             // Show modal with result
