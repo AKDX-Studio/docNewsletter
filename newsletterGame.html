@@ -22,63 +22,41 @@
         }
         
         .container {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            width: 90%;
-            max-width: 650px;
+            background-color: white;
+            width: 612px;
+            height: 380px;
             padding: 30px;
-            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
-        h1 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 2.5rem;
-        }
-        
-        .instructions {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            text-align: left;
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.5;
-        }
-        
-        .score-container {
+        .cards-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            color: #555;
-            font-weight: 500;
-        }
-        
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            width: 100%;
             margin-bottom: 30px;
         }
         
         .card {
-            aspect-ratio: 3/4;
+            width: 110px;
+            height: 160px;
             background: linear-gradient(135deg, #4e54c8, #8f94fb);
-            border-radius: 12px;
+            border-radius: 8px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: white;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             user-select: none;
             position: relative;
             transform-style: preserve-3d;
+            cursor: pointer;
         }
         
         .card.flipped {
@@ -93,7 +71,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 12px;
+            border-radius: 8px;
         }
         
         .card-front {
@@ -110,26 +88,17 @@
             box-shadow: 0 0 0 3px #ffc107, 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .card.correct {
-            background: linear-gradient(135deg, #28a745, #20c997);
-        }
-        
-        .card.incorrect {
-            background: linear-gradient(135deg, #dc3545, #fd7e14);
-        }
-        
         .btn {
             background: linear-gradient(to right, #4e54c8, #8f94fb);
             color: white;
             border: none;
-            padding: 14px 35px;
-            font-size: 1.2rem;
+            padding: 12px 30px;
+            font-size: 1.1rem;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 600;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin: 10px;
         }
         
         .btn:hover {
@@ -143,6 +112,7 @@
         
         .btn-restart {
             background: linear-gradient(to right, #28a745, #20c997);
+            margin-top: 20px;
         }
         
         .modal {
@@ -202,16 +172,6 @@
             color: #dc3545;
         }
         
-        .results {
-            margin-top: 30px;
-        }
-        
-        .results h2 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 2.2rem;
-        }
-        
         .final-score {
             font-size: 3.5rem;
             font-weight: bold;
@@ -223,48 +183,28 @@
             display: none;
         }
         
-        @media (max-width: 600px) {
-            .cards-container {
-                gap: 15px;
-            }
-            
-            .card {
-                font-size: 2.5rem;
-            }
-            
-            .btn {
-                padding: 12px 25px;
-                font-size: 1.1rem;
-            }
+        .score-display {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #4e54c8;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Memory Quiz: Odd One Out</h1>
+        <div class="score-display">Score: <span id="score">0</span> | Q: <span id="question">1</span>/4</div>
         
-        <div class="instructions">
-            <p><strong>How to play:</strong> Memorize the four cards shown. Click the "Flip Cards" button to see them rearrange with one card replaced. Select the new card that wasn't originally there!</p>
-        </div>
-        
-        <div class="score-container">
-            <div class="score">Score: <span id="score">0</span></div>
-            <div class="question">Question: <span id="question">1</span>/4</div>
-        </div>
-        
-        <div class="cards-container" id="cards-container">
+        <div class="cards-row" id="cards-row">
             <!-- Cards will be generated here -->
         </div>
         
         <button class="btn" id="flip-btn">Flip Cards</button>
-        <button class="btn hidden" id="next-btn">Next Question</button>
-        
-        <div class="results hidden" id="results">
-            <h2>Quiz Completed!</h2>
-            <p>Your final score:</p>
-            <div class="final-score" id="final-score">0</div>
-            <button class="btn btn-restart" id="restart-btn">Play Again</button>
-        </div>
     </div>
     
     <!-- Modal for correct answer -->
@@ -284,23 +224,32 @@
             <button class="btn" id="modal-next-btn-incorrect">Next Question</button>
         </div>
     </div>
+    
+    <!-- Results modal -->
+    <div class="modal" id="results-modal">
+        <div class="modal-content">
+            <h2>Quiz Completed!</h2>
+            <p>Your final score:</p>
+            <div class="final-score" id="final-score">0</div>
+            <button class="btn btn-restart" id="restart-btn">Play Again</button>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // DOM elements
-            const cardsContainer = document.getElementById('cards-container');
+            const cardsRow = document.getElementById('cards-row');
             const scoreElement = document.getElementById('score');
             const questionElement = document.getElementById('question');
             const flipButton = document.getElementById('flip-btn');
-            const nextButton = document.getElementById('next-btn');
-            const resultsSection = document.getElementById('results');
-            const finalScoreElement = document.getElementById('final-score');
-            const restartButton = document.getElementById('restart-btn');
             const correctModal = document.getElementById('correct-modal');
             const incorrectModal = document.getElementById('incorrect-modal');
             const correctAnswerElement = document.getElementById('correct-answer');
             const modalNextBtn = document.getElementById('modal-next-btn');
             const modalNextBtnIncorrect = document.getElementById('modal-next-btn-incorrect');
+            const resultsModal = document.getElementById('results-modal');
+            const finalScoreElement = document.getElementById('final-score');
+            const restartButton = document.getElementById('restart-btn');
             
             // Game state
             let score = 0;
@@ -320,9 +269,6 @@
                 currentQuestion = 1;
                 scoreElement.textContent = score;
                 questionElement.textContent = currentQuestion;
-                nextButton.classList.add('hidden');
-                flipButton.classList.remove('hidden');
-                resultsSection.classList.add('hidden');
                 cardsFlipped = false;
                 
                 generateQuestion();
@@ -331,9 +277,10 @@
             // Generate a new question
             function generateQuestion() {
                 // Clear previous cards
-                cardsContainer.innerHTML = '';
+                cardsRow.innerHTML = '';
                 canSelect = false;
                 cardsFlipped = false;
+                flipButton.style.display = 'block';
                 
                 // Generate original cards (3 of one type, 1 different)
                 const mainCard = getRandomCard();
@@ -357,7 +304,7 @@
                     cardElement.appendChild(frontFace);
                     cardElement.appendChild(backFace);
                     
-                    cardsContainer.appendChild(cardElement);
+                    cardsRow.appendChild(cardElement);
                 });
             }
             
@@ -366,7 +313,7 @@
                 if (cardsFlipped) return;
                 
                 cardsFlipped = true;
-                flipButton.classList.add('hidden');
+                flipButton.style.display = 'none';
                 
                 // Create a shuffled version with one card replaced
                 shuffledCards = [...originalCards];
@@ -390,7 +337,7 @@
                 }
                 
                 // Flip the cards with animation
-                const cardElements = cardsContainer.querySelectorAll('.card');
+                const cardElements = cardsRow.querySelectorAll('.card');
                 cardElements.forEach((cardElement, index) => {
                     // Flip the card
                     setTimeout(() => {
@@ -416,7 +363,7 @@
             
             // Set up card selection after flipping
             function setupCardSelection() {
-                const cardElements = cardsContainer.querySelectorAll('.card');
+                const cardElements = cardsRow.querySelectorAll('.card');
                 
                 cardElements.forEach(card => {
                     card.addEventListener('click', handleCardSelection);
@@ -443,7 +390,7 @@
                 }
                 
                 // Remove event listeners
-                const cardElements = cardsContainer.querySelectorAll('.card');
+                const cardElements = cardsRow.querySelectorAll('.card');
                 cardElements.forEach(card => {
                     card.removeEventListener('click', handleCardSelection);
                 });
@@ -471,7 +418,7 @@
                     showResults();
                 } else {
                     questionElement.textContent = currentQuestion;
-                    flipButton.classList.remove('hidden');
+                    flipButton.style.display = 'block';
                     generateQuestion();
                 }
             }
@@ -479,7 +426,7 @@
             // Show results when game is over
             function showResults() {
                 finalScoreElement.textContent = `${score}/4`;
-                resultsSection.classList.remove('hidden');
+                resultsModal.classList.add('active');
             }
             
             // Event listeners
@@ -488,7 +435,10 @@
             modalNextBtn.addEventListener('click', nextQuestion);
             modalNextBtnIncorrect.addEventListener('click', nextQuestion);
             
-            restartButton.addEventListener('click', startGame);
+            restartButton.addEventListener('click', () => {
+                resultsModal.classList.remove('active');
+                startGame();
+            });
             
             // Helper function to get a random card
             function getRandomCard() {
