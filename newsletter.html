@@ -1108,6 +1108,231 @@ width: 300px;
            display:block;
         }}
 
+
+
+
+.quiz-containerABC {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .quiz-header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .quiz-header p {
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .question-container {
+            margin-bottom: 25px;
+        }
+        
+        .question-number {
+            font-size: 14px;
+            color: #6e8efb;
+            margin-bottom: 5px;
+        }
+        
+        .question-text {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .option {
+            background-color: #f5f7ff;
+            border: 2px solid #e1e5f1;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .option:hover {
+            background-color: #e8edff;
+            border-color: #6e8efb;
+        }
+        
+        .option.selected {
+            background-color: #dbe4ff;
+            border-color: #6e8efb;
+        }
+        
+        .option.correct {
+            background-color: #e1f7e1;
+            border-color: #4caf50;
+        }
+        
+        .option.incorrect {
+            background-color: #ffe1e1;
+            border-color: #f44336;
+        }
+        
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .popup-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: popupAppear 0.3s ease-out;
+        }
+        
+        @keyframes popupAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .result-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .correct-icon {
+            color: #4caf50;
+        }
+        
+        .incorrect-icon {
+            color: #f44336;
+        }
+        
+        .popup h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .trivia {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .next-btn, .score-btn {
+            background: linear-gradient(to right, #6e8efb, #a777e3);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .next-btn:hover, .score-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .score-container {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(to right, #6e8efb, #a777e3);
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .score-message {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .restart-btn {
+            background: linear-gradient(to right, #6e8efb, #a777e3);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .restart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #e1e5f1;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #6e8efb, #a777e3);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+
+
+
+
 	    
 	    
    
@@ -1883,58 +2108,43 @@ impactful such sessions can be in promoting healthier lifestyles.</b>
                                 
                             </div>
 
-                            <div class="NewsLt-Img quiz-container" style="position:relative; overflow:hidden; height:auto; background: #ffffff; border-radius: 10px;">
-
-
-
-                                <div class="quiz-containerXY">
-
-
-<div class="Question-inlineBOX" style="">
-	<div class="questionCounter" id="QCounterTXT" style="">
-	1/5
-	</div>
-					
-    	<div class="questionXY" id="questionXY">questionXY text</div>
-
-</div>
-					<br><hr>
-    <ul class="optionsXY" id="optionsXY"></ul>
-    <button id="next-btnXY" style="position:absolute; bottom:20px;">Next Question</button>
-    <span class="QuestionIMG" id="">
-
-	    <img id="QuestionXIMG" style="width:100%;" class="" src="" alt="Question Image" />
-    </span>
-
- <div class="ScoreContainer" id="ScoreXContainer" style="" >
-
-<h3 class="txt-24--bold Quiz-Headline" style="color:#2b2257;">
-					
-					<b>Quiz Completed Successfully</b>
-				</h3>	
-	 
-	<div id="scoreXY"></div>				
-    <button id="restart-btnXY">Restart Quiz</button>
-
-	 <p style="font-size:14px; position:relative; bottom:-40px; padding:0 1rem; text-align:center;">Note: This quiz is intended for general awareness only. Please consult your doctor for personalized guidance regarding your health.</p>
- </div>
-
-					
-  </div>
-
-
-
-                               
-
-
-
-                               
-
-                                
-
-
-
-                            </div>
+                            <div class="quiz-containerABC">
+        <div class="quiz-header">
+            <h1>JavaScript Knowledge Quiz</h1>
+            <p>Test your JavaScript skills with 5 challenging questions</p>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        
+        <div class="question-container" id="question-container">
+            <div class="question-number" id="question-number">Question 1 of 5</div>
+            <div class="question-text" id="question-text">What does the "DOM" stand for in JavaScript?</div>
+        </div>
+        
+        <div class="options-container" id="options-container">
+            <!-- Options will be inserted here by JavaScript -->
+        </div>
+        
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <div class="result-icon" id="result-icon"></div>
+                <h2 id="popup-title">Correct!</h2>
+                <div class="trivia" id="trivia-text">
+                    This is the trivia about the answer that provides additional context and information.
+                </div>
+                <button class="next-btn" id="next-btn">Next Question</button>
+                <button class="score-btn" id="score-btn" style="display: none;">Check Your Score</button>
+            </div>
+        </div>
+        
+        <div class="score-container" id="score-container" style="display: none;">
+            <div class="score-circle" id="score-circle">0/5</div>
+            <div class="score-message" id="score-message">You can do better!</div>
+            <button class="restart-btn" id="restart-btn">Take Quiz Again</button>
+        </div>
+    </div>
 
 
 
@@ -2407,184 +2617,231 @@ It has been a pleasure working with you and your team, and we look forward to st
     </section>
 
 
-     <script>
-    const quizData = [
-      {
-        questionXY: "Which Indian spice is known for its anti-inflammatory properties?",
-        optionsXY: ["Turmeric", "Red Chili Powder", "Asafoetida (Hing)", "Cinnamon"],
-        answer: "Turmeric",
-	countXY: "1/7",
-	image: "images/AugQ125.png"      
-      },
-      {
-        questionXY: "Eating which traditional dish is good for gut health?",
-        optionsXY: ["Khichdi", "Jalebi", "Pani Puri", "Pakoras"],
-        answer: "Khichdi",
-	countXY: "2/7",
-	image: "images/AugQ225.png"      
-      },
-      {
-        questionXY: "Which yoga pose is best known to improve digestion?",
-        optionsXY: ["Tadasana (Mountain Pose)", "Vajrasana (Thunderbolt Pose)", "Savasana (Corpse Pose)", "Bhujangasana (Cobra Pose)"],
-        answer: "Vajrasana (Thunderbolt Pose)",
-	countXY: "3/7",
-	image: "images/AugQ325.png"      
-      },
-	   {
-        questionXY: "Which of these is a natural immunity booster in Indian kitchens?",
-        optionsXY: ["Black Pepper", "Refined Sugar", "Mustard Oil", "Maida"],
-        answer: "Black Pepper",
-	countXY: "4/7",
-	image: "images/AugQ425.png"	   
-      },
-	    {
-        questionXY: "Which one of these colors in the Indian flag is associated with mental peace?",
-        optionsXY: ["Saffron", "White", "Green", "Blue"],
-        answer: "White",
-	countXY: "5/7",
-	image: "images/AugQ525.png"	    
-      },
+    <script>
+        // Quiz questions data
+        const quizData = [
+            {
+                question: "What does the 'DOM' stand for in JavaScript?",
+                options: [
+                    "Document Object Model",
+                    "Digital Orientation Method",
+                    "Data Object Management",
+                    "Document Order Model"
+                ],
+                correct: 0,
+                trivia: "The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of a document as a tree of objects, allowing programs to manipulate the document's content, structure, and style."
+            },
+            {
+                question: "Which of the following is NOT a JavaScript data type?",
+                options: [
+                    "Boolean",
+                    "Number",
+                    "String",
+                    "Float"
+                ],
+                correct: 3,
+                trivia: "JavaScript has 7 primitive data types: String, Number, Boolean, Null, Undefined, Symbol, and BigInt. 'Float' is not a separate data type in JavaScript - all numbers are stored as floating-point values."
+            },
+            {
+                question: "What will 'typeof null' return in JavaScript?",
+                options: [
+                    "null",
+                    "undefined",
+                    "object",
+                    "number"
+                ],
+                correct: 2,
+                trivia: "This is actually a known quirk in JavaScript. The 'typeof' operator returns 'object' for null values, which is considered a historical bug in the language that can't be fixed without breaking existing code."
+            },
+            {
+                question: "What is the purpose of the 'use strict' directive in JavaScript?",
+                options: [
+                    "It makes JavaScript run faster",
+                    "It enables strict mode which catches common coding errors",
+                    "It forces all variables to be declared with 'var'",
+                    "It enables experimental features"
+                ],
+                correct: 1,
+                trivia: "Strict mode makes several changes to normal JavaScript semantics, eliminating some silent errors by throwing them, fixing mistakes that make it difficult for JavaScript engines to perform optimizations, and prohibiting some syntax likely to be defined in future versions of ECMAScript."
+            },
+            {
+                question: "Which method is used to add one or more elements to the end of an array?",
+                options: [
+                    "push()",
+                    "pop()",
+                    "shift()",
+                    "unshift()"
+                ],
+                correct: 0,
+                trivia: "The push() method adds one or more elements to the end of an array and returns the new length of the array. This method modifies the original array, unlike methods that return new arrays."
+            }
+        ];
 
-		 {
-        questionXY: "Which Indian herb is called 'Queen of Herbs' for women’s health?",
-        optionsXY: ["Tulsi", "Ashwagandha", "Shatavari", "Giloy"],
-        answer: "Shatavari",
-	countXY: "6/7",
-	image: "images/AugQ625.png"	    
-      },
+        // DOM elements
+        const questionContainerEl = document.getElementById('question-container');
+        const questionNumberEl = document.getElementById('question-number');
+        const questionTextEl = document.getElementById('question-text');
+        const optionsContainerEl = document.getElementById('options-container');
+        const popupEl = document.getElementById('popup');
+        const resultIconEl = document.getElementById('result-icon');
+        const popupTitleEl = document.getElementById('popup-title');
+        const triviaTextEl = document.getElementById('trivia-text');
+        const nextBtnEl = document.getElementById('next-btn');
+        const scoreBtnEl = document.getElementById('score-btn');
+        const scoreContainerEl = document.getElementById('score-container');
+        const scoreCircleEl = document.getElementById('score-circle');
+        const scoreMessageEl = document.getElementById('score-message');
+        const restartBtnEl = document.getElementById('restart-btn');
+        const progressEl = document.getElementById('progress');
+        const quizHeaderEl = document.querySelector('.quiz-header');
 
-		 {
-        questionXY: "Surya Namaskar is best practiced at which time of the day?",
-        optionsXY: ["Early Morning (Sunrise)", "Afternoon", "Evening (Sunset)", "Anytime after meals"],
-        answer: "Early Morning (Sunrise)",
-	countXY: "7/7",
-	image: "images/AugQ725.png"	    
-      }
+        // Quiz state
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = [];
 
-		
-
-	    
-    ];
-
-    let currentquestionXY = 0;
-    let scoreXY = 0;
-
-    const questionXYEl = document.getElementById("questionXY");
-    const optionsXYEl = document.getElementById("optionsXY");
-    const nextBtn = document.getElementById("next-btnXY");
-    const restartBtn = document.getElementById("restart-btnXY");
-    const scoreXYEl = document.getElementById("scoreXY");
-    const QCounterTXT = document.getElementById("QCounterTXT");
-    const ScoreXContainer = document.getElementById("ScoreXContainer");
-    const QuestionXIMG = document.getElementById("QuestionXIMG");
-    
-function preloadImages() {
-  quizData.forEach(q => {
-    if (q.image) {
-      const img = new Image();
-      img.src = q.image;
-    }
-  });
-}
-
-	     
-    function loadquestionXY() {
-      const current = quizData[currentquestionXY];
-      questionXYEl.textContent = current.questionXY;
-      QCounterTXT.textContent = current.countXY;
-      optionsXYEl.innerHTML = "";
-      scoreXYEl.textContent = "";
-      nextBtn.style.display = "none";
-      ScoreXContainer.style.display = "none";
-      restartBtn.style.display = "none";
-      optionsXYEl.style.display = "block";
-      // nextBtn.style.display = "inline-block";
-      QuestionXIMG.style.display = "block";
-      QCounterTXT.style.display = "flex";
-
-	    // Load image
-      if (current.image) {
-        QuestionXIMG.src = current.image;
-        QuestionXIMG.style.display = "block";
-      } else {
-        QuestionXIMG.style.display = "none";
-      }
-
-      current.optionsXY.forEach(option => {
-        const btn = document.createElement("button");
-        btn.textContent = option;
-
-        // symbolXY span
-        const symbolXYSpan = document.createElement("span");
-        symbolXYSpan.classList.add("symbolXY");
-        symbolXYSpan.textContent = ""; // placeholder
-        btn.appendChild(symbolXYSpan);
-
-        btn.onclick = () => selectAnswer(btn, current.answer);
-        const li = document.createElement("li");
-        li.appendChild(btn);
-        optionsXYEl.appendChild(li);
-      });
-    }
-
-    function selectAnswer(selectedBtn, correctAnswer) {
-      const buttons = optionsXYEl.querySelectorAll("button");
-
-      buttons.forEach(button => {
-        const optionText = button.childNodes[0].textContent;
-        const symbolXYSpan = button.querySelector(".symbolXY");
-        button.disabled = true;
-	button.classList.add("EndBTNX");
-
-        if (optionText === correctAnswer) {
-          button.classList.add("correct");
-          symbolXYSpan.textContent = "✔️";
-        } else {
-          if (button === selectedBtn) {
-            button.classList.add("wrong");
-            symbolXYSpan.textContent = "❌";
-          }
+        // Initialize the quiz
+        function initQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = [];
+            
+            // Show quiz content and hide score container
+            quizHeaderEl.style.display = 'block';
+            questionContainerEl.style.display = 'block';
+            optionsContainerEl.style.display = 'flex';
+            scoreContainerEl.style.display = 'none';
+            popupEl.style.display = 'none';
+            
+            loadQuestion();
+            updateProgress();
         }
-      });
 
-      if (selectedBtn.childNodes[0].textContent === correctAnswer) {
-        scoreXY++;
-      }
+        // Load the current question
+        function loadQuestion() {
+            const question = quizData[currentQuestion];
+            questionNumberEl.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+            questionTextEl.textContent = question.question;
+            
+            optionsContainerEl.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionEl = document.createElement('div');
+                optionEl.classList.add('option');
+                optionEl.textContent = option;
+                optionEl.addEventListener('click', () => selectOption(index));
+                optionsContainerEl.appendChild(optionEl);
+            });
+            
+            // Enable pointer events for options
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'auto';
+            });
+            
+            // Hide the score button until the last question
+            if (currentQuestion === quizData.length - 1) {
+                scoreBtnEl.style.display = 'inline-block';
+                nextBtnEl.style.display = 'none';
+            } else {
+                scoreBtnEl.style.display = 'none';
+                nextBtnEl.style.display = 'inline-block';
+            }
+        }
 
-      nextBtn.style.display = "inline-block";
-    }
+        // Handle option selection
+        function selectOption(selectedIndex) {
+            const question = quizData[currentQuestion];
+            const options = document.querySelectorAll('.option');
+            
+            // Disable all options after selection
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            // Mark the selected option
+            options[selectedIndex].classList.add('selected');
+            
+            // Check if the answer is correct
+            const isCorrect = selectedIndex === question.correct;
+            
+            if (isCorrect) {
+                score++;
+                options[selectedIndex].classList.add('correct');
+                resultIconEl.innerHTML = '✓';
+                resultIconEl.className = 'result-icon correct-icon';
+                popupTitleEl.textContent = 'Correct!';
+            } else {
+                options[selectedIndex].classList.add('incorrect');
+                options[question.correct].classList.add('correct');
+                resultIconEl.innerHTML = '✗';
+                resultIconEl.className = 'result-icon incorrect-icon';
+                popupTitleEl.textContent = 'Incorrect!';
+            }
+            
+            // Store the user's answer
+            userAnswers.push({
+                question: question.question,
+                selected: selectedIndex,
+                correct: question.correct,
+                isCorrect: isCorrect
+            });
+            
+            // Show the trivia
+            triviaTextEl.textContent = question.trivia;
+            
+            // Show the popup
+            popupEl.style.display = 'flex';
+        }
 
-    nextBtn.addEventListener("click", () => {
-      currentquestionXY++;
-      if (currentquestionXY < quizData.length) {
-        loadquestionXY();
-      } else {
-        showscoreXY();
-      }
-    });
+        // Move to the next question
+        function nextQuestion() {
+            currentQuestion++;
+            
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+                updateProgress();
+                popupEl.style.display = 'none';
+            } else {
+                showScore();
+            }
+        }
 
-    restartBtn.addEventListener("click", () => {
-      currentquestionXY = 0;
-      scoreXY = 0;
-      loadquestionXY();
-    });
+        // Update progress bar
+        function updateProgress() {
+            const progressPercentage = ((currentQuestion) / quizData.length) * 100;
+            progressEl.style.width = `${progressPercentage}%`;
+        }
 
-    function showscoreXY() {
-      questionXYEl.textContent = "";
-      optionsXYEl.innerHTML = "";
-      optionsXYEl.style.display = "none";
-      nextBtn.style.display = "none";
-      scoreXYEl.textContent = `Your score is: ${scoreXY} out of ${quizData.length}`;
-      restartBtn.style.display = "inline-block";
-      QCounterTXT.style.display = "none";
-      ScoreXContainer.style.display = "flex";
-      QuestionXIMG.style.display = "none";
+        // Show the final score
+        function showScore() {
+            quizHeaderEl.style.display = 'none';
+            questionContainerEl.style.display = 'none';
+            optionsContainerEl.style.display = 'none';
+            popupEl.style.display = 'none';
+            scoreContainerEl.style.display = 'block';
+            
+            scoreCircleEl.textContent = `${score}/${quizData.length}`;
+            
+            // Set score message based on performance
+            if (score === quizData.length) {
+                scoreMessageEl.textContent = "Perfect! You're a JavaScript expert!";
+            } else if (score >= quizData.length * 0.7) {
+                scoreMessageEl.textContent = "Great job! You know your JavaScript well!";
+            } else if (score >= quizData.length * 0.5) {
+                scoreMessageEl.textContent = "Good effort! Keep learning JavaScript!";
+            } else {
+                scoreMessageEl.textContent = "Keep practicing! JavaScript takes time to master!";
+            }
+        }
 
-    }
-preloadImages();
-    // Load the first questionXY
-    loadquestionXY();
-  </script>
+        // Event listeners
+        nextBtnEl.addEventListener('click', nextQuestion);
+        scoreBtnEl.addEventListener('click', showScore);
+        restartBtnEl.addEventListener('click', initQuiz);
+
+        // Initialize the quiz when the page loads
+        window.addEventListener('load', initQuiz);
+    </script>
 
 
 </body>
