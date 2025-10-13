@@ -1294,13 +1294,13 @@ width: 300px;
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(to right, #6e8efb, #a777e3);
+            background: #fff;
             margin: 0 auto 30px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 40px;
+            color: #af650d;
+            font-size: 60px;
             font-weight: bold;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
@@ -1308,12 +1308,12 @@ width: 300px;
         .score-message {
             font-size: 24px;
             margin-bottom: 20px;
-            color: #333;
+            color: #fff;
         }
         
         .restart-btn {
-            background: linear-gradient(to right, #6e8efb, #a777e3);
-            color: white;
+            background: white;
+            color: black;
             border: none;
             border-radius: 50px;
             padding: 12px 30px;
@@ -2839,13 +2839,13 @@ It has been a pleasure working with you and your team, and we look forward to st
             
             // Set score message based on performance
             if (score === quizData.length) {
-                scoreMessageEl.textContent = "Perfect! You're a JavaScript expert!";
+                scoreMessageEl.textContent = "Well Done! Hope you enjoyed revisiting these timeless tales this Diwali.";
             } else if (score >= quizData.length * 0.7) {
-                scoreMessageEl.textContent = "Great job! You know your JavaScript well!";
+                scoreMessageEl.textContent = "Well Done! Hope you enjoyed revisiting these timeless tales this Diwali.";
             } else if (score >= quizData.length * 0.5) {
-                scoreMessageEl.textContent = "Good effort! Keep learning JavaScript!";
+                scoreMessageEl.textContent = "Well Done! Hope you enjoyed revisiting these timeless tales this Diwali.";
             } else {
-                scoreMessageEl.textContent = "Keep practicing! JavaScript takes time to master!";
+                scoreMessageEl.textContent = "Well Done! Hope you enjoyed revisiting these timeless tales this Diwali.";
             }
         }
 
