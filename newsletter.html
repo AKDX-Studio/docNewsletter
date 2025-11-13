@@ -1355,7 +1355,139 @@ width: 300px;
 
 
 
+ .slideshow-container {
+            width: 600px;
+            height: 420px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
 
+        .slides {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            width: 25%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .panel {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .left-panel {
+            width: 60%;
+            background-color: #f8f9fa;
+        }
+
+        .right-panel {
+            width: 40%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .panel-content {
+            max-width: 100%;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .next-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .next-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.5);
+        }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .indicator.active {
+            background-color: #3498db;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .slideshow-container {
+                width: 90%;
+                max-width: 400px;
+                height: auto;
+            }
+
+            .slide {
+                flex-direction: column;
+            }
+
+            .left-panel, .right-panel {
+                width: 100%;
+            }
+
+            .left-panel {
+                height: 60%;
+            }
+
+            .right-panel {
+                height: 40%;
+            }
+        }
 
 	    
 	    
@@ -2157,41 +2289,85 @@ on the side! </b>
                                 
                             </div>
 
-                            <div class="quiz-containerABC">
-        <div class="quiz-header" style="display:none;">
-           
-        </div>
-        
-        <div class="progress-bar" style="display:none;">
-            <div class="progress" id="progress"></div>
-        </div>
-        
-        <div class="question-container" id="question-container">
-            <div class="question-number" id="question-number">Question 1 of 5</div>
-            <div class="question-text" id="question-text">Who was Lord Rama’s devoted brother who accompanied him during exile?</div>
-        </div>
-        
-        <div class="options-container" id="options-container">
-            <!-- Options will be inserted here by JavaScript -->
-        </div>
-        
-        <div class="popup" id="popup">
-            <div class="popup-content">
-                <div class="result-icon" id="result-icon"></div>
-                <h2 id="popup-title">Correct!</h2>
-                <div class="trivia" id="trivia-text">
-                    This is the trivia about the answer that provides additional context and information.
+                           <div class="slideshow-container">
+        <div class="slides">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <div class="panel left-panel">
+                    <div class="panel-content">
+                        <h2>Welcome to Our Slideshow</h2>
+                        <p>This is the first slide of our responsive slideshow. On desktop, the panels are arranged horizontally, while on mobile they stack vertically.</p>
+                        <p>Click the "Next Slide" button to continue exploring.</p>
+                    </div>
                 </div>
-                <button class="next-btn" id="next-btn">Next Question</button>
-                <button class="score-btn" id="score-btn" style="display: none;">Check Your Score</button>
+                <div class="panel right-panel">
+                    <div class="panel-content">
+                        <div class="icon">🚀</div>
+                        <h2>Getting Started</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="panel left-panel">
+                    <div class="panel-content">
+                        <h2>Responsive Design</h2>
+                        <p>This slideshow adapts to different screen sizes. The layout changes from horizontal panels on desktop to vertical panels on mobile devices.</p>
+                        <p>Try resizing your browser window to see the effect.</p>
+                    </div>
+                </div>
+                <div class="panel right-panel">
+                    <div class="panel-content">
+                        <div class="icon">📱</div>
+                        <h2>Mobile First</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="panel left-panel">
+                    <div class="panel-content">
+                        <h2>Modern Features</h2>
+                        <p>This slideshow includes smooth transitions, intuitive navigation, and a clean, modern design.</p>
+                        <p>Each slide has a unique color scheme and content layout.</p>
+                    </div>
+                </div>
+                <div class="panel right-panel">
+                    <div class="panel-content">
+                        <div class="icon">✨</div>
+                        <h2>Elegant Design</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <div class="panel left-panel">
+                    <div class="panel-content">
+                        <h2>Final Slide</h2>
+                        <p>You've reached the end of our slideshow. Thank you for viewing!</p>
+                        <p>Click the "Next Slide" button to return to the beginning.</p>
+                    </div>
+                </div>
+                <div class="panel right-panel">
+                    <div class="panel-content">
+                        <div class="icon">🏁</div>
+                        <h2>All Done!</h2>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="score-container" id="score-container" style="display: none;">
-            <div class="score-circle" id="score-circle">0/5</div>
-            <div class="score-message" id="score-message">You can do better!</div>
-            <button class="restart-btn" id="restart-btn">Take Quiz Again</button>
+
+        <div class="slide-indicators">
+            <div class="indicator active" data-slide="0"></div>
+            <div class="indicator" data-slide="1"></div>
+            <div class="indicator" data-slide="2"></div>
+            <div class="indicator" data-slide="3"></div>
         </div>
+
+        <button class="next-btn">Next Slide</button>
     </div>
 
 
@@ -2892,6 +3068,55 @@ It has been a pleasure working with you and your team, and we look forward to st
         // Initialize the quiz when the page loads
         window.addEventListener('load', initQuiz);
     </script>
+
+
+
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelector('.slides');
+            const nextBtn = document.querySelector('.next-btn');
+            const indicators = document.querySelectorAll('.indicator');
+            let currentSlide = 0;
+            const totalSlides = 4;
+
+            // Function to update slide position
+            function updateSlide() {
+                slides.style.transform = `translateX(-${currentSlide * 25}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    if (index === currentSlide) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+
+            // Next button click event
+            nextBtn.addEventListener('click', function() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlide();
+            });
+
+            // Indicator click events
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    currentSlide = parseInt(this.getAttribute('data-slide'));
+                    updateSlide();
+                });
+            });
+        });
+    </script>
+
+
+
+
+
+
+
 
 
 </body>
