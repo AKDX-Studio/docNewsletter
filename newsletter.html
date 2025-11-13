@@ -1469,7 +1469,7 @@ width: 300px;
         /* Mobile Styles */
         @media (max-width: 768px) {
             .slideshow-container {
-                width: 90%;
+                width: 100%;
                 max-width: 400px;
                 height: auto;
             }
@@ -1483,11 +1483,11 @@ width: 300px;
             }
 
             .left-panel {
-                height: 60%;
+                height: 400px;
             }
 
             .right-panel {
-                height: 40%;
+                height: 490px;
             }
         }
 
@@ -1497,7 +1497,13 @@ width: 300px;
 			font-weight:bold;
 		} 
 	    
-   
+			 @media (max-width: 650px) and (min-width: 100px) {
+        .panelTopic {
+           position:relative;
+        }}
+
+
+		
     </style>
 
 
