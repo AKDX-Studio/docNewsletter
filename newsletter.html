@@ -1304,7 +1304,7 @@ width: 300px;
             border-radius: 50%;
             background: #fff;
             margin: 0 auto 30px;
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
             color: #af650d;
@@ -2423,7 +2423,7 @@ gave your health plus points and what’s something that you would rather want t
                     This is the trivia about the answer that provides additional context and information.
                 </div>
                 <button class="next-btn" id="next-btn">Next Question</button>
-                <button class="score-btn" id="score-btn" style="display: none;">Check Your Score</button>
+                <button class="score-btn" id="score-btn" style="display: none;">Thank You!</button>
             </div>
         </div>
         
@@ -3155,13 +3155,13 @@ It has been a pleasure working with you and your team, and we look forward to st
             
             // Set score message based on performance
             if (score === quizData.length) {
-                scoreMessageEl.textContent = "Well Done! Hope you enjoyed revisiting these timeless tales this Diwali.";
+                scoreMessageEl.textContent = "Well, that was a wrap! May 2026 take you towards the healthier version of you!";
             } else if (score >= quizData.length * 0.7) {
-                scoreMessageEl.textContent = "Well Done! Hope you enjoyed revisiting these timeless tales this Diwali.";
+                scoreMessageEl.textContent = "Well, that was a wrap! May 2026 take you towards the healthier version of you!";
             } else if (score >= quizData.length * 0.5) {
-                scoreMessageEl.textContent = "Well Done! Hope you enjoyed revisiting these timeless tales this Diwali.";
+                scoreMessageEl.textContent = "Well, that was a wrap! May 2026 take you towards the healthier version of you!";
             } else {
-                scoreMessageEl.textContent = "Well Done! Hope you enjoyed revisiting these timeless tales this Diwali.";
+                scoreMessageEl.textContent = "Well, that was a wrap! May 2026 take you towards the healthier version of you!";
             }
         }
 
