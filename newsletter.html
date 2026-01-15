@@ -2936,274 +2936,185 @@ It has been a pleasure working with you and your team, and we look forward to st
     </section>
 
 
-    <script>
-        // Quiz questions data
-        const quizData = [
-            {
-                question: "Did you complete at least one preventive health checkup this year?",
-                options: [
-                    "Yes, I completed all recommended checks.",
-					"Yes, I completed at least one important check.",
-					"No, but I plan to soon.",
-					"No, I did not get one this year."
-                ],
-                correct: 0,
-                trivia: "Regular checkups help you stay ahead of health concerns and build confidence for the year ahead."
-            },
-            {
-                question: "How often did you practice mental wellness activities such as journaling, deep breathing, or mindful breaks?",
-                options: [
-                    "Daily",
-					"Several times a week",
-					"Occasionally",
-					"Rarely or never"
-                ],
-                correct: 2,
-                trivia: "Every moment you invest in mental wellness strengthens your clarity, calmness, and emotional balance."
-            },
-            
-            {
-                question: "How would you rate your sleep consistency this year?",
-                options: [
-                    "Mostly consistent and restorative",
-					"Somewhat consistent with occasional disruptions",
-					"Often irregular",
-					"Poor and needs attention"
-                ],
-                correct: 3,
-                trivia: "Consistent, restful sleep supports your mood, energy, and overall strength for daily life."
-            },
-            {
-                question: "How often did you include at least one serving of vegetables in your daily meals?",
-                options: [
-                    "Every day",
-					"Most days",
-					"Sometimes",
-					"Rarely"
-                ],
-                correct: 1,
-                trivia: "Adding vegetables each day boosts your energy, improves digestion, and supports long-term wellbeing."
-            },
+   <script>
+    const quizData = [
+      {
+        questionXY: "Which Indian spice is known for its anti-inflammatory properties?",
+        optionsXY: ["Turmeric", "Red Chili Powder", "Asafoetida (Hing)", "Cinnamon"],
+        answer: "Turmeric",
+	countXY: "1/7",
+	image: "images/AugQ125.png"      
+      },
+      {
+        questionXY: "Eating which traditional dish is good for gut health?",
+        optionsXY: ["Khichdi", "Jalebi", "Pani Puri", "Pakoras"],
+        answer: "Khichdi",
+	countXY: "2/7",
+	image: "images/AugQ225.png"      
+      },
+      {
+        questionXY: "Which yoga pose is best known to improve digestion?",
+        optionsXY: ["Tadasana (Mountain Pose)", "Vajrasana (Thunderbolt Pose)", "Savasana (Corpse Pose)", "Bhujangasana (Cobra Pose)"],
+        answer: "Vajrasana (Thunderbolt Pose)",
+	countXY: "3/7",
+	image: "images/AugQ325.png"      
+      },
+	   {
+        questionXY: "Which of these is a natural immunity booster in Indian kitchens?",
+        optionsXY: ["Black Pepper", "Refined Sugar", "Mustard Oil", "Maida"],
+        answer: "Black Pepper",
+	countXY: "4/7",
+	image: "images/AugQ425.png"	   
+      },
+	    {
+        questionXY: "Which one of these colors in the Indian flag is associated with mental peace?",
+        optionsXY: ["Saffron", "White", "Green", "Blue"],
+        answer: "White",
+	countXY: "5/7",
+	image: "images/AugQ525.png"	    
+      },
 
-			{
-                question: "How regularly did you do physical activity that raised your heart rate?",
-                options: [
-                    "Four or more times a week",
-					"Two to three times a week",
-					"Once a week",
-					"Rarely or never"
-                ],
-                correct: 1,
-                trivia: "Every step you take toward regular movement improves heart health and builds resilience."
-            },
+		 {
+        questionXY: "Which Indian herb is called 'Queen of Herbs' for women’s health?",
+        optionsXY: ["Tulsi", "Ashwagandha", "Shatavari", "Giloy"],
+        answer: "Shatavari",
+	countXY: "6/7",
+	image: "images/AugQ625.png"	    
+      },
 
-			{
-                question: "How well did you manage stress and recovery this year?",
-                options: [
-                    "I used healthy strategies regularly",
-					"I mostly managed with some slip ups",
-					"I managed sometimes but often felt overwhelmed",
-					"I struggled and need support"
+		 {
+        questionXY: "Surya Namaskar is best practiced at which time of the day?",
+        optionsXY: ["Early Morning (Sunrise)", "Afternoon", "Evening (Sunset)", "Anytime after meals"],
+        answer: "Early Morning (Sunrise)",
+	countXY: "7/7",
+	image: "images/AugQ725.png"	    
+      }
 
-                ],
-                correct: 1,
-                trivia: "Healthy stress management helps you stay grounded and gives your mind and body room to recover."
-            },
+		
 
-			{
-                question: "How connected did you feel to family or friends for support?",
-                options: [
-                    "Strongly connected and supported",
-					"Moderately connected",
-					"Somewhat disconnected at times",
-					"Largely isolated and wanting change"
-                ],
-                correct: 1,
-                trivia: "Meaningful connections provide emotional strength and help you move through challenges with confidence."
-            },
+	    
+    ];
 
-			{
-                question: "Which habit would you most like to improve or change in 2026?",
-                options: [
-                    "Manage stress more calmly",
-					"Move more each day",
-					"Reduce screen time before bed",
-					"Keep regular health checkups"
-                ],
-                correct: 1,
-                trivia: "Choosing a healthy habit at a time to improve can spark a steady, positive shift throughout the new year."
-            }
+    let currentquestionXY = 0;
+    let scoreXY = 0;
 
+    const questionXYEl = document.getElementById("questionXY");
+    const optionsXYEl = document.getElementById("optionsXY");
+    const nextBtn = document.getElementById("next-btnXY");
+    const restartBtn = document.getElementById("restart-btnXY");
+    const scoreXYEl = document.getElementById("scoreXY");
+    const QCounterTXT = document.getElementById("QCounterTXT");
+    const ScoreXContainer = document.getElementById("ScoreXContainer");
+    const QuestionXIMG = document.getElementById("QuestionXIMG");
+    
+function preloadImages() {
+  quizData.forEach(q => {
+    if (q.image) {
+      const img = new Image();
+      img.src = q.image;
+    }
+  });
+}
 
+	     
+    function loadquestionXY() {
+      const current = quizData[currentquestionXY];
+      questionXYEl.textContent = current.questionXY;
+      QCounterTXT.textContent = current.countXY;
+      optionsXYEl.innerHTML = "";
+      scoreXYEl.textContent = "";
+      nextBtn.style.display = "none";
+      ScoreXContainer.style.display = "none";
+      restartBtn.style.display = "none";
+      optionsXYEl.style.display = "block";
+      // nextBtn.style.display = "inline-block";
+      QuestionXIMG.style.display = "block";
+      QCounterTXT.style.display = "flex";
 
-			
-        ];
+	    // Load image
+      if (current.image) {
+        QuestionXIMG.src = current.image;
+        QuestionXIMG.style.display = "block";
+      } else {
+        QuestionXIMG.style.display = "none";
+      }
 
-        // DOM elements
-        const questionContainerEl = document.getElementById('question-container');
-        const questionNumberEl = document.getElementById('question-number');
-        const questionTextEl = document.getElementById('question-text');
-        const optionsContainerEl = document.getElementById('options-container');
-        const popupEl = document.getElementById('popup');
-        const resultIconEl = document.getElementById('result-icon');
-        const popupTitleEl = document.getElementById('popup-title');
-        const triviaTextEl = document.getElementById('trivia-text');
-        const nextBtnEl = document.getElementById('next-btn');
-        const scoreBtnEl = document.getElementById('score-btn');
-        const scoreContainerEl = document.getElementById('score-container');
-        const scoreCircleEl = document.getElementById('score-circle');
-        const scoreMessageEl = document.getElementById('score-message');
-        const restartBtnEl = document.getElementById('restart-btn');
-        const progressEl = document.getElementById('progress');
-        const quizHeaderEl = document.querySelector('.quiz-header');
+      current.optionsXY.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
 
-        // Quiz state
-        let currentQuestion = 0;
-        let score = 0;
-        let userAnswers = [];
+        // symbolXY span
+        const symbolXYSpan = document.createElement("span");
+        symbolXYSpan.classList.add("symbolXY");
+        symbolXYSpan.textContent = ""; // placeholder
+        btn.appendChild(symbolXYSpan);
 
-        // Initialize the quiz
-        function initQuiz() {
-            currentQuestion = 0;
-            score = 0;
-            userAnswers = [];
-            
-            // Show quiz content and hide score container
-            quizHeaderEl.style.display = 'block';
-            questionContainerEl.style.display = 'block';
-            optionsContainerEl.style.display = 'flex';
-            scoreContainerEl.style.display = 'none';
-            popupEl.style.display = 'none';
-            
-            loadQuestion();
-            updateProgress();
+        btn.onclick = () => selectAnswer(btn, current.answer);
+        const li = document.createElement("li");
+        li.appendChild(btn);
+        optionsXYEl.appendChild(li);
+      });
+    }
+
+    function selectAnswer(selectedBtn, correctAnswer) {
+      const buttons = optionsXYEl.querySelectorAll("button");
+
+      buttons.forEach(button => {
+        const optionText = button.childNodes[0].textContent;
+        const symbolXYSpan = button.querySelector(".symbolXY");
+        button.disabled = true;
+	button.classList.add("EndBTNX");
+
+        if (optionText === correctAnswer) {
+          button.classList.add("correct");
+          symbolXYSpan.textContent = "✔️";
+        } else {
+          if (button === selectedBtn) {
+            button.classList.add("wrong");
+            symbolXYSpan.textContent = "❌";
+          }
         }
+      });
 
-        // Load the current question
-        function loadQuestion() {
-            const question = quizData[currentQuestion];
-            questionNumberEl.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
-            questionTextEl.textContent = question.question;
-            
-            optionsContainerEl.innerHTML = '';
-            question.options.forEach((option, index) => {
-                const optionEl = document.createElement('div');
-                optionEl.classList.add('option');
-                optionEl.textContent = option;
-                optionEl.addEventListener('click', () => selectOption(index));
-                optionsContainerEl.appendChild(optionEl);
-            });
-            
-            // Enable pointer events for options
-            const options = document.querySelectorAll('.option');
-            options.forEach(option => {
-                option.style.pointerEvents = 'auto';
-            });
-            
-            // Hide the score button until the last question
-            if (currentQuestion === quizData.length - 1) {
-                scoreBtnEl.style.display = 'inline-block';
-                nextBtnEl.style.display = 'none';
-            } else {
-                scoreBtnEl.style.display = 'none';
-                nextBtnEl.style.display = 'inline-block';
-            }
-        }
+      if (selectedBtn.childNodes[0].textContent === correctAnswer) {
+        scoreXY++;
+      }
 
-        // Handle option selection
-        function selectOption(selectedIndex) {
-            const question = quizData[currentQuestion];
-            const options = document.querySelectorAll('.option');
-            
-            // Disable all options after selection
-            options.forEach(option => {
-                option.style.pointerEvents = 'none';
-            });
-            
-            // Mark the selected option
-            options[selectedIndex].classList.add('selected');
-            
-            // Check if the answer is correct
-            const isCorrect = selectedIndex === question.correct;
-            
-            if (isCorrect) {
-                score++;
-                options[selectedIndex].classList.add('correct');
-                resultIconEl.innerHTML = '✓';
-                resultIconEl.className = 'result-icon correct-icon';
-                popupTitleEl.textContent = 'Correct!';
-            } else {
-                options[selectedIndex].classList.add('incorrect');
-                options[question.correct].classList.add('correct');
-                resultIconEl.innerHTML = '✗';
-                resultIconEl.className = 'result-icon incorrect-icon';
-                popupTitleEl.textContent = 'Incorrect!';
-            }
-            
-            // Store the user's answer
-            userAnswers.push({
-                question: question.question,
-                selected: selectedIndex,
-                correct: question.correct,
-                isCorrect: isCorrect
-            });
-            
-            // Show the trivia
-            triviaTextEl.textContent = question.trivia;
-            
-            // Show the popup
-            popupEl.style.display = 'flex';
-        }
+      nextBtn.style.display = "inline-block";
+    }
 
-        // Move to the next question
-        function nextQuestion() {
-            currentQuestion++;
-            
-            if (currentQuestion < quizData.length) {
-                loadQuestion();
-                updateProgress();
-                popupEl.style.display = 'none';
-            } else {
-                showScore();
-            }
-        }
+    nextBtn.addEventListener("click", () => {
+      currentquestionXY++;
+      if (currentquestionXY < quizData.length) {
+        loadquestionXY();
+      } else {
+        showscoreXY();
+      }
+    });
 
-        // Update progress bar
-        function updateProgress() {
-            const progressPercentage = ((currentQuestion) / quizData.length) * 100;
-            progressEl.style.width = `${progressPercentage}%`;
-        }
+    restartBtn.addEventListener("click", () => {
+      currentquestionXY = 0;
+      scoreXY = 0;
+      loadquestionXY();
+    });
 
-        // Show the final score
-        function showScore() {
-            quizHeaderEl.style.display = 'none';
-            questionContainerEl.style.display = 'none';
-            optionsContainerEl.style.display = 'none';
-            popupEl.style.display = 'none';
-            scoreContainerEl.style.display = 'block';
-            
-            scoreCircleEl.textContent = `${score}/${quizData.length}`;
-            
-            // Set score message based on performance
-            if (score === quizData.length) {
-                scoreMessageEl.textContent = "Well, that was a wrap! May 2026 take you towards the healthier version of you!";
-            } else if (score >= quizData.length * 0.7) {
-                scoreMessageEl.textContent = "Well, that was a wrap! May 2026 take you towards the healthier version of you!";
-            } else if (score >= quizData.length * 0.5) {
-                scoreMessageEl.textContent = "Well, that was a wrap! May 2026 take you towards the healthier version of you!";
-            } else {
-                scoreMessageEl.textContent = "Well, that was a wrap! May 2026 take you towards the healthier version of you!";
-            }
-        }
+    function showscoreXY() {
+      questionXYEl.textContent = "";
+      optionsXYEl.innerHTML = "";
+      optionsXYEl.style.display = "none";
+      nextBtn.style.display = "none";
+      scoreXYEl.textContent = `Your score is: ${scoreXY} out of ${quizData.length}`;
+      restartBtn.style.display = "inline-block";
+      QCounterTXT.style.display = "none";
+      ScoreXContainer.style.display = "flex";
+      QuestionXIMG.style.display = "none";
 
-        // Event listeners
-        nextBtnEl.addEventListener('click', nextQuestion);
-        scoreBtnEl.addEventListener('click', showScore);
-        restartBtnEl.addEventListener('click', initQuiz);
+    }
+preloadImages();
+    // Load the first questionXY
+    loadquestionXY();
+  </script>
 
-        // Initialize the quiz when the page loads
-        window.addEventListener('load', initQuiz);
-    </script>
 
 
 </body>
