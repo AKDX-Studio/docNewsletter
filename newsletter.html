@@ -1515,15 +1515,15 @@ width: 300px;
         }
         
         .doc0226-yes-btn-selected {
-            background-color: #4CAF50;
+            background-color: #4CAF50 !important;
             color: white;
-            border-color: #4CAF50;
+            border-color: #4CAF50 !important;
         }
         
         .doc0226-no-btn-selected {
-            background-color: #f44336;
+            background-color: #f44336 !important;
             color: white;
-            border-color: #f44336;
+            border-color: #f44336 !important;
         }
         
         .doc0226-nav-buttons {
@@ -2743,8 +2743,10 @@ and access, helping communities spot problems early and act sooner. </b>
                 
                 <div class="doc0226-score-circle" id="doc0226-score-circle">
                     <div class="doc0226-score-inner">
+                        <p>Your health is getting</p>
                         <div class="doc0226-score-percent" id="doc0226-score-percent">0%</div>
-                        <div class="doc0226-score-text">Final Score</div>
+                        <div class="doc0226-score-text">of love from you.<br> <br> Every small choice counts, and you’re
+already on the journey</div>
                     </div>
                 </div>
                 
@@ -3518,8 +3520,8 @@ preloadImages();
                         <img src="${doc0226QuestionItem.doc0226Image}" alt="Question ${doc0226Index + 1} image">
                     </div>
                     <div class="doc0226-options">
-                        <button class="doc0226-option-btn doc0226-yes-btn" data-doc0226-value="yes">Yes</button>
-                        <button class="doc0226-option-btn doc0226-no-btn" data-doc0226-value="no">No</button>
+                        <button class="doc0226-option-btn doc0226-yes-btn" data-doc0226-value="yes">Swipe Right</button>
+                        <button class="doc0226-option-btn doc0226-no-btn" data-doc0226-value="no">Swipe Left</button>
                     </div>
                     <div class="doc0226-nav-buttons">
                         <button class="doc0226-nav-btn doc0226-prev-btn" ${doc0226Index === 0 ? 'disabled' : ''}>Previous</button>
