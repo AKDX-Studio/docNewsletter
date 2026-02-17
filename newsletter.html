@@ -3538,10 +3538,6 @@ preloadImages();
                         <button class="doc0226-option-btn doc0226-yes-btn" data-doc0226-value="yes">Swipe Right</button>
                         <button class="doc0226-option-btn doc0226-no-btn" data-doc0226-value="no">Swipe Left</button>
                     </div>
-                    <div class="doc0226-nav-buttons">
-                        <button class="doc0226-nav-btn doc0226-prev-btn" ${doc0226Index === 0 ? 'disabled' : ''}>Previous</button>
-                        <button class="doc0226-nav-btn doc0226-next-btn">${doc0226Index === doc0226QuizQuestions.length - 1 ? 'Finish Quiz' : 'Next'}</button>
-                    </div>
                 `;
                 
                 doc0226QuestionsContainer.appendChild(doc0226QuestionElement);
@@ -3578,15 +3574,8 @@ preloadImages();
                     
                     // Calculate and update score
                     doc0226CalculateScore();
-                });
-            });
-            
-            // Next buttons
-            document.querySelectorAll('.doc0226-next-btn').forEach(doc0226Button => {
-                doc0226Button.addEventListener('click', function() {
-                    const doc0226QuestionContainer = this.closest('.doc0226-question-container');
-                    const doc0226QuestionId = parseInt(doc0226QuestionContainer.id.split('-')[2]);
                     
+                    // Automatically go to next question or show results
                     if (doc0226QuestionId === doc0226QuizQuestions.length - 1) {
                         // Show results on last question
                         doc0226ShowResults();
@@ -3594,17 +3583,6 @@ preloadImages();
                         // Go to next question
                         doc0226GoToQuestion(doc0226QuestionId + 1);
                     }
-                });
-            });
-            
-            // Previous buttons
-            document.querySelectorAll('.doc0226-prev-btn').forEach(doc0226Button => {
-                doc0226Button.addEventListener('click', function() {
-                    const doc0226QuestionContainer = this.closest('.doc0226-question-container');
-                    const doc0226QuestionId = parseInt(doc0226QuestionContainer.id.split('-')[2]);
-                    
-                    // Go to previous question
-                    doc0226GoToQuestion(doc0226QuestionId - 1);
                 });
             });
             
@@ -3738,9 +3716,6 @@ preloadImages();
                 doc0226Q.classList.remove('doc0226-question-container-active');
                 if (doc0226Index === 0) doc0226Q.classList.add('doc0226-question-container-active');
             });
-            
-            // Update previous button state
-            document.querySelector('.doc0226-prev-btn').disabled = true;
         }
 
         // Initialize the quiz when page loads
