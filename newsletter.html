@@ -1685,6 +1685,270 @@ width: 300px;
 
 	    
 	    
+	    
+	    
+	    .docM26quiz-deck{
+max-width:720px;
+width:100%;
+background:rgba(255,255,255,0.88);
+backdrop-filter:blur(12px);
+border-radius:56px;
+box-shadow:0 30px 50px -20px #04131f;
+padding:2rem 2rem 2.2rem;
+border:2px solid rgba(255,255,255,0.6);
+transition:0.25s;
+}
+
+h1{
+font-size:2rem;
+font-weight:600;
+letter-spacing:-0.02em;
+color:#14273b;
+display:flex;
+align-items:center;
+gap:12px;
+border-bottom:3px dashed #abc0d3;
+padding-bottom:12px;
+margin-bottom:28px;
+}
+
+h1 span{
+background:#264e6b;
+color:white;
+font-size:1rem;
+padding:0.25rem 1.2rem;
+border-radius:60px;
+font-weight:500;
+margin-left:auto;
+}
+
+.docM26slide-container{
+min-height:380px;
+display:flex;
+flex-direction:column;
+}
+
+.docM26slide-card{
+background:rgba(255,255,255,0.6);
+border-radius:42px;
+padding:28px 28px 24px;
+border:2px solid white;
+box-shadow:0 12px 28px -18px #062231;
+margin-bottom:20px;
+}
+
+.docM26q-text{
+font-size:1.7rem;
+font-weight:600;
+line-height:1.3;
+color:#0d2d42;
+margin-bottom:28px;
+word-break:break-word;
+}
+
+.docM26options-grid{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.docM26opt-btn{
+background:white;
+border:none;
+padding:16px 24px;
+border-radius:120px;
+font-size:1.25rem;
+font-weight:550;
+text-align:left;
+display:flex;
+align-items:center;
+gap:22px;
+border:2px solid #dae6f2;
+cursor:pointer;
+transition:all 0.1s;
+width:100%;
+color:#162e42;
+}
+
+.docM26opt-btn:hover:not(:disabled){
+background:#ecf5ff;
+border-color:#6f9fd3;
+transform:scale(1.01);
+}
+
+.docM26opt-btn:disabled{
+opacity:0.6;
+cursor:not-allowed;
+}
+
+.docM26opt-letter{
+background:#dce9f5;
+width:44px;
+height:44px;
+border-radius:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:1.4rem;
+color:#1a3a55;
+flex-shrink:0;
+}
+
+.docM26slide-counter{
+display:flex;
+justify-content:center;
+margin:8px 0 0;
+font-weight:600;
+color:#1f4a6b;
+background:rgba(255,255,255,0.4);
+padding:8px 20px;
+border-radius:60px;
+width:fit-content;
+margin-left:auto;
+margin-right:auto;
+border:1px solid white;
+}
+
+.docM26popup-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,20,30,0.5);
+backdrop-filter:blur(4px);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:1000;
+visibility:hidden;
+opacity:0;
+transition:0.2s;
+}
+
+.docM26popup-overlay.show{
+visibility:visible;
+opacity:1;
+}
+
+.docM26popup-card{
+background:#fbfdff;
+max-width:520px;
+width:90%;
+border-radius:56px;
+padding:40px 30px 35px;
+text-align:center;
+box-shadow:0 40px 60px -10px #031926;
+border:3px solid white;
+}
+
+.docM26popup-icon{
+font-size:4.5rem;
+line-height:1;
+margin-bottom:8px;
+}
+
+.docM26popup-title{
+font-size:2.6rem;
+font-weight:800;
+letter-spacing:-0.01em;
+margin:5px 0 20px;
+background:linear-gradient(145deg,#152e42,#2e5f88);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.docM26popup-explanation{
+background:#ebf2fa;
+padding:24px 24px;
+border-radius:48px;
+font-size:1.2rem;
+color:#0a2c41;
+text-align:left;
+border-left:8px solid #4f7eb0;
+margin:18px 0 20px;
+line-height:1.5;
+}
+
+.docM26popup-next-btn{
+background:#2f5c83;
+border:none;
+color:white;
+font-size:1.6rem;
+font-weight:700;
+padding:16px 40px;
+border-radius:60px;
+cursor:pointer;
+margin-top:15px;
+border:2px solid #bed9f5;
+box-shadow:0 12px 18px -12px #062844;
+width:100%;
+max-width:280px;
+}
+
+.docM26popup-next-btn:hover{
+background:#16466b;
+}
+
+.docM26end-slide{
+background:rgba(255,255,255,0.7);
+border-radius:56px;
+padding:40px 20px;
+text-align:center;
+border:3px solid white;
+}
+
+.docM26final-badge{
+font-size:5rem;
+font-weight:800;
+background:linear-gradient(135deg,#1c4b6e,#39779c);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin:10px 0;
+line-height:1.2;
+}
+
+.docM26feedback-main{
+font-size:2rem;
+font-weight:600;
+color:#10334a;
+margin:15px 0 20px;
+}
+
+.docM26feedback-sub{
+background:#e1edfa;
+border-radius:60px;
+padding:18px 20px;
+font-size:1.3rem;
+margin:10px auto 30px;
+max-width:500px;
+}
+
+.docM26restart-final{
+background:#1b4d72;
+border:none;
+color:white;
+font-size:1.8rem;
+padding:20px 50px;
+border-radius:90px;
+font-weight:700;
+cursor:pointer;
+border:2px solid #b0d3f5;
+box-shadow:0 16px 24px -16px #001e33;
+}
+
+.docM26hidden{display:none!important;}
+
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
    
     </style>
 
@@ -2757,49 +3021,27 @@ and access, helping communities spot problems early and act sooner. </b>
 
 
 
-                              <div class="doc0226-quiz-container">
-            <div class="doc0226-progress-container">
-                <div class="doc0226-progress-bar-outer">
-                    <div class="doc0226-progress-fill" id="doc0226-progress-bar"></div>
-                </div>
-                <div class="doc0226-progress-text">
-                    <span>Question <span id="doc0226-current-question">1</span>/10</span>
-                    <span style="display:none;"><span style="display:none;" id="doc0226-score">0</span> points</span>
-                </div>
-            </div>
-            
-            <!-- Question containers will be inserted here by JavaScript -->
-            <div id="doc0226-questions-container"></div>
-            
-            <div class="doc0226-results-container" id="doc0226-results-container">
-                <h2>Your Quiz Results</h2>
-                <p style="display:none;" >You answered <span id="doc0226-correct-count">0</span> out of 10 questions correctly</p>
-                
-                 <div class="resultTXT"><p>Your health is getting</p></div>
-                
-                <div class="doc0226-score-circle" id="doc0226-score-circle">
-                    
-                   
-                    
-                    <div class="doc0226-score-inner">
-                       
-                        <div class="doc0226-score-percent" id="doc0226-score-percent">0%</div>
-                        
-                    </div>
-                    
-                    
-                </div>
-                
-                <div class="doc0226-score-text"><p>of love from you.<br> <br> Every small choice counts, and you’re
-already on the journey</p></div>
-                
-                <div class="doc0226-answers-summary" id="doc0226-answers-summary">
-                    <!-- Summary will be generated by JavaScript -->
-                </div>
-                
-                <button class="doc0226-restart-btn" id="doc0226-restart-btn">Take Quiz Again</button>
-            </div>
-        </div>
+                            <div class="docM26quiz-deck" id="docM26quizDeck">
+
+<h1>🎨 color theory <span>slide by slide</span></h1>
+
+<div id="docM26slideContainer" class="docM26slide-container"></div>
+
+<div id="docM26popupOverlay" class="docM26popup-overlay">
+<div class="docM26popup-card">
+
+<div id="docM26popupIcon" class="docM26popup-icon"></div>
+<div id="docM26popupTitle" class="docM26popup-title"></div>
+<div id="docM26popupExplanation" class="docM26popup-explanation"></div>
+
+<button id="docM26popupNextBtn" class="docM26popup-next-btn">
+▶ NEXT
+</button>
+
+</div>
+</div>
+
+</div>
         
         <footer class="doc0226-footer">
             <p></p>
@@ -3476,282 +3718,231 @@ preloadImages();
 
 
 
-    <script>
-        // Quiz questions with image placeholders
-        const doc0226QuizQuestions = [
-            {
-                doc0226Question: "Start your day with a glass of water?",
-                doc0226Image: "images/QFeb2026-1.PNG",
-                doc0226CorrectAnswer: "yes"
-            },
-            {
-                doc0226Question: "Get at least 7 hours of sleep most nights?",
-                doc0226Image: "images/QFeb2026-2.PNG",
-                doc0226CorrectAnswer: "yes"
-            },
-            {
-                doc0226Question: "Choose home cooked meals over ordering in?",
-                doc0226Image: "images/QFeb2026-3.PNG",
-                doc0226CorrectAnswer: "yes"
-            },
-            {
-                doc0226Question: "Take short breaks to stretch during work hours?",
-                doc0226Image: "images/QFeb2026-4.PNG",
-                doc0226CorrectAnswer: "yes"
-            },
-            {
-                doc0226Question: "Eat fruits or vegetables every day?",
-                doc0226Image: "images/QFeb2026-5.PNG",
-                doc0226CorrectAnswer: "yes"
-            },
-            {
-                doc0226Question: "Make time for exercise at least 3 times a week?",
-                doc0226Image: "images/QFeb2026-6.PNG",
-                doc0226CorrectAnswer: "yes"
-            },
-            {
-                doc0226Question: "Read food labels before buying packaged foods?",
-                doc0226Image: "images/QFeb2026-7.PNG",
-                doc0226CorrectAnswer: "yes"
-            },
-            {
-                doc0226Question: "Get regular health checkups?",
-                doc0226Image: "images/QFeb2026-8.PNG",
-                doc0226CorrectAnswer: "yes"
-            },
-            {
-                doc0226Question: "Brush twice and floss once daily?",
-                doc0226Image: "images/QFeb2026-9.PNG",
-                doc0226CorrectAnswer: "yes"
-            },
-            {
-                doc0226Question: "Wear sunscreen when you go outdoors?",
-                doc0226Image: "images/QFeb2026-10.PNG",
-                doc0226CorrectAnswer: "yes"
-            }
-        ];
+  <script>
+(function() {
 
-        // Quiz state
-        let doc0226CurrentQuestion = 0;
-        let doc0226Score = 0;
-        let doc0226UserAnswers = new Array(doc0226QuizQuestions.length).fill(null);
+const questions = [
+{
+text: "Q1. To get fresh air and reset your mind, you need to be in ______ surroundings.",
+options: ["A. Grey", "B. Red", "C. Green", "D. Black"],
+correct: 2,
+explanation: "Parks, trees, and natural spaces help lower stress hormones and improve focus. A little time in nature can completely reset your mind."
+},
+{
+text: "Q2. To fix your mood, the colour you're looking for is ______",
+options: ["A. Yellow", "B. Brown", "C. Navy", "D. Purple"],
+correct: 0,
+explanation: "Sunlight boosts Vitamin D and supports serotonin levels, which play a key role in keeping your mood steady and positive."
+},
+{
+text: "Q3. If you want better sleep, what colour light should you avoid at night?",
+options: ["A. Red", "B. Orange", "C. Blue", "D. Warm White"],
+correct: 2,
+explanation: "Blue light from screens delays melatonin release and disturbs your natural sleep cycle. Less screen time at night means better quality rest."
+},
+{
+text: "Q4. Which colour does your skin turn to signal allergy or inflammation?",
+options: ["A. Pale White", "B. Red", "C. Green", "D. Blue"],
+correct: 1,
+explanation: "Redness is often your skin's first reaction to irritation, allergy, or inflammation. Your body signals before you even feel it fully."
+},
+{
+text: "Q5. To know that you are sleeping less and stressing more than you should, your under-eyes turn ______",
+options: ["A. Pink", "B. Yellow", "C. Grey", "D. Orange"],
+correct: 2,
+explanation: "Chronic fatigue and stress tend to show up visually first. Dull, grey under-eyes are often a sign you need real rest."
+},
+{
+text: "Q6. To beat the heat, which colour family is most helpful?",
+options: ["A. Black and Navy", "B. Maroon and Brown", "C. White, Ivory, and Pastels", "D. Dark Green and Purple"],
+correct: 2,
+explanation: "Lighter shades reflect sunlight and help keep your body cooler, making them a smart and simple summer choice."
+}
+];
 
-        // DOM elements
-        const doc0226QuestionsContainer = document.getElementById('doc0226-questions-container');
-        const doc0226ResultsContainer = document.getElementById('doc0226-results-container');
-        const doc0226ProgressBar = document.getElementById('doc0226-progress-bar');
-        const doc0226CurrentQuestionElement = document.getElementById('doc0226-current-question');
-        const doc0226ScoreElement = document.getElementById('doc0226-score');
-        const doc0226RestartBtn = document.getElementById('doc0226-restart-btn');
-        const doc0226ScoreCircle = document.getElementById('doc0226-score-circle');
-        const doc0226ScorePercent = document.getElementById('doc0226-score-percent');
-        const doc0226CorrectCountElement = document.getElementById('doc0226-correct-count');
-        const doc0226AnswersSummary = document.getElementById('doc0226-answers-summary');
+let currentSlide = 0;
+let userAnswers = new Array(questions.length).fill(null);
 
-        // Initialize the quiz
-        function doc0226InitQuiz() {
-            // Create question containers
-            doc0226QuizQuestions.forEach((doc0226QuestionItem, doc0226Index) => {
-                const doc0226QuestionElement = document.createElement('div');
-                doc0226QuestionElement.className = `doc0226-question-container ${doc0226Index === 0 ? 'doc0226-question-container-active' : ''}`;
-                doc0226QuestionElement.id = `doc0226-question-${doc0226Index}`;
-                
-                doc0226QuestionElement.innerHTML = `
-                    <div class="doc0226-question-number">Question ${doc0226Index + 1}</div>
-                    <div class="doc0226-question-text">${doc0226QuestionItem.doc0226Question}</div>
-                    <div class="doc0226-image-placeholder">
-                        <img src="${doc0226QuestionItem.doc0226Image}" alt="Question ${doc0226Index + 1} image">
-                    </div>
-                    <div class="doc0226-options">
-                    
-                    <button class="doc0226-option-btn doc0226-no-btn" data-doc0226-value="no">Swipe Left</button>
-                    
-                        <button class="doc0226-option-btn doc0226-yes-btn" data-doc0226-value="yes">Swipe Right</button>
-                        
-                    </div>
-                `;
-                
-                doc0226QuestionsContainer.appendChild(doc0226QuestionElement);
-            });
-            
-            // Set up event listeners for buttons
-            doc0226SetupEventListeners();
-            doc0226UpdateProgress();
-        }
+const slideContainer = document.getElementById('docM26slideContainer');
+const popupOverlay = document.getElementById('docM26popupOverlay');
+const popupIcon = document.getElementById('docM26popupIcon');
+const popupTitle = document.getElementById('docM26popupTitle');
+const popupExplanation = document.getElementById('docM26popupExplanation');
+const popupNextBtn = document.getElementById('docM26popupNextBtn');
 
-        // Set up event listeners for all interactive elements
-        function doc0226SetupEventListeners() {
-            // Option buttons (Yes/No)
-            document.querySelectorAll('.doc0226-option-btn').forEach(doc0226Button => {
-                doc0226Button.addEventListener('click', function() {
-                    const doc0226QuestionContainer = this.closest('.doc0226-question-container');
-                    const doc0226QuestionId = parseInt(doc0226QuestionContainer.id.split('-')[2]);
-                    
-                    // Clear previous selection
-                    doc0226QuestionContainer.querySelectorAll('.doc0226-option-btn').forEach(doc0226Btn => {
-                        doc0226Btn.classList.remove('doc0226-option-btn-selected', 'doc0226-yes-btn-selected', 'doc0226-no-btn-selected');
-                    });
-                    
-                    // Select current option
-                    this.classList.add('doc0226-option-btn-selected');
-                    if (this.dataset.doc0226Value === 'yes') {
-                        this.classList.add('doc0226-yes-btn-selected');
-                    } else {
-                        this.classList.add('doc0226-no-btn-selected');
-                    }
-                    
-                    // Save answer
-                    doc0226UserAnswers[doc0226QuestionId] = this.dataset.doc0226Value;
-                    
-                    // Calculate and update score
-                    doc0226CalculateScore();
-                    
-                    // Automatically go to next question or show results
-                    if (doc0226QuestionId === doc0226QuizQuestions.length - 1) {
-                        // Show results on last question
-                        doc0226ShowResults();
-                    } else {
-                        // Go to next question
-                        doc0226GoToQuestion(doc0226QuestionId + 1);
-                    }
-                });
-            });
-            
-            // Restart button
-            doc0226RestartBtn.addEventListener('click', doc0226RestartQuiz);
-        }
+function computeScore() {
+let correct = 0;
+for (let i = 0; i < questions.length; i++) {
+if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) correct++;
+}
+return correct;
+}
 
-        // Navigate to a specific question
-        function doc0226GoToQuestion(doc0226QuestionIndex) {
-            // Hide current question
-            document.querySelector('.doc0226-question-container-active').classList.remove('doc0226-question-container-active');
-            
-            // Show target question
-            document.getElementById(`doc0226-question-${doc0226QuestionIndex}`).classList.add('doc0226-question-container-active');
-            
-            // Update current question
-            doc0226CurrentQuestion = doc0226QuestionIndex;
-            doc0226UpdateProgress();
-            
-            // Restore selection if user already answered
-            if (doc0226UserAnswers[doc0226QuestionIndex] !== null) {
-                const doc0226QuestionContainer = document.getElementById(`doc0226-question-${doc0226QuestionIndex}`);
-                doc0226QuestionContainer.querySelectorAll('.doc0226-option-btn').forEach(doc0226Btn => {
-                    doc0226Btn.classList.remove('doc0226-option-btn-selected', 'doc0226-yes-btn-selected', 'doc0226-no-btn-selected');
-                    
-                    if (doc0226Btn.dataset.doc0226Value === doc0226UserAnswers[doc0226QuestionIndex]) {
-                        doc0226Btn.classList.add('doc0226-option-btn-selected');
-                        if (doc0226Btn.dataset.doc0226Value === 'yes') {
-                            doc0226Btn.classList.add('doc0226-yes-btn-selected');
-                        } else {
-                            doc0226Btn.classList.add('doc0226-no-btn-selected');
-                        }
-                    }
-                });
-            }
-        }
+function render() {
+if (currentSlide < questions.length) {
+renderQuestionSlide(currentSlide);
+} else {
+renderEndSlide();
+}
+}
 
-        // Calculate and update score
-        function doc0226CalculateScore() {
-            doc0226Score = 0;
-            doc0226UserAnswers.forEach((doc0226Answer, doc0226Index) => {
-                if (doc0226Answer === doc0226QuizQuestions[doc0226Index].doc0226CorrectAnswer) {
-                    doc0226Score++;
-                }
-            });
-            
-            // Update score display
-            doc0226ScoreElement.textContent = doc0226Score;
-        }
+function renderQuestionSlide(index) {
 
-        // Update progress bar and question number
-        function doc0226UpdateProgress() {
-            const doc0226Progress = ((doc0226CurrentQuestion + 1) / doc0226QuizQuestions.length) * 100;
-            doc0226ProgressBar.style.width = `${doc0226Progress}%`;
-            doc0226CurrentQuestionElement.textContent = doc0226CurrentQuestion + 1;
-        }
+const q = questions[index];
+const answered = (userAnswers[index] !== null);
 
-        // Show results screen
-        function doc0226ShowResults() {
-            // Hide all questions
-            document.querySelectorAll('.doc0226-question-container').forEach(doc0226Q => {
-                doc0226Q.classList.remove('doc0226-question-container-active');
-            });
-            
-            // Show results container
-            doc0226ResultsContainer.style.display = 'block';
-            
-            // Calculate final score percentage
-            const doc0226Percentage = (doc0226Score / doc0226QuizQuestions.length) * 100;
-            
-            // Update results display
-            doc0226CorrectCountElement.textContent = doc0226Score;
-            doc0226ScorePercent.textContent = `${doc0226Percentage.toFixed(0)}%`;
-            
-            // Animate the score circle
-            doc0226ScoreCircle.style.background = `conic-gradient(#4b6cb7 ${doc0226Percentage}%, #eaeaea ${doc0226Percentage}%)`;
-            
-            // Generate answers summary
-            doc0226GenerateAnswersSummary();
-        }
+let html = `
+<div class="docM26slide-card">
+<div class="docM26q-text">${q.text}</div>
+<div class="docM26options-grid">
+`;
 
-        // Generate the answers summary
-        function doc0226GenerateAnswersSummary() {
-            let doc0226SummaryHTML = '<h3>Answers Summary</h3>';
-            
-            doc0226QuizQuestions.forEach((doc0226QuestionItem, doc0226Index) => {
-                const doc0226UserAnswer = doc0226UserAnswers[doc0226Index];
-                const doc0226CorrectAnswer = doc0226QuestionItem.doc0226CorrectAnswer;
-                const doc0226IsCorrect = doc0226UserAnswer === doc0226CorrectAnswer;
-                
-                doc0226SummaryHTML += `
-                    <div class="doc0226-summary-item">
-                        <div>
-                            <strong>Q${doc0226Index + 1}:</strong> ${doc0226QuestionItem.doc0226Question}
-                        </div>
-                        <div>
-                            Your answer: <span class="${doc0226IsCorrect ? 'doc0226-summary-correct' : 'doc0226-summary-incorrect'}">${doc0226UserAnswer ? doc0226UserAnswer.toUpperCase() : 'Not answered'}</span>
-                            <br>
-                            Correct answer: <span class="doc0226-summary-correct">${doc0226CorrectAnswer.toUpperCase()}</span>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            doc0226AnswersSummary.innerHTML = doc0226SummaryHTML;
-        }
+q.options.forEach((optText, optIdx) => {
 
-        // Restart the quiz
-        function doc0226RestartQuiz() {
-            // Reset quiz state
-            doc0226CurrentQuestion = 0;
-            doc0226Score = 0;
-            doc0226UserAnswers = new Array(doc0226QuizQuestions.length).fill(null);
-            
-            // Hide results
-            doc0226ResultsContainer.style.display = 'none';
-            
-            // Reset progress
-            doc0226UpdateProgress();
-            
-            // Reset score display
-            doc0226ScoreElement.textContent = '0';
-            
-            // Clear all selections
-            document.querySelectorAll('.doc0226-option-btn').forEach(doc0226Btn => {
-                doc0226Btn.classList.remove('doc0226-option-btn-selected', 'doc0226-yes-btn-selected', 'doc0226-no-btn-selected');
-            });
-            
-            // Show first question
-            document.querySelectorAll('.doc0226-question-container').forEach((doc0226Q, doc0226Index) => {
-                doc0226Q.classList.remove('doc0226-question-container-active');
-                if (doc0226Index === 0) doc0226Q.classList.add('doc0226-question-container-active');
-            });
-        }
+const letter = String.fromCharCode(65 + optIdx);
+const disabledAttr = answered ? 'disabled' : '';
+const selectedStyle = (userAnswers[index] === optIdx)
+? 'style="background:#d4e3fc; border-color:#1f6196;"'
+: '';
 
-        // Initialize the quiz when page loads
-        document.addEventListener('DOMContentLoaded', doc0226InitQuiz);
-    </script>
+html += `
+<button class="docM26opt-btn" data-opt-index="${optIdx}" ${disabledAttr} ${selectedStyle}>
+<span class="docM26opt-letter">${letter}</span> ${optText}
+</button>
+`;
+});
+
+html += `</div></div>`;
+html += `<div class="docM26slide-counter">${index+1} / ${questions.length}</div>`;
+
+slideContainer.innerHTML = html;
+
+if (!answered) {
+document.querySelectorAll('.docM26opt-btn').forEach(btn => {
+
+btn.addEventListener('click', () => {
+
+const optIdx = parseInt(btn.dataset.optIndex,10);
+if (isNaN(optIdx)) return;
+
+userAnswers[currentSlide] = optIdx;
+
+const isCorrect = (optIdx === q.correct);
+const correctOptionText = q.options[q.correct];
+
+const fullExplanation =
+`✅ Correct: ${correctOptionText}. ${q.explanation}`;
+
+showPopup(isCorrect, fullExplanation);
+
+render();
+
+});
+
+});
+}
+
+}
+
+function renderEndSlide() {
+
+const score = computeScore();
+
+let mainMsg;
+let subMsg;
+
+if (score <= 3) {
+mainMsg = `Your score is ${score}/6.`;
+subMsg = `Well, awareness is the first shade of change. Want to try again and beat your score?`;
+} else {
+mainMsg = `Excellent! You scored ${score}/6.`;
+subMsg = `Not bad — but your colour radar might need a little tuning.`;
+}
+
+const html = `
+<div class="docM26end-slide">
+
+<div style="font-size:4rem;">🏁</div>
+
+<div class="docM26final-badge">${score}/6</div>
+
+<div class="docM26feedback-main">${mainMsg}</div>
+
+<div class="docM26feedback-sub">${subMsg}</div>
+
+<button class="docM26restart-final" id="docM26restartQuizBtn">
+↻ RESTART QUIZ
+</button>
+
+</div>
+`;
+
+slideContainer.innerHTML = html;
+
+document
+.getElementById('docM26restartQuizBtn')
+.addEventListener('click', restartQuiz);
+
+}
+
+function showPopup(isCorrect, explanationText) {
+
+if (isCorrect) {
+popupIcon.innerText = '🎉';
+popupTitle.innerText = 'CORRECT';
+} else {
+popupIcon.innerText = '💡';
+popupTitle.innerText = 'WRONG';
+}
+
+popupExplanation.innerText = explanationText;
+
+popupOverlay.classList.add('show');
+
+}
+
+function closePopup() {
+popupOverlay.classList.remove('show');
+}
+
+function restartQuiz() {
+
+currentSlide = 0;
+userAnswers = new Array(questions.length).fill(null);
+
+closePopup();
+
+render();
+
+}
+
+popupNextBtn.addEventListener('click', () => {
+
+closePopup();
+
+if (currentSlide < questions.length - 1) {
+
+currentSlide++;
+render();
+
+}
+else if (currentSlide === questions.length - 1) {
+
+currentSlide = questions.length;
+render();
+
+}
+
+});
+
+popupOverlay.addEventListener('click', () => {
+
+});
+
+render();
+
+})();
+</script>
 
 
 
