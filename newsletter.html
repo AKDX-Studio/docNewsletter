@@ -189,6 +189,226 @@ online medicine delivery, online prescriptions, book doctor appointment online, 
         
         
         
+      
+   
+
+    
+
+    /* ---------- docXz prefixed classes ---------- */
+    .docXzQuizContainer {
+      max-width: 780px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 42px;
+      box-shadow: 0 20px 40px rgba(0, 20, 40, 0.12), 0 6px 12px rgba(0, 0, 0, 0.05);
+      padding: 30px 30px 38px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      margin: 0;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    .docXzQuizHeader {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      border-bottom: 2px dashed #b7d3f0;
+      padding-bottom: 16px;
+    }
+
+    .docXzTitleWrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .docXzTitle {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #1a3e60;
+      margin: 0;
+    }
+
+    .docXzQuestionIcon {
+      font-size: 2.2rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      transition: transform 0.2s ease;
+    }
+
+    .docXzProgressBadge {
+      background: #d9e9fa;
+      padding: 8px 18px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #1e4a6f;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .docXzQuestionCard {
+      margin-bottom: 28px;
+    }
+
+    .docXzQuestionText {
+      font-size: 1.7rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: #0b2a41;
+      margin-bottom: 24px;
+    }
+
+    .docXzOptionsList {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .docXzOptionItem {
+      background: white;
+      border-radius: 28px;
+      padding: 16px 24px;
+      border: 2px solid #d0e2f3;
+      box-shadow: 0 4px 8px rgba(0, 20, 30, 0.04);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1a405b;
+    }
+
+    .docXzOptionItem:hover {
+      background: #ecf3fc;
+      border-color: #7aafe0;
+      transform: scale(1.01);
+      box-shadow: 0 10px 18px -8px rgba(30, 80, 120, 0.2);
+    }
+
+    .docXzOptionPrefix {
+      font-weight: 700;
+      margin-right: 16px;
+      background: #eef4fa;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+      color: #1f5579;
+      font-size: 1.2rem;
+      border: 1px solid #bfd6ec;
+    }
+
+    .docXzOptionText {
+      flex: 1;
+    }
+
+    /* state when an option is selected (visual feedback) */
+    .docXzOptionSelected {
+      background: #c2dcf5;
+      border-color: #2b6a9e;
+      box-shadow: 0 6px 12px rgba(39, 103, 165, 0.15);
+    }
+
+    /* ---------- POPUP (assessment overlay) ---------- */
+    .docXzPopupOverlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(10, 25, 45, 0.5);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden; /* hidden by default */
+      opacity: 0;
+      transition: opacity 0.25s ease, visibility 0.25s;
+      padding: 20px;
+    }
+
+    .docXzPopupVisible {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .docXzPopupCard {
+      max-width: 520px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 48px;
+      box-shadow: 0 30px 50px rgba(0, 15, 30, 0.3);
+      padding: 36px 32px 40px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    .docXzPopupTitle {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a3e60;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .docXzPopupMessage {
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: #1e415b;
+      background: #eaf1fb;
+      padding: 24px 20px;
+      border-radius: 30px;
+      margin: 24px 0 32px;
+      font-weight: 500;
+    }
+
+    .docXzRestartBtn {
+      background: #1a4b6d;
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 18px 30px;
+      border-radius: 60px;
+      width: 100%;
+      cursor: pointer;
+      box-shadow: 0 10px 18px -6px #0e334b;
+      border: 1px solid #3479a7;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .docXzRestartBtn:hover {
+      background: #0f3b57;
+      transform: scale(0.98);
+      box-shadow: 0 6px 12px -4px #0a293b;
+    }
+
+    /* utility */
+    .docXzHidden {
+      display: none !important;
+    }
+
+    .docXzFooterNote {
+      margin-top: 20px;
+      color: #4c6f8c;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+        
+        
+        
+        
+        
+        
         
         
         
@@ -3062,31 +3282,39 @@ healthier, more balanced you.</p>
 
 
 
-                            <div class="docM26quiz-deck" id="docM26quizDeck">
+                           <div class="docXzQuizContainer">
+  <div class="docXzQuizHeader">
+    <div class="docXzTitleWrapper">
+      <h1 class="docXzTitle">🧬 daily rituals</h1>
+      <span class="docXzQuestionIcon" id="docXzDynamicIcon">⏰</span>
+    </div>
+    <div class="docXzProgressBadge" id="docXzProgressDisplay">1 / 6</div>
+  </div>
 
-<h1>The Color Theory Quiz</h1>
+  <!-- question area -->
+  <div class="docXzQuestionCard">
+    <div class="docXzQuestionText" id="docXzQuestionElem">Loading...</div>
+    <div class="docXzOptionsList" id="docXzOptionsContainer"></div>
+  </div>
 
-<div id="docM26slideContainer" class="docM26slide-container"></div>
-
-<div id="docM26popupOverlay" class="docM26popup-overlay">
-<div class="docM26popup-card">
-
-<div id="docM26popupIcon" class="docM26popup-icon"></div>
-<div id="docM26popupTitle" class="docM26popup-title"></div>
-<div id="docM26popupExplanation" class="docM26popup-explanation"></div>
-
-<button id="docM26popupNextBtn" class="docM26popup-next-btn">
-▶ NEXT
-</button>
-
-</div>
+  <div class="docXzFooterNote">⚡ select an answer — next question appears instantly</div>
 </div>
 
+<!-- POPUP (final assessment) -->
+<div class="docXzPopupOverlay" id="docXzPopupOverlay">
+  <div class="docXzPopupCard">
+    <div class="docXzPopupTitle" id="docXzPopupTitle">✨ Assessment</div>
+    <div class="docXzPopupMessage" id="docXzPopupMessage">Calculating your science habits…</div>
+    <button class="docXzRestartBtn" id="docXzRestartQuizBtn">⟳ Restart Quiz</button>
+  </div>
 </div>
-        
-        <footer class="doc0226-footer">
-            <p></p>
-        </footer>
+                           
+                           
+                           
+                           
+                           
+                           
+                           
     </div>
 
 
@@ -3575,417 +3803,193 @@ It has been a pleasure working with you and your team, and we look forward to st
     </section>
 
 
-   <script>
-    const quizData = [
-  {
-    questionXY: "Citrus fruits such as oranges, lemons, and sweet lime are rich in which vitamin?",
-    optionsXY: ["Vitamin A", "Vitamin C", "Vitamin K", "Vitamin B6"],
-    answer: "Vitamin C",
-    countXY: "1/8",
-    image: "images/JanQ126.PNG"
-  },
-  {
-    questionXY: "Spinach, broccoli, and other leafy greens are excellent sources of which vitamin?",
-    optionsXY: ["Vitamin B12", "Vitamin D", "Vitamin K", "Vitamin C"],
-    answer: "Vitamin K",
-    countXY: "2/8",
-    image: "images/JanQ226.PNG"
-  },
-  {
-    questionXY: "Milk, curd, and fortified cereals commonly provide which vitamin?",
-    optionsXY: ["Vitamin D", "Vitamin E", "Vitamin B1", "Vitamin K"],
-    answer: "Vitamin D",
-    countXY: "3/8",
-    image: "images/JanQ326.PNG"
-  },
-  {
-    questionXY: "Carrots, sweet potatoes, and pumpkins are well known for which vitamin?",
-    optionsXY: ["Vitamin A", "Vitamin C", "Vitamin B6", "Vitamin B12"],
-    answer: "Vitamin A",
-    countXY: "4/8",
-    image: "images/JanQ426.PNG"
-  },
-  {
-    questionXY: "Almonds, sunflower seeds, and wheat germ are good sources of which vitamin?",
-    optionsXY: ["Vitamin E", "Vitamin K", "Vitamin B12", "Vitamin C"],
-    answer: "Vitamin E",
-    countXY: "5/8",
-    image: "images/JanQ526.PNG"
-  },
-  {
-    questionXY: "Bananas, potatoes, and avocados are good sources of which vitamin?",
-    optionsXY: ["Vitamin B6", "Vitamin D", "Vitamin A", "Vitamin E"],
-    answer: "Vitamin B6",
-    countXY: "6/8",
-    image: "images/JanQ626.PNG"
-  },
-  {
-    questionXY: "Eggs, lean meats, and dairy are common sources of which vitamin?",
-    optionsXY: ["Vitamin B12", "Vitamin K", "Vitamin C", "Vitamin A"],
-    answer: "Vitamin B12",
-    countXY: "7/8",
-    image: "images/JanQ726.PNG"
-  },
-  {
-    questionXY: "Lentils, chickpeas, spinach, and asparagus are rich in which vitamin?",
-    optionsXY: ["Vitamin B9 (Folate)", "Vitamin B12", "Vitamin E", "Vitamin D"],
-    answer: "Vitamin B9 (Folate)",
-    countXY: "8/8",
-    image: "images/JanQ826.PNG"
-  }
-];
-
-
-    let currentquestionXY = 0;
-    let scoreXY = 0;
-
-    const questionXYEl = document.getElementById("questionXY");
-    const optionsXYEl = document.getElementById("optionsXY");
-    const nextBtn = document.getElementById("next-btnXY");
-    const restartBtn = document.getElementById("restart-btnXY");
-    const scoreXYEl = document.getElementById("scoreXY");
-    const QCounterTXT = document.getElementById("QCounterTXT");
-    const ScoreXContainer = document.getElementById("ScoreXContainer");
-    const QuestionXIMG = document.getElementById("QuestionXIMG");
-    
-function preloadImages() {
-  quizData.forEach(q => {
-    if (q.image) {
-      const img = new Image();
-      img.src = q.image;
-    }
-  });
-}
-
-	     
-    function loadquestionXY() {
-      const current = quizData[currentquestionXY];
-      questionXYEl.textContent = current.questionXY;
-      QCounterTXT.textContent = current.countXY;
-      optionsXYEl.innerHTML = "";
-      scoreXYEl.textContent = "";
-      nextBtn.style.display = "none";
-      ScoreXContainer.style.display = "none";
-      restartBtn.style.display = "none";
-      optionsXYEl.style.display = "block";
-      // nextBtn.style.display = "inline-block";
-      QuestionXIMG.style.display = "block";
-      QCounterTXT.style.display = "flex";
-
-	    // Load image
-      if (current.image) {
-        QuestionXIMG.src = current.image;
-        QuestionXIMG.style.display = "block";
-      } else {
-        QuestionXIMG.style.display = "none";
-      }
-
-      current.optionsXY.forEach(option => {
-        const btn = document.createElement("button");
-        btn.textContent = option;
-
-        // symbolXY span
-        const symbolXYSpan = document.createElement("span");
-        symbolXYSpan.classList.add("symbolXY");
-        symbolXYSpan.textContent = ""; // placeholder
-        btn.appendChild(symbolXYSpan);
-
-        btn.onclick = () => selectAnswer(btn, current.answer);
-        const li = document.createElement("li");
-        li.appendChild(btn);
-        optionsXYEl.appendChild(li);
-      });
-    }
-
-    function selectAnswer(selectedBtn, correctAnswer) {
-      const buttons = optionsXYEl.querySelectorAll("button");
-
-      buttons.forEach(button => {
-        const optionText = button.childNodes[0].textContent;
-        const symbolXYSpan = button.querySelector(".symbolXY");
-        button.disabled = true;
-	button.classList.add("EndBTNX");
-
-        if (optionText === correctAnswer) {
-          button.classList.add("correct");
-          symbolXYSpan.textContent = "✔️";
-        } else {
-          if (button === selectedBtn) {
-            button.classList.add("wrong");
-            symbolXYSpan.textContent = "❌";
-          }
-        }
-      });
-
-      if (selectedBtn.childNodes[0].textContent === correctAnswer) {
-        scoreXY++;
-      }
-
-      nextBtn.style.display = "inline-block";
-    }
-
-    nextBtn.addEventListener("click", () => {
-      currentquestionXY++;
-      if (currentquestionXY < quizData.length) {
-        loadquestionXY();
-      } else {
-        showscoreXY();
-      }
-    });
-
-    restartBtn.addEventListener("click", () => {
-      currentquestionXY = 0;
-      scoreXY = 0;
-      loadquestionXY();
-    });
-
-    function showscoreXY() {
-      questionXYEl.textContent = "";
-      optionsXYEl.innerHTML = "";
-      optionsXYEl.style.display = "none";
-      nextBtn.style.display = "none";
-      scoreXYEl.textContent = `Your score is: ${scoreXY} out of ${quizData.length}`;
-      restartBtn.style.display = "inline-block";
-      QCounterTXT.style.display = "none";
-      ScoreXContainer.style.display = "flex";
-      QuestionXIMG.style.display = "none";
-
-    }
-preloadImages();
-    // Load the first questionXY
-    loadquestionXY();
-  </script>
-
-
-
-
   <script>
-(function() {
+  (function(){
+    "use strict";
 
-const questions = [
-{
-text: "Q1. To get fresh air and reset your mind, you need to be in ______ surroundings.",
-options: ["Grey", "Red", "Green", "Black"],
-correct: 2,
-explanation: "Parks, trees, and natural spaces help lower stress hormones and improve focus. A little time in nature can completely reset your mind."
-},
-{
-text: "Q2. To fix your mood, the colour you're looking for is ______",
-options: ["Yellow", "Brown", "Navy", "Purple"],
-correct: 0,
-explanation: "Sunlight boosts Vitamin D and supports serotonin levels, which play a key role in keeping your mood steady and positive."
-},
-{
-text: "Q3. If you want better sleep, what colour light should you avoid at night?",
-options: ["Red", "Orange", "Blue", "Warm White"],
-correct: 2,
-explanation: "Blue light from screens delays melatonin release and disturbs your natural sleep cycle. Less screen time at night means better quality rest."
-},
-{
-text: "Q4. Which colour does your skin turn to signal allergy or inflammation?",
-options: ["Pale White", "Red", "Green", "Blue"],
-correct: 1,
-explanation: "Redness is often your skin's first reaction to irritation, allergy, or inflammation. Your body signals before you even feel it fully."
-},
-{
-text: "Q5. To know that you are sleeping less and stressing more than you should, your under-eyes turn ______",
-options: ["Pink", "Yellow", "Grey", "Orange"],
-correct: 2,
-explanation: "Chronic fatigue and stress tend to show up visually first. Dull, grey under-eyes are often a sign you need real rest."
-},
-{
-text: "Q6. To beat the heat, which colour family is most helpful?",
-options: ["Black and Navy", "Maroon and Brown", "White, Ivory, and Pastels", "Dark Green and Purple"],
-correct: 2,
-explanation: "Lighter shades reflect sunlight and help keep your body cooler, making them a smart and simple summer choice."
-}
-];
+    // ---------- docXz PREFIXED VARIABLES & CONSTANTS ----------
+    const docXzQUESTIONS = [
+      {
+        text: "Early to Bed and Early to Rise",
+        options: [
+          "Sleeping before midnight helps your body repair better",
+          "Sleep is the same at any time, only total hours matter"
+        ],
+        icon: "⏰" // alarm clock
+      },
+      {
+        text: "Eating Breakfast Daily",
+        options: [
+          "Gives your body energy and kickstarts metabolism",
+          "Makes you lose weight"
+        ],
+        icon: "🍳" // meal / breakfast
+      },
+      {
+        text: "Limiting Screen Time Before Bed",
+        options: [
+          "Reduces blue light exposure that delays sleep hormones",
+          "Screens help your brain relax before sleep"
+        ],
+        icon: "📱" // screen / phone
+      },
+      {
+        text: "Washing Hands Regularly",
+        options: [
+          "Prevents germs from entering your body",
+          "Is needed when hands look visibly dirty"
+        ],
+        icon: "🧼" // hand washing
+      },
+      {
+        text: "Taking Short Breaks While Working",
+        options: [
+          "Helps improve focus and reduce stress",
+          "Breaks your productivity and flow"
+        ],
+        icon: "☕" // coffee break
+      },
+      {
+        text: "Getting Morning Sunlight",
+        options: [
+          "Helps set your body clock and boosts Vitamin D",
+          "Heats your body and drains your energy"
+        ],
+        icon: "☀️" // sun / morning sunlight
+      }
+    ];
 
-let currentSlide = 0;
-let userAnswers = new Array(questions.length).fill(null);
+    // Tracking: each question answer (0 = option A / index 0 , 1 = option B)
+    const docXzTOTAL_QUESTIONS = docXzQUESTIONS.length;
+    let docXzCurrentIndex = 0;                 // 0-based
+    let docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null); // null, 0 (A), or 1 (B)
+    let docXzQuizCompleted = false;
 
-const slideContainer = document.getElementById('docM26slideContainer');
-const popupOverlay = document.getElementById('docM26popupOverlay');
-const popupIcon = document.getElementById('docM26popupIcon');
-const popupTitle = document.getElementById('docM26popupTitle');
-const popupExplanation = document.getElementById('docM26popupExplanation');
-const popupNextBtn = document.getElementById('docM26popupNextBtn');
+    // DOM elements
+    const docXzQuestionElem = document.getElementById('docXzQuestionElem');
+    const docXzOptionsContainer = document.getElementById('docXzOptionsContainer');
+    const docXzProgressDisplay = document.getElementById('docXzProgressDisplay');
+    const docXzPopupOverlay = document.getElementById('docXzPopupOverlay');
+    const docXzPopupTitle = document.getElementById('docXzPopupTitle');
+    const docXzPopupMessage = document.getElementById('docXzPopupMessage');
+    const docXzRestartBtn = document.getElementById('docXzRestartQuizBtn');
+    const docXzDynamicIcon = document.getElementById('docXzDynamicIcon');
 
-function computeScore() {
-let correct = 0;
-for (let i = 0; i < questions.length; i++) {
-if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) correct++;
-}
-return correct;
-}
+    // ---------- helper: render current question ----------
+    function docXzRenderQuestion() {
+      if (docXzQuizCompleted) return;
 
-function render() {
-if (currentSlide < questions.length) {
-renderQuestionSlide(currentSlide);
-} else {
-renderEndSlide();
-}
-}
+      const docXzQ = docXzQUESTIONS[docXzCurrentIndex];
+      docXzQuestionElem.textContent = `Q${docXzCurrentIndex+1}. ${docXzQ.text}`;
+      
+      // Update icon based on current question
+      docXzDynamicIcon.textContent = docXzQ.icon;
 
-function renderQuestionSlide(index) {
+      // update progress badge
+      docXzProgressDisplay.textContent = `${docXzCurrentIndex+1} / ${docXzTOTAL_QUESTIONS}`;
 
-const q = questions[index];
-const answered = (userAnswers[index] !== null);
+      // build options
+      const docXzCurrentAnswer = docXzAnswers[docXzCurrentIndex]; // null, 0, or 1
+      let docXzHtml = '';
+      docXzQ.options.forEach((optText, idx) => {
+        const docXzLetter = idx === 0 ? 'A' : 'B';
+        const docXzSelectedClass = (docXzCurrentAnswer === idx) ? 'docXzOptionSelected' : '';
+        docXzHtml += `
+          <div class="docXzOptionItem ${docXzSelectedClass}" data-option-index="${idx}">
+            <span class="docXzOptionPrefix">${docXzLetter}</span>
+            <span class="docXzOptionText">${optText}</span>
+          </div>
+        `;
+      });
+      docXzOptionsContainer.innerHTML = docXzHtml;
 
-let html = `
-<div class="docM26slide-card">
-<div class="docM26q-text">${q.text}</div>
-<div class="docM26options-grid">
-`;
+      // attach click listeners to options
+      document.querySelectorAll('.docXzOptionItem').forEach(optDiv => {
+        optDiv.addEventListener('click', docXzHandleOptionClick);
+      });
+    }
 
-q.options.forEach((optText, optIdx) => {
+    // ---------- handle answer selection ----------
+    function docXzHandleOptionClick(e) {
+      if (docXzQuizCompleted) return;
 
-const letter = String.fromCharCode(65 + optIdx);
-const disabledAttr = answered ? 'disabled' : '';
-const selectedStyle = (userAnswers[index] === optIdx)
-? 'style="background:#d4e3fc; border-color:#1f6196;"'
-: '';
+      const docXzTarget = e.currentTarget;
+      const docXzSelectedIdx = parseInt(docXzTarget.dataset.optionIndex, 10);
 
-html += `
-<button class="docM26opt-btn" data-opt-index="${optIdx}" ${disabledAttr} ${selectedStyle}>
-<span class="docM26opt-letter">${letter}</span> ${optText}
-</button>
-`;
-});
+      // Store answer for current question (0 = A, 1 = B)
+      docXzAnswers[docXzCurrentIndex] = docXzSelectedIdx;
 
-html += `</div></div>`;
-html += `<div class="docM26slide-counter">${index+1} / ${questions.length}</div>`;
+      // visual feedback: highlight selected
+      document.querySelectorAll('.docXzOptionItem').forEach(el => {
+        el.classList.remove('docXzOptionSelected');
+      });
+      docXzTarget.classList.add('docXzOptionSelected');
 
-slideContainer.innerHTML = html;
+      // If this is the last question → finish and show popup
+      if (docXzCurrentIndex === docXzTOTAL_QUESTIONS - 1) {
+        docXzQuizCompleted = true;
+        docXzShowFinalPopup();
+        return;
+      }
 
-if (!answered) {
-document.querySelectorAll('.docM26opt-btn').forEach(btn => {
+      // Otherwise move to next question
+      docXzCurrentIndex++;
+      docXzRenderQuestion();
+    }
 
-btn.addEventListener('click', () => {
+    // ---------- compute mostly A's or B's and show popup ----------
+    function docXzComputeAssessment() {
+      let docXzCountA = 0;
+      let docXzCountB = 0;
+      docXzAnswers.forEach(ans => {
+        if (ans === 0) docXzCountA++;
+        else if (ans === 1) docXzCountB++;
+      });
+      const docXzMostlyA = docXzCountA > docXzCountB;
+      return { docXzCountA, docXzCountB, docXzMostlyA };
+    }
 
-const optIdx = parseInt(btn.dataset.optIndex,10);
-if (isNaN(optIdx)) return;
+    function docXzShowFinalPopup() {
+      const docXzResult = docXzComputeAssessment();
+      const docXzIsMostlyA = docXzResult.docXzMostlyA;
 
-userAnswers[currentSlide] = optIdx;
+      if (docXzIsMostlyA) {
+        docXzPopupTitle.textContent = '🔬 Science-Smart You!';
+        docXzPopupMessage.textContent = 'You’re clearly someone who understands the science which keeps your daily routine healthy. Keep it going.';
+      } else {
+        docXzPopupTitle.textContent = '🌱 Today is a good day';
+        docXzPopupMessage.textContent = 'Today is a good day to understand the science that shapes our daily healthy habits. When you know why, you’re more likely to stick to the rituals!';
+      }
 
-const isCorrect = (optIdx === q.correct);
-const correctOptionText = q.options[q.correct];
+      docXzPopupOverlay.classList.add('docXzPopupVisible');
+    }
 
-const fullExplanation =
-`✅ Correct: ${correctOptionText}. ${q.explanation}`;
+    // ---------- restart quiz ----------
+    function docXzRestartQuiz() {
+      docXzCurrentIndex = 0;
+      docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null);
+      docXzQuizCompleted = false;
 
-showPopup(isCorrect, fullExplanation);
+      docXzPopupOverlay.classList.remove('docXzPopupVisible');
+      docXzRenderQuestion();
+    }
 
-render();
+    // ---------- bind restart button ----------
+    docXzRestartBtn.addEventListener('click', docXzRestartQuiz);
 
-});
+    // Initialize the quiz
+    function docXzInitQuiz() {
+      docXzCurrentIndex = 0;
+      docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null);
+      docXzQuizCompleted = false;
+      docXzPopupOverlay.classList.remove('docXzPopupVisible');
+      docXzRenderQuestion();
+    }
 
-});
-}
+    docXzInitQuiz();
 
-}
-
-function renderEndSlide() {
-
-const score = computeScore();
-
-let mainMsg;
-let subMsg;
-
-if (score <= 3) {
-mainMsg = `Your score is ${score}/6.`;
-subMsg = `Well, awareness is the first shade of change. Want to try again and beat your score?`;
-} else {
-mainMsg = `Excellent! You scored ${score}/6.`;
-subMsg = `Not bad — but your colour radar might need a little tuning.`;
-}
-
-const html = `
-<div class="docM26end-slide">
-
-<div style="font-size:4rem;">🏁</div>
-
-<div class="docM26final-badge">${score}/6</div>
-
-<div class="docM26feedback-main">${mainMsg}</div>
-
-<div class="docM26feedback-sub">${subMsg}</div>
-
-<button class="docM26restart-final" id="docM26restartQuizBtn">
-↻ RESTART QUIZ
-</button>
-
-</div>
-`;
-
-slideContainer.innerHTML = html;
-
-document
-.getElementById('docM26restartQuizBtn')
-.addEventListener('click', restartQuiz);
-
-}
-
-function showPopup(isCorrect, explanationText) {
-
-if (isCorrect) {
-popupIcon.innerText = '🎉';
-popupTitle.innerText = 'CORRECT';
-} else {
-popupIcon.innerText = '💡';
-popupTitle.innerText = 'WRONG';
-}
-
-popupExplanation.innerText = explanationText;
-
-popupOverlay.classList.add('show');
-
-}
-
-function closePopup() {
-popupOverlay.classList.remove('show');
-}
-
-function restartQuiz() {
-
-currentSlide = 0;
-userAnswers = new Array(questions.length).fill(null);
-
-closePopup();
-
-render();
-
-}
-
-popupNextBtn.addEventListener('click', () => {
-
-closePopup();
-
-if (currentSlide < questions.length - 1) {
-
-currentSlide++;
-render();
-
-}
-else if (currentSlide === questions.length - 1) {
-
-currentSlide = questions.length;
-render();
-
-}
-
-});
-
-popupOverlay.addEventListener('click', () => {
-
-});
-
-render();
-
-})();
+  })();
 </script>
-
-
 
 
 
