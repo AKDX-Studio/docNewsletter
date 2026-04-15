@@ -2162,17 +2162,21 @@ box-shadow:0 16px 24px -16px #001e33;
 
 	    
 	    
-	    
-	    .docXzOptionA {
-  background-color: #28a745;
-  color: #fff;
+/* Color feedback classes - applied via JavaScript */
+.docXzOptionCorrect {
+  background: #d4edda !important;
+  border-color: #28a745 !important;
 }
 
-.docXzOptionB {
-  background-color: #dc3545;
-  color: #fff;
+.docXzOptionIncorrect {
+  background: #f8d7da !important;
+  border-color: #dc3545 !important;
 }
-	    
+
+.docXzOptionDisabled {
+  pointer-events: none;
+  opacity: 0.9;
+}
 	    
 	    
 	    
@@ -3789,201 +3793,238 @@ It has been a pleasure working with you and your team, and we look forward to st
 
 
 <script>
-(function(){
-  "use strict";
+  (function(){
+    "use strict";
 
-  // ---------- docXz PREFIXED VARIABLES & CONSTANTS ----------
-  const docXzQUESTIONS = [
-    {
-      text: "Early to Bed and Early to Rise",
-      options: [
-        "Sleeping before midnight helps your body repair better",
-        "Sleep is the same at any time, only total hours matter"
-      ],
-      icon: "⏰"
-    },
-    {
-      text: "Eating Breakfast Daily",
-      options: [
-        "Gives your body energy and kickstarts metabolism",
-        "Makes you lose weight"
-      ],
-      icon: "🍳"
-    },
-    {
-      text: "Limiting Screen Time Before Bed",
-      options: [
-        "Reduces blue light exposure that delays sleep hormones",
-        "Screens help your brain relax before sleep"
-      ],
-      icon: "📱"
-    },
-    {
-      text: "Washing Hands Regularly",
-      options: [
-        "Prevents germs from entering your body",
-        "Is needed when hands look visibly dirty"
-      ],
-      icon: "🧼"
-    },
-    {
-      text: "Taking Short Breaks While Working",
-      options: [
-        "Helps improve focus and reduce stress",
-        "Breaks your productivity and flow"
-      ],
-      icon: "☕"
-    },
-    {
-      text: "Getting Morning Sunlight",
-      options: [
-        "Helps set your body clock and boosts Vitamin D",
-        "Heats your body and drains your energy"
-      ],
-      icon: "☀️"
-    }
-  ];
+    // ---------- docXz PREFIXED VARIABLES & CONSTANTS ----------
+    const docXzQUESTIONS = [
+      {
+        text: "Early to Bed and Early to Rise",
+        options: [
+          "Sleeping before midnight helps your body repair better",
+          "Sleep is the same at any time, only total hours matter"
+        ],
+        icon: "⏰"
+      },
+      {
+        text: "Eating Breakfast Daily",
+        options: [
+          "Gives your body energy and kickstarts metabolism",
+          "Makes you lose weight"
+        ],
+        icon: "🍳"
+      },
+      {
+        text: "Limiting Screen Time Before Bed",
+        options: [
+          "Reduces blue light exposure that delays sleep hormones",
+          "Screens help your brain relax before sleep"
+        ],
+        icon: "📱"
+      },
+      {
+        text: "Washing Hands Regularly",
+        options: [
+          "Prevents germs from entering your body",
+          "Is needed when hands look visibly dirty"
+        ],
+        icon: "🧼"
+      },
+      {
+        text: "Taking Short Breaks While Working",
+        options: [
+          "Helps improve focus and reduce stress",
+          "Breaks your productivity and flow"
+        ],
+        icon: "☕"
+      },
+      {
+        text: "Getting Morning Sunlight",
+        options: [
+          "Helps set your body clock and boosts Vitamin D",
+          "Heats your body and drains your energy"
+        ],
+        icon: "☀️"
+      }
+    ];
 
-  const docXzTOTAL_QUESTIONS = docXzQUESTIONS.length;
-  let docXzCurrentIndex = 0;
-  let docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null);
-  let docXzQuizCompleted = false;
-  let docXzIsTransitioning = false; // prevent double clicks
+    const docXzTOTAL_QUESTIONS = docXzQUESTIONS.length;
+    const docXzTRANSITION_DELAY = 600;
+    
+    let docXzCurrentIndex = 0;
+    let docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null);
+    let docXzQuizCompleted = false;
+    let docXzIsTransitioning = false;
+    let docXzTransitionTimer = null;
 
-  // DOM elements
-  const docXzQuestionElem = document.getElementById('docXzQuestionElem');
-  const docXzOptionsContainer = document.getElementById('docXzOptionsContainer');
-  const docXzProgressDisplay = document.getElementById('docXzProgressDisplay');
-  const docXzPopupOverlay = document.getElementById('docXzPopupOverlay');
-  const docXzPopupTitle = document.getElementById('docXzPopupTitle');
-  const docXzPopupMessage = document.getElementById('docXzPopupMessage');
-  const docXzRestartBtn = document.getElementById('docXzRestartQuizBtn');
-  const docXzDynamicIcon = document.getElementById('docXzDynamicIcon');
+    const docXzQuestionElem = document.getElementById('docXzQuestionElem');
+    const docXzOptionsContainer = document.getElementById('docXzOptionsContainer');
+    const docXzProgressDisplay = document.getElementById('docXzProgressDisplay');
+    const docXzPopupOverlay = document.getElementById('docXzPopupOverlay');
+    const docXzPopupTitle = document.getElementById('docXzPopupTitle');
+    const docXzPopupMessage = document.getElementById('docXzPopupMessage');
+    const docXzRestartBtn = document.getElementById('docXzRestartQuizBtn');
+    const docXzDynamicIcon = document.getElementById('docXzDynamicIcon');
 
-  // ---------- render question ----------
-  function docXzRenderQuestion() {
-    if (docXzQuizCompleted) return;
+    // ---------- render current question ----------
+    function docXzRenderQuestion() {
+      if (docXzQuizCompleted) return;
 
-    const docXzQ = docXzQUESTIONS[docXzCurrentIndex];
-    docXzQuestionElem.textContent = `Q${docXzCurrentIndex+1}. ${docXzQ.text}`;
-    docXzDynamicIcon.textContent = docXzQ.icon;
-    docXzProgressDisplay.textContent = `${docXzCurrentIndex+1} / ${docXzTOTAL_QUESTIONS}`;
+      const docXzQ = docXzQUESTIONS[docXzCurrentIndex];
+      docXzQuestionElem.textContent = `Q${docXzCurrentIndex+1}. ${docXzQ.text}`;
+      docXzDynamicIcon.textContent = docXzQ.icon;
+      docXzProgressDisplay.textContent = `${docXzCurrentIndex+1} / ${docXzTOTAL_QUESTIONS}`;
 
-    let docXzHtml = '';
-    docXzQ.options.forEach((optText, idx) => {
-      const docXzLetter = idx === 0 ? 'A' : 'B';
-      docXzHtml += `
-        <div class="docXzOptionItem" data-option-index="${idx}">
-          <span class="docXzOptionPrefix">${docXzLetter}</span>
-          <span class="docXzOptionText">${optText}</span>
-        </div>
-      `;
-    });
+      const docXzCurrentAnswer = docXzAnswers[docXzCurrentIndex];
+      let docXzHtml = '';
+      docXzQ.options.forEach((optText, idx) => {
+        const docXzLetter = idx === 0 ? 'A' : 'B';
+        docXzHtml += `
+          <div class="docXzOptionItem" data-option-index="${idx}">
+            <span class="docXzOptionPrefix">${docXzLetter}</span>
+            <span class="docXzOptionText">${optText}</span>
+          </div>
+        `;
+      });
+      docXzOptionsContainer.innerHTML = docXzHtml;
 
-    docXzOptionsContainer.innerHTML = docXzHtml;
+      // Restore visual state if question was already answered
+      if (docXzCurrentAnswer !== null) {
+        const docXzOptions = document.querySelectorAll('.docXzOptionItem');
+        docXzOptions.forEach((opt, idx) => {
+          opt.classList.add('docXzOptionDisabled');
+          if (idx === docXzCurrentAnswer) {
+            if (idx === 0) {
+              opt.classList.add('docXzOptionCorrect');
+            } else {
+              opt.classList.add('docXzOptionIncorrect');
+            }
+          }
+        });
+      }
 
-    document.querySelectorAll('.docXzOptionItem').forEach(optDiv => {
-      optDiv.addEventListener('click', docXzHandleOptionClick);
-    });
-  }
-
-  // ---------- handle click ----------
-  function docXzHandleOptionClick(e) {
-    if (docXzQuizCompleted || docXzIsTransitioning) return;
-
-    docXzIsTransitioning = true;
-
-    const docXzTarget = e.currentTarget;
-    const docXzSelectedIdx = parseInt(docXzTarget.dataset.optionIndex, 10);
-
-    docXzAnswers[docXzCurrentIndex] = docXzSelectedIdx;
-
-    // reset all styles
-    document.querySelectorAll('.docXzOptionItem').forEach(el => {
-      el.classList.remove('docXzOptionA', 'docXzOptionB');
-    });
-
-    // apply color
-    if (docXzSelectedIdx === 0) {
-      docXzTarget.classList.add('docXzOptionA'); // Green
-    } else {
-      docXzTarget.classList.add('docXzOptionB'); // Red
+      // Attach click listeners
+      document.querySelectorAll('.docXzOptionItem').forEach(optDiv => {
+        optDiv.addEventListener('click', docXzHandleOptionClick);
+      });
     }
 
-    // last question → show result (with delay for UX consistency)
-    if (docXzCurrentIndex === docXzTOTAL_QUESTIONS - 1) {
-      setTimeout(() => {
-        docXzQuizCompleted = true;
-        docXzShowFinalPopup();
+    // ---------- handle answer selection ----------
+    function docXzHandleOptionClick(e) {
+      if (docXzQuizCompleted) return;
+      if (docXzIsTransitioning) return;
+      
+      const docXzTarget = e.currentTarget;
+      
+      // Prevent if already answered
+      if (docXzAnswers[docXzCurrentIndex] !== null) return;
+      
+      const docXzSelectedIdx = parseInt(docXzTarget.dataset.optionIndex, 10);
+
+      // Store answer
+      docXzAnswers[docXzCurrentIndex] = docXzSelectedIdx;
+
+      // Apply color feedback
+      const docXzAllOptions = document.querySelectorAll('.docXzOptionItem');
+      
+      docXzAllOptions.forEach((opt, idx) => {
+        opt.classList.add('docXzOptionDisabled');
+        if (idx === docXzSelectedIdx) {
+          if (idx === 0) {
+            opt.classList.add('docXzOptionCorrect'); // Light green for A
+          } else {
+            opt.classList.add('docXzOptionIncorrect'); // Light red for B
+          }
+        }
+      });
+
+      // Set transitioning flag
+      docXzIsTransitioning = true;
+
+      // Clear any existing timer
+      if (docXzTransitionTimer) {
+        clearTimeout(docXzTransitionTimer);
+      }
+
+      // Handle last question or move to next
+      if (docXzCurrentIndex === docXzTOTAL_QUESTIONS - 1) {
+        docXzTransitionTimer = setTimeout(() => {
+          docXzQuizCompleted = true;
+          docXzIsTransitioning = false;
+          docXzShowFinalPopup();
+          docXzTransitionTimer = null;
+        }, docXzTRANSITION_DELAY);
+        return;
+      }
+
+      // Move to next question after delay
+      docXzTransitionTimer = setTimeout(() => {
+        docXzCurrentIndex++;
         docXzIsTransitioning = false;
-      }, 500);
-      return;
+        docXzRenderQuestion();
+        docXzTransitionTimer = null;
+      }, docXzTRANSITION_DELAY);
     }
 
-    // move to next question after delay
-    setTimeout(() => {
-      docXzCurrentIndex++;
-      docXzRenderQuestion();
+    // ---------- compute assessment ----------
+    function docXzComputeAssessment() {
+      let docXzCountA = 0;
+      let docXzCountB = 0;
+      docXzAnswers.forEach(ans => {
+        if (ans === 0) docXzCountA++;
+        else if (ans === 1) docXzCountB++;
+      });
+      const docXzMostlyA = docXzCountA > docXzCountB;
+      return { docXzCountA, docXzCountB, docXzMostlyA };
+    }
+
+    function docXzShowFinalPopup() {
+      const docXzResult = docXzComputeAssessment();
+      const docXzIsMostlyA = docXzResult.docXzMostlyA;
+
+      if (docXzIsMostlyA) {
+        docXzPopupTitle.textContent = '🔬 Science-Smart You!';
+        docXzPopupMessage.textContent = 'You\'re clearly someone who understands the science which keeps your daily routine healthy. Keep it going.';
+      } else {
+        docXzPopupTitle.textContent = '🌱 Today is a good day';
+        docXzPopupMessage.textContent = 'Today is a good day to understand the science that shapes our daily healthy habits. When you know why, you\'re more likely to stick to the rituals!';
+      }
+
+      docXzPopupOverlay.classList.add('docXzPopupVisible');
+    }
+
+    // ---------- restart quiz ----------
+    function docXzRestartQuiz() {
+      if (docXzTransitionTimer) {
+        clearTimeout(docXzTransitionTimer);
+        docXzTransitionTimer = null;
+      }
+      
+      docXzCurrentIndex = 0;
+      docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null);
+      docXzQuizCompleted = false;
       docXzIsTransitioning = false;
-    }, 500);
-  }
 
-  // ---------- result logic ----------
-  function docXzComputeAssessment() {
-    let docXzCountA = 0;
-    let docXzCountB = 0;
-
-    docXzAnswers.forEach(ans => {
-      if (ans === 0) docXzCountA++;
-      else if (ans === 1) docXzCountB++;
-    });
-
-    return { docXzCountA, docXzCountB, docXzMostlyA: docXzCountA > docXzCountB };
-  }
-
-  function docXzShowFinalPopup() {
-    const docXzResult = docXzComputeAssessment();
-
-    if (docXzResult.docXzMostlyA) {
-      docXzPopupTitle.textContent = '🔬 Science-Smart You!';
-      docXzPopupMessage.textContent =
-        'You’re clearly someone who understands the science which keeps your daily routine healthy. Keep it going.';
-    } else {
-      docXzPopupTitle.textContent = '🌱 Today is a good day';
-      docXzPopupMessage.textContent =
-        'Today is a good day to understand the science that shapes our daily healthy habits. When you know why, you’re more likely to stick to the rituals!';
+      docXzPopupOverlay.classList.remove('docXzPopupVisible');
+      docXzRenderQuestion();
     }
 
-    docXzPopupOverlay.classList.add('docXzPopupVisible');
-  }
+    // ---------- bind restart button ----------
+    docXzRestartBtn.addEventListener('click', docXzRestartQuiz);
 
-  // ---------- restart ----------
-  function docXzRestartQuiz() {
-    docXzCurrentIndex = 0;
-    docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null);
-    docXzQuizCompleted = false;
-    docXzIsTransitioning = false;
+    // Initialize
+    function docXzInitQuiz() {
+      docXzCurrentIndex = 0;
+      docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null);
+      docXzQuizCompleted = false;
+      docXzIsTransitioning = false;
+      docXzPopupOverlay.classList.remove('docXzPopupVisible');
+      docXzRenderQuestion();
+    }
 
-    docXzPopupOverlay.classList.remove('docXzPopupVisible');
-    docXzRenderQuestion();
-  }
+    docXzInitQuiz();
 
-  docXzRestartBtn.addEventListener('click', docXzRestartQuiz);
-
-  // ---------- init ----------
-  function docXzInitQuiz() {
-    docXzCurrentIndex = 0;
-    docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null);
-    docXzQuizCompleted = false;
-    docXzIsTransitioning = false;
-
-    docXzPopupOverlay.classList.remove('docXzPopupVisible');
-    docXzRenderQuestion();
-  }
-
-  docXzInitQuiz();
-
-})();
+  })();
 </script>
 
 
