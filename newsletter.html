@@ -2164,7 +2164,229 @@ box-shadow:0 16px 24px -16px #001e33;
 
 	    
 	    
-	    
+    .doc0526-quiz-container {
+      width: 100%;
+      max-width: 580px;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 25px 45px rgba(18, 52, 86, 0.1), 0 10px 20px rgba(18, 52, 86, 0.05);
+      padding: 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+      transition: all 0.2s ease;
+    }
+
+    .doc0526-progress {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #1e3a5f;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+    }
+
+    .doc0526-progress-bar-bg {
+      background: #dce6f0;
+      height: 6px;
+      border-radius: 20px;
+      flex: 1;
+      margin: 0 1rem;
+      overflow: hidden;
+    }
+
+    .doc0526-progress-fill {
+      background: #1a56a4;
+      height: 100%;
+      width: 0%;
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .doc0526-question-text {
+      font-size: 1.7rem;
+      font-weight: 550;
+      line-height: 1.4;
+      color: #0f2b47;
+      margin-bottom: 0.2rem;
+    }
+
+    .doc0526-options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .doc0526-option-btn {
+      background: #f5f9fd;
+      border: 1.5px solid #c7d9eb;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(18, 52, 86, 0.03);
+      text-align: left;
+      color: #1a3350;
+    }
+
+    .doc0526-option-btn:hover {
+      background: #e5eff9;
+      border-color: #8aafd4;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 18px rgba(18, 52, 86, 0.08);
+    }
+
+    .doc0526-option-btn:active {
+      transform: translateY(1px);
+      background: #d4e4f5;
+    }
+
+    .doc0526-option-icon {
+      font-size: 2rem;
+      min-width: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e2eef9;
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      color: #1a56a4;
+      transition: 0.2s;
+    }
+
+    .doc0526-option-btn:hover .doc0526-option-icon {
+      background: #c5daf2;
+    }
+
+    .doc0526-option-label {
+      font-size: 1.15rem;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    /* Score popup overlay */
+    .doc0526-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 30, 55, 0.55);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.2s, opacity 0.25s ease;
+      padding: 1.5rem;
+    }
+
+    .doc0526-popup-overlay.doc0526-active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .doc0526-score-card {
+      background: #ffffff;
+      border-radius: 2.5rem;
+      max-width: 460px;
+      width: 100%;
+      padding: 2.3rem 2rem 2rem;
+      box-shadow: 0 30px 50px rgba(13, 38, 73, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+      transform: scale(0.95);
+      transition: transform 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+    }
+
+    .doc0526-popup-overlay.doc0526-active .doc0526-score-card {
+      transform: scale(1);
+    }
+
+    .doc0526-score-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #0f2b47;
+    }
+
+    .doc0526-score-number {
+      font-size: 3.5rem;
+      font-weight: 650;
+      background: #e6f0fa;
+      display: inline-block;
+      padding: 0.4rem 2.2rem;
+      border-radius: 60px;
+      margin: 0 auto;
+      color: #0d3b6e;
+    }
+
+    .doc0526-feedback-message {
+      color: #1e3b5a;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      background: #f3f8fc;
+      padding: 1.3rem;
+      border-radius: 1.5rem;
+      text-align: left;
+      font-weight: 450;
+    }
+
+    .doc0526-helpline {
+      margin-top: 0.5rem;
+      font-weight: 550;
+      color: #1a4476;
+      background: #e4effa;
+      padding: 0.8rem;
+      border-radius: 2rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .doc0526-helpline span {
+      font-weight: 650;
+      color: #0a2a4a;
+    }
+
+    .doc0526-close-btn {
+      background: #b0cce6;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      color: #0d2d52;
+      cursor: pointer;
+      margin-top: 0.4rem;
+      transition: 0.2s;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .doc0526-close-btn:hover {
+      background: #8db3d8;
+    }
+
+    @media (max-width: 450px) {
+      .doc0526-quiz-container {
+        padding: 1.8rem 1.3rem;
+      }
+      .doc0526-question-text {
+        font-size: 1.4rem;
+      }
+    }	    
 	    
 	    
 	    
@@ -2537,7 +2759,7 @@ It was a 360-degree approach to make care more accessible, faster, and smarter f
 
 <!-- ADD HYPERLINK OUTLOOK BANNER HERE -->
 
- <!-- BlockQUOTE -->
+ <!-- BlockQUOTE adapt-->
 
                 <section class="home--personal bg--color--spaceX all-sol-block all-sol-block-01 newsletter-Box-wrap" style="display:block;">
 
@@ -2563,7 +2785,7 @@ It was a 360-degree approach to make care more accessible, faster, and smarter f
 
 <hr>
 
-                                    <p class="p--class--typo--Story" style="line-height:1.5;"><b>IFFCO Kisan Finance Taking Healthcare to the Last Mile with DocOnline for Many in Rural Bihar</b>
+                                    <p class="p--class--typo--Story" style="line-height:1.5;"><b>IFFCO Kisan Finance Taking Healthcare to the Last Mile with DocOnline for Many in Rural Bihar...</b>
  
                                     </p>
 
@@ -3333,35 +3555,32 @@ Information Overload</b>
 
                             <div class="NewsLt-Img quiz-container" style="position:relative; overflow:hidden; height:auto; background: #fff; border-radius: 40px;">
 
-
-
-                           <div class="docXzQuizContainer">
-  <div class="docXzQuizHeader">
-    <div class="docXzTitleWrapper">
-      <h1 class="docXzTitle">DAILY HABITS</h1>
-      <span class="docXzQuestionIcon" id="docXzDynamicIcon">⏰</span>
+ <div class="doc0526-quiz-container" id="doc0526QuizBox">
+    <div class="doc0526-progress">
+      <span id="doc0526QuestionCounter">1/5</span>
+      <div class="doc0526-progress-bar-bg">
+        <div class="doc0526-progress-fill" id="doc0526ProgressFill" style="width: 20%;"></div>
+      </div>
+      <span>5</span>
     </div>
-    <div class="docXzProgressBadge" id="docXzProgressDisplay">1 / 6</div>
+
+    <div class="doc0526-question-text" id="doc0526QuestionDisplay"></div>
+
+    <div class="doc0526-options-grid" id="doc0526OptionsContainer"></div>
   </div>
 
-  <!-- question area -->
-  <div class="docXzQuestionCard">
-    <div class="docXzQuestionText" id="docXzQuestionElem">Loading...</div>
-    <div class="docXzOptionsList" id="docXzOptionsContainer"></div>
+  <!-- Score popup markup -->
+  <div class="doc0526-popup-overlay" id="doc0526PopupOverlay">
+    <div class="doc0526-score-card">
+      <div class="doc0526-score-title">Your result</div>
+      <div class="doc0526-score-number" id="doc0526ScoreValue">0/5</div>
+      <div class="doc0526-feedback-message" id="doc0526FeedbackText"></div>
+      <div class="doc0526-helpline">
+        📞 <span>DocOnline</span> · call <span>8822 126 126</span>
+      </div>
+      <button class="doc0526-close-btn" id="doc0526ClosePopupBtn">Got it</button>
+    </div>
   </div>
-
-  <div class="docXzFooterNote"></div>
-</div>
-
-<!-- POPUP (final assessment) -->
-<div class="docXzPopupOverlay" id="docXzPopupOverlay">
-  <div class="docXzPopupCard">
-    <div class="docXzPopupTitle" id="docXzPopupTitle">✨ Assessment</div>
-    <div class="docXzPopupMessage" id="docXzPopupMessage">Calculating your science habits…</div>
-    <button class="docXzRestartBtn" id="docXzRestartQuizBtn">⟳ Restart Quiz</button>
-  </div>
-</div>
-                           
                            
                            
                            
@@ -3856,194 +4075,181 @@ It has been a pleasure working with you and your team, and we look forward to st
     </section>
 
 
-  <script>
-  (function(){
-    "use strict";
+   <script>
+    (function() {
+      // ----- doc0526 prefixed JS variables -----
+      const doc0526questions = [
+        {
+          text: "When you come across emotionally intense content, what do you usually do first?",
+          options: [
+            { label: "Pause and take time to process", icon: "🧘", correct: true },
+            { label: "Engage and keep scrolling", icon: "📱", correct: false }
+          ]
+        },
+        {
+          text: "Do you tend to revisit the same content even if it feels heavy?",
+          options: [
+            { label: "Yes, I go back to it", icon: "🔄", correct: false },
+            { label: "No, I avoid revisiting it", icon: "🚪", correct: true }
+          ]
+        },
+        {
+          text: "If you see something that leaves you unsettled, what do you do?",
+          options: [
+            { label: "Keep it to yourself", icon: "🤐", correct: false },
+            { label: "Talk to close family and friends about it", icon: "💬", correct: true }
+          ]
+        },
+        {
+          text: "Do you take intentional breaks from consuming information?",
+          options: [
+            { label: "Yes, regularly", icon: "🌿", correct: true },
+            { label: "Rarely or not at all", icon: "⏩", correct: false }
+          ]
+        },
+        {
+          text: "How do you usually feel after spending time scrolling through updates?",
+          options: [
+            { label: "Drained or overwhelmed", icon: "😞", correct: false },
+            { label: "Informed and in control", icon: "✨", correct: true }
+          ]
+        }
+      ];
 
-    // ---------- docXz PREFIXED VARIABLES & CONSTANTS ----------
-    const docXzQUESTIONS = [
-      {
-        text: "Early to Bed and Early to Rise",
-        options: [
-          "Sleeping before midnight helps your body repair better",
-          "Sleep is the same at any time, only total hours matter"
-        ],
-        icon: "⏰" // alarm clock
-      },
-      {
-        text: "Eating Breakfast Daily",
-        options: [
-          "Gives your body energy and kickstarts metabolism",
-          "Makes you lose weight"
-        ],
-        icon: "🍳" // meal / breakfast
-      },
-      {
-        text: "Limiting Screen Time Before Bed",
-        options: [
-          "Reduces blue light exposure that delays sleep hormones",
-          "Screens help your brain relax before sleep"
-        ],
-        icon: "📱" // screen / phone
-      },
-      {
-        text: "Washing Hands Regularly",
-        options: [
-          "Prevents germs from entering your body",
-          "Is needed when hands look visibly dirty"
-        ],
-        icon: "🧼" // hand washing
-      },
-      {
-        text: "Taking Short Breaks While Working",
-        options: [
-          "Helps improve focus and reduce stress",
-          "Breaks your productivity and flow"
-        ],
-        icon: "☕" // coffee break
-      },
-      {
-        text: "Getting Morning Sunlight",
-        options: [
-          "Helps set your body clock and boosts Vitamin D",
-          "Heats your body and drains your energy"
-        ],
-        icon: "☀️" // sun / morning sunlight
-      }
-    ];
+      // State variables with doc0526 prefix
+      let doc0526CurrentIndex = 0;
+      const doc0526TotalQuestions = doc0526questions.length;
+      let doc0526UserAnswers = new Array(doc0526TotalQuestions).fill(null); // store boolean correct or false
 
-    // Tracking: each question answer (0 = option A / index 0 , 1 = option B)
-    const docXzTOTAL_QUESTIONS = docXzQUESTIONS.length;
-    let docXzCurrentIndex = 0;                 // 0-based
-    let docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null); // null, 0 (A), or 1 (B)
-    let docXzQuizCompleted = false;
+      // DOM elements with doc0526 prefix
+      const doc0526QuestionDisplay = document.getElementById('doc0526QuestionDisplay');
+      const doc0526OptionsContainer = document.getElementById('doc0526OptionsContainer');
+      const doc0526QuestionCounter = document.getElementById('doc0526QuestionCounter');
+      const doc0526ProgressFill = document.getElementById('doc0526ProgressFill');
+      const doc0526PopupOverlay = document.getElementById('doc0526PopupOverlay');
+      const doc0526ScoreValue = document.getElementById('doc0526ScoreValue');
+      const doc0526FeedbackText = document.getElementById('doc0526FeedbackText');
+      const doc0526ClosePopupBtn = document.getElementById('doc0526ClosePopupBtn');
 
-    // DOM elements
-    const docXzQuestionElem = document.getElementById('docXzQuestionElem');
-    const docXzOptionsContainer = document.getElementById('docXzOptionsContainer');
-    const docXzProgressDisplay = document.getElementById('docXzProgressDisplay');
-    const docXzPopupOverlay = document.getElementById('docXzPopupOverlay');
-    const docXzPopupTitle = document.getElementById('docXzPopupTitle');
-    const docXzPopupMessage = document.getElementById('docXzPopupMessage');
-    const docXzRestartBtn = document.getElementById('docXzRestartQuizBtn');
-    const docXzDynamicIcon = document.getElementById('docXzDynamicIcon');
+      // Helper: render question based on doc0526CurrentIndex
+      function doc0526RenderQuestion() {
+        if (doc0526CurrentIndex >= doc0526TotalQuestions) {
+          doc0526ShowScorePopup();
+          return;
+        }
 
-    // ---------- helper: render current question ----------
-    function docXzRenderQuestion() {
-      if (docXzQuizCompleted) return;
+        const currentQ = doc0526questions[doc0526CurrentIndex];
+        doc0526QuestionDisplay.textContent = currentQ.text;
 
-      const docXzQ = docXzQUESTIONS[docXzCurrentIndex];
-      docXzQuestionElem.textContent = `Q${docXzCurrentIndex+1}. ${docXzQ.text}`;
-      
-      // Update icon based on current question
-      docXzDynamicIcon.textContent = docXzQ.icon;
+        // Build options HTML with icons
+        let optionsHtml = '';
+        currentQ.options.forEach((opt, idx) => {
+          // The correct answer is marked with comment in data, but we don't show "//Correct" on frontend.
+          optionsHtml += `
+            <div class="doc0526-option-btn" data-option-index="${idx}">
+              <div class="doc0526-option-icon">${opt.icon}</div>
+              <div class="doc0526-option-label">${opt.label}</div>
+            </div>
+          `;
+        });
 
-      // update progress badge
-      docXzProgressDisplay.textContent = `${docXzCurrentIndex+1} / ${docXzTOTAL_QUESTIONS}`;
+        doc0526OptionsContainer.innerHTML = optionsHtml;
 
-      // build options
-      const docXzCurrentAnswer = docXzAnswers[docXzCurrentIndex]; // null, 0, or 1
-      let docXzHtml = '';
-      docXzQ.options.forEach((optText, idx) => {
-        const docXzLetter = idx === 0 ? 'A' : 'B';
-        const docXzSelectedClass = (docXzCurrentAnswer === idx) ? 'docXzOptionSelected' : '';
-        docXzHtml += `
-          <div class="docXzOptionItem ${docXzSelectedClass}" data-option-index="${idx}">
-            <span class="docXzOptionPrefix">${docXzLetter}</span>
-            <span class="docXzOptionText">${optText}</span>
-          </div>
-        `;
-      });
-      docXzOptionsContainer.innerHTML = docXzHtml;
+        // Attach event listeners to new option buttons
+        document.querySelectorAll('.doc0526-option-btn').forEach(btn => {
+          btn.addEventListener('click', doc0526OptionClickHandler);
+        });
 
-      // attach click listeners to options
-      document.querySelectorAll('.docXzOptionItem').forEach(optDiv => {
-        optDiv.addEventListener('click', docXzHandleOptionClick);
-      });
-    }
-
-    // ---------- handle answer selection ----------
-    function docXzHandleOptionClick(e) {
-      if (docXzQuizCompleted) return;
-
-      const docXzTarget = e.currentTarget;
-      const docXzSelectedIdx = parseInt(docXzTarget.dataset.optionIndex, 10);
-
-      // Store answer for current question (0 = A, 1 = B)
-      docXzAnswers[docXzCurrentIndex] = docXzSelectedIdx;
-
-      // visual feedback: highlight selected
-      document.querySelectorAll('.docXzOptionItem').forEach(el => {
-        el.classList.remove('docXzOptionSelected');
-      });
-      docXzTarget.classList.add('docXzOptionSelected');
-
-      // If this is the last question → finish and show popup
-      if (docXzCurrentIndex === docXzTOTAL_QUESTIONS - 1) {
-        docXzQuizCompleted = true;
-        docXzShowFinalPopup();
-        return;
+        // Update progress UI
+        const progressPercent = ((doc0526CurrentIndex + 1) / doc0526TotalQuestions) * 100;
+        doc0526ProgressFill.style.width = `${progressPercent}%`;
+        doc0526QuestionCounter.textContent = `${doc0526CurrentIndex + 1}/${doc0526TotalQuestions}`;
       }
 
-      // Otherwise move to next question
-      docXzCurrentIndex++;
-      docXzRenderQuestion();
-    }
+      // Option click handler
+      function doc0526OptionClickHandler(e) {
+        const optionBtn = e.currentTarget;
+        const selectedIndex = parseInt(optionBtn.getAttribute('data-option-index'), 10);
+        const currentQuestionData = doc0526questions[doc0526CurrentIndex];
+        const selectedOption = currentQuestionData.options[selectedIndex];
 
-    // ---------- compute mostly A's or B's and show popup ----------
-    function docXzComputeAssessment() {
-      let docXzCountA = 0;
-      let docXzCountB = 0;
-      docXzAnswers.forEach(ans => {
-        if (ans === 0) docXzCountA++;
-        else if (ans === 1) docXzCountB++;
-      });
-      const docXzMostlyA = docXzCountA > docXzCountB;
-      return { docXzCountA, docXzCountB, docXzMostlyA };
-    }
+        // Record answer (true if correct)
+        doc0526UserAnswers[doc0526CurrentIndex] = selectedOption.correct;
 
-    function docXzShowFinalPopup() {
-      const docXzResult = docXzComputeAssessment();
-      const docXzIsMostlyA = docXzResult.docXzMostlyA;
+        // Move to next question
+        doc0526CurrentIndex++;
 
-      if (docXzIsMostlyA) {
-        docXzPopupTitle.textContent = '🔬 Science-Smart You!';
-        docXzPopupMessage.textContent = 'You’re clearly someone who understands the science which keeps your daily routine healthy. Keep it going.';
-      } else {
-        docXzPopupTitle.textContent = '🌱 Today is a good day';
-        docXzPopupMessage.textContent = 'Today is a good day to understand the science that shapes our daily healthy habits. When you know why, you’re more likely to stick to the rituals!';
+        // If there are more questions, render next; else show score
+        if (doc0526CurrentIndex < doc0526TotalQuestions) {
+          doc0526RenderQuestion();
+        } else {
+          doc0526ShowScorePopup();
+        }
       }
 
-      docXzPopupOverlay.classList.add('docXzPopupVisible');
-    }
+      // Calculate score and show popup
+      function doc0526ShowScorePopup() {
+        // Count correct answers
+        let doc0526CorrectCount = 0;
+        doc0526UserAnswers.forEach(answer => {
+          if (answer === true) doc0526CorrectCount++;
+        });
 
-    // ---------- restart quiz ----------
-    function docXzRestartQuiz() {
-      docXzCurrentIndex = 0;
-      docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null);
-      docXzQuizCompleted = false;
+        // Update score display
+        doc0526ScoreValue.textContent = `${doc0526CorrectCount}/${doc0526TotalQuestions}`;
 
-      docXzPopupOverlay.classList.remove('docXzPopupVisible');
-      docXzRenderQuestion();
-    }
+        // Determine feedback based on score logic
+        let feedbackMessage = '';
 
-    // ---------- bind restart button ----------
-    docXzRestartBtn.addEventListener('click', docXzRestartQuiz);
+        if (doc0526CorrectCount >= 4) {
+          feedbackMessage = `
+            You seem to have a healthy relationship with information.<br>
+            You pause, process, and protect your mental space.<br>
+            <strong>However, if you feel overwhelmed, do reach out to mental health expert doctors at the DocOnline app or call 8822 126 126 for help.</strong>
+          `;
+        } else if (doc0526CorrectCount >= 2 && doc0526CorrectCount <= 3) {
+          feedbackMessage = `
+            You're aware, but the overload gets to you sometimes which is very normal in this day and age.<br>
+            <strong>However, if you feel overwhelmed, do reach out to mental health expert doctors at the DocOnline app or call 8822 126 126 for help.</strong>
+          `;
+        } else { // 0-1 points
+          feedbackMessage = `
+            It looks like information might be weighing on you more than you realise.<br>
+            That's completely understandable in today's always-on world.<br>
+            <strong>And, if you feel overwhelmed, do reach out to mental health expert doctors at the DocOnline app or call 8822 126 126 for help.</strong>
+          `;
+        }
 
-    // Initialize the quiz
-    function docXzInitQuiz() {
-      docXzCurrentIndex = 0;
-      docXzAnswers = new Array(docXzTOTAL_QUESTIONS).fill(null);
-      docXzQuizCompleted = false;
-      docXzPopupOverlay.classList.remove('docXzPopupVisible');
-      docXzRenderQuestion();
-    }
+        doc0526FeedbackText.innerHTML = feedbackMessage;
 
-    docXzInitQuiz();
+        // Show overlay
+        doc0526PopupOverlay.classList.add('doc0526-active');
+      }
 
-  })();
-</script>
+      // Close popup and reset (or keep as finished state)
+      function doc0526ClosePopup() {
+        doc0526PopupOverlay.classList.remove('doc0526-active');
+        // Optionally reset quiz to start again? Let's reset to first question but keep answers clear.
+        // Better user experience: after closing, restart from Q1.
+        doc0526CurrentIndex = 0;
+        doc0526UserAnswers = new Array(doc0526TotalQuestions).fill(null);
+        doc0526RenderQuestion();
+      }
 
+      // Event listener for close button
+      doc0526ClosePopupBtn.addEventListener('click', doc0526ClosePopup);
+
+      // Also allow closing by clicking overlay background (optional but nice)
+      doc0526PopupOverlay.addEventListener('click', function(e) {
+        if (e.target === doc0526PopupOverlay) {
+          doc0526ClosePopup();
+        }
+      });
+
+      // Initialize first question
+      doc0526RenderQuestion();
+    })();
+  </script>
 
 
 
