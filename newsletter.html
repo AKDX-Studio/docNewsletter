@@ -667,7 +667,7 @@ online medicine delivery, online prescriptions, book doctor appointment online, 
             
             border-radius:10px 0 0 10px !important; 
             width:320px; 
-            height:auto; 
+            height:250px; 
             background-color:transparent; 
             background-size: cover;
             background-repeat: no-repeat;
@@ -678,8 +678,8 @@ online medicine delivery, online prescriptions, book doctor appointment online, 
         .QT-Month-Img-Bottom {
           
         border-radius: 10px !important;
-            width: 100%;
-            height: 80px;
+            width:320px; 
+            height:250px; 
             background-color: transparent;
             background-size: cover;
           
@@ -2655,7 +2655,254 @@ box-shadow:0 16px 24px -16px #001e33;
     }
    
 	    
-	    
+.doc0726-quiz-container {
+      width: 100%;
+      max-width: 600px;
+      background: #ffffff;
+      border-radius: 2.8rem;
+      box-shadow: 0 25px 50px rgba(80, 50, 30, 0.08), 0 8px 20px rgba(80, 50, 30, 0.04);
+      padding: 2.4rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      transition: all 0.2s ease;
+    }
+
+    .doc0726-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .doc0726-title {
+      font-size: 1.3rem;
+      font-weight: 650;
+      color: #3e2c1c;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .doc0726-subtitle {
+      font-size: 0.9rem;
+      color: #6b5d4f;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .doc0726-progress {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #4a3725;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      margin-top: 0.2rem;
+    }
+
+    .doc0726-progress-bar-bg {
+      background: #e7dfd3;
+      height: 6px;
+      border-radius: 20px;
+      flex: 1;
+      margin: 0 1rem;
+      overflow: hidden;
+    }
+
+    .doc0726-progress-fill {
+      background: #b8753e;
+      height: 100%;
+      width: 0%;
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .doc0726-question-text {
+      font-size: 1.65rem;
+      font-weight: 550;
+      line-height: 1.4;
+      color: #2e1f10;
+      margin-bottom: 0.1rem;
+    }
+
+    .doc0726-options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .doc0726-option-btn {
+      background: #fdfaf6;
+      border: 1.5px solid #ddd1c0;
+      border-radius: 1.6rem;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(70, 45, 25, 0.03);
+      text-align: left;
+      color: #3b2a18;
+    }
+
+    .doc0726-option-btn:hover {
+      background: #f9f2e7;
+      border-color: #c4a87c;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 22px rgba(90, 55, 30, 0.07);
+    }
+
+    .doc0726-option-btn:active {
+      transform: translateY(1px);
+      background: #f3e9d7;
+    }
+
+    .doc0726-option-icon {
+      font-size: 2.2rem;
+      min-width: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f7efe2;
+      border-radius: 50%;
+      width: 3.4rem;
+      height: 3.4rem;
+      color: #7a5a3a;
+      transition: 0.2s;
+    }
+
+    .doc0726-option-btn:hover .doc0726-option-icon {
+      background: #eedcc3;
+    }
+
+    .doc0726-option-label {
+      font-size: 1.15rem;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    /* Score popup overlay */
+    .doc0726-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 18, 10, 0.6);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.2s, opacity 0.25s ease;
+      padding: 1.5rem;
+    }
+
+    .doc0726-popup-overlay.doc0726-active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .doc0726-score-card {
+      background: #ffffff;
+      border-radius: 2.8rem;
+      max-width: 480px;
+      width: 100%;
+      padding: 2.5rem 2.2rem 2.2rem;
+      box-shadow: 0 35px 55px rgba(40, 25, 10, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      text-align: center;
+      transform: scale(0.95);
+      transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
+    }
+
+    .doc0726-popup-overlay.doc0726-active .doc0726-score-card {
+      transform: scale(1);
+    }
+
+    .doc0726-score-title {
+      font-size: 2.1rem;
+      font-weight: 650;
+      color: #2e1f10;
+    }
+
+    .doc0726-score-type {
+      font-size: 1.7rem;
+      font-weight: 600;
+      background: #f7efe2;
+      display: inline-block;
+      padding: 0.6rem 2rem;
+      border-radius: 50px;
+      margin: 0 auto;
+      color: #5c3f24;
+      letter-spacing: -0.3px;
+    }
+
+    .doc0726-feedback-message {
+      color: #3b2c1c;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      background: #faf6ef;
+      padding: 1.3rem 1.4rem;
+      border-radius: 1.6rem;
+      text-align: left;
+      font-weight: 440;
+    }
+
+    .doc0726-helpline {
+      margin-top: 0.3rem;
+      font-weight: 520;
+      color: #5a3f28;
+      background: #f2e8d8;
+      padding: 0.9rem 1rem;
+      border-radius: 2.2rem;
+      font-size: 0.98rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .doc0726-helpline span {
+      font-weight: 650;
+      color: #2e1c0d;
+    }
+
+    .doc0726-close-btn {
+      background: #d6c4a8;
+      border: none;
+      padding: 0.8rem 2.2rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      color: #2e1c0d;
+      cursor: pointer;
+      margin-top: 0.2rem;
+      transition: 0.2s;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .doc0726-close-btn:hover {
+      background: #c2ab87;
+    }
+
+    @media (max-width: 480px) {
+      .doc0726-quiz-container {
+        padding: 1.8rem 1.3rem;
+      }
+      .doc0726-question-text {
+        font-size: 1.4rem;
+      }
+    }	    
 	    
 	    
    
@@ -3040,7 +3287,7 @@ support, we continue to make quality mental healthcare more accessible across co
 
                                 <div class="QT-Month-Txt" style="">
 
-                                    <p class="txt-12--bold" style="margin:0 0 12px 0 !important;">DOCONLINE IN NEWS
+                                    <p class="txt-12--bold" style="margin:0 0 12px 0 !important;">National Doctor's Day, 2026
                                         <br>
                                         
                                     </p>
@@ -3819,35 +4066,35 @@ consistency of sleep. <br><br>Understand whether your current daily habits are h
 
                             <div class="NewsLt-Img quiz-container" style="position:relative; overflow:hidden; height:auto; background: #fff; border-radius: 40px;">
 
- <div class="doc0626-quiz-container" id="doc0626QuizBox">
-   
-    <div class="doc0626-progress">
-      <span id="doc0626QuestionCounter">1/5</span>
-      <div class="doc0626-progress-bar-bg">
-        <div class="doc0626-progress-fill" id="doc0626ProgressFill" style="width: 20%;"></div>
+<!-- QUIZ PASTE START-->
+
+ <div class="doc0726-quiz-container" id="doc0726QuizBox">
+    
+    <div class="doc0726-progress">
+      <span id="doc0726QuestionCounter">1/5</span>
+      <div class="doc0726-progress-bar-bg">
+        <div class="doc0726-progress-fill" id="doc0726ProgressFill" style="width: 20%;"></div>
       </div>
       <span>5</span>
     </div>
 
-    <div class="doc0626-question-text" id="doc0626QuestionDisplay"></div>
+    <div class="doc0726-question-text" id="doc0726QuestionDisplay"></div>
 
-    <div class="doc0626-options-grid" id="doc0626OptionsContainer"></div>
+    <div class="doc0726-options-grid" id="doc0726OptionsContainer"></div>
   </div>
 
   <!-- Score popup -->
-  <div class="doc0626-popup-overlay" id="doc0626PopupOverlay">
-    <div class="doc0626-score-card">
-      <div class="doc0626-score-title">Your sleep style</div>
-      <div class="doc0626-score-type" id="doc0626ScoreType">...</div>
-      <div class="doc0626-feedback-message" id="doc0626FeedbackText"></div>
-      <div class="doc0626-helpline">
-        <span>If any sleep issues persist, feel free to reach out to our health experts at 8822 126 126</span>
-      </div>
-      <button class="doc0626-close-btn" id="doc0626ClosePopupBtn">Restart quiz</button>
+  <div class="doc0726-popup-overlay" id="doc0726PopupOverlay">
+    <div class="doc0726-score-card">
+      <div class="doc0726-score-title">Your work stress profile</div>
+      <div class="doc0726-score-type" id="doc0726ScoreType">...</div>
+      <div class="doc0726-feedback-message" id="doc0726FeedbackText"></div>
+      
+      <button class="doc0726-close-btn" id="doc0726ClosePopupBtn">Restart quiz</button>
     </div>
   </div>
                            
-                           
+<!-- QUIZ PASTE END-->                           
                            
                            
                            
@@ -4340,165 +4587,165 @@ It has been a pleasure working with you and your team, and we look forward to st
     </section>
 
 
-   <script>
+<script>
     (function() {
-      // ----- doc0626 prefixed JS variables -----
-      const doc0626questions = [
+      // ----- doc0726 prefixed JS variables -----
+      const doc0726questions = [
         {
-          text: "What do you do right before going to bed?",
+          text: "When work piles up, you:",
           options: [
-            { label: "Check your phone, scroll and watch something", icon: "📱", correct: false },
-            { label: "Wind down with a calm routine like reading", icon: "📖", correct: true }
+            { label: "Feel overwhelmed", icon: "😰", correct: false },
+            { label: "Break the task down into smaller, manageable steps", icon: "📋", correct: true }
           ]
         },
         {
-          text: "Do you have a consistent sleep schedule?",
+          text: "Asking for help from a coworker/boss is:",
           options: [
-            { label: "My sleep varies, I sleep and wake up at different times", icon: "🔄", correct: false },
-            { label: "Yes, I sleep and wake up around the same time daily", icon: "⏰", correct: true }
+            { label: "Difficult, you prefer to handle it yourself", icon: "🤐", correct: false },
+            { label: "Comfortable and easy to do when required", icon: "🤝", correct: true }
           ]
         },
         {
-          text: "When you wake up, how often do you feel well rested?",
+          text: "At the start of the workday, you feel:",
           options: [
-            { label: "Rarely / sometimes", icon: "😴", correct: false },
-            { label: "Most of the time", icon: "🌞", correct: true }
+            { label: "Stressed and already feel like you're falling behind", icon: "😟", correct: false },
+            { label: "Calm, composed and ready to take on the day", icon: "😌", correct: true }
           ]
         },
         {
-          text: "If you are unable to fall asleep, what do you do?",
+          text: "Taking breaks at work is:",
           options: [
-            { label: "Stay in bed and keep trying", icon: "🛌", correct: false },
-            { label: "Get up and do something else before trying again", icon: "🚶", correct: true }
+            { label: "Often skipping", icon: "⏭️", correct: false },
+            { label: "Essential, has become a regular habit", icon: "☕", correct: true }
           ]
         },
         {
-          text: "During the day, do you feel:",
+          text: "After clocking out, you:",
           options: [
-            { label: "Tired, sluggish, lethargic", icon: "🥱", correct: false },
-            { label: "Energized, focused and highly alert", icon: "⚡", correct: true }
+            { label: "Keep thinking about work like pending tasks and emails", icon: "💭", correct: false },
+            { label: "Truly disconnect and focus on non-work related tasks", icon: "🧘", correct: true }
           ]
         }
       ];
 
-      // State variables doc0626
-      let doc0626CurrentIndex = 0;
-      const doc0626TotalQuestions = doc0626questions.length;
-      let doc0626UserAnswers = new Array(doc0626TotalQuestions).fill(null); // true = B (correct), false = A
+      // State variables doc0726
+      let doc0726CurrentIndex = 0;
+      const doc0726TotalQuestions = doc0726questions.length;
+      let doc0726UserAnswers = new Array(doc0726TotalQuestions).fill(null); // true = B (correct), false = A
 
-      // DOM elements doc0626
-      const doc0626QuestionDisplay = document.getElementById('doc0626QuestionDisplay');
-      const doc0626OptionsContainer = document.getElementById('doc0626OptionsContainer');
-      const doc0626QuestionCounter = document.getElementById('doc0626QuestionCounter');
-      const doc0626ProgressFill = document.getElementById('doc0626ProgressFill');
-      const doc0626PopupOverlay = document.getElementById('doc0626PopupOverlay');
-      const doc0626ScoreType = document.getElementById('doc0626ScoreType');
-      const doc0626FeedbackText = document.getElementById('doc0626FeedbackText');
-      const doc0626ClosePopupBtn = document.getElementById('doc0626ClosePopupBtn');
+      // DOM elements doc0726
+      const doc0726QuestionDisplay = document.getElementById('doc0726QuestionDisplay');
+      const doc0726OptionsContainer = document.getElementById('doc0726OptionsContainer');
+      const doc0726QuestionCounter = document.getElementById('doc0726QuestionCounter');
+      const doc0726ProgressFill = document.getElementById('doc0726ProgressFill');
+      const doc0726PopupOverlay = document.getElementById('doc0726PopupOverlay');
+      const doc0726ScoreType = document.getElementById('doc0726ScoreType');
+      const doc0726FeedbackText = document.getElementById('doc0726FeedbackText');
+      const doc0726ClosePopupBtn = document.getElementById('doc0726ClosePopupBtn');
 
-      function doc0626RenderQuestion() {
-        if (doc0626CurrentIndex >= doc0626TotalQuestions) {
-          doc0626ShowScorePopup();
+      function doc0726RenderQuestion() {
+        if (doc0726CurrentIndex >= doc0726TotalQuestions) {
+          doc0726ShowScorePopup();
           return;
         }
 
-        const currentQ = doc0626questions[doc0626CurrentIndex];
-        doc0626QuestionDisplay.textContent = currentQ.text;
+        const currentQ = doc0726questions[doc0726CurrentIndex];
+        doc0726QuestionDisplay.textContent = currentQ.text;
 
         let optionsHtml = '';
         currentQ.options.forEach((opt, idx) => {
           optionsHtml += `
-            <div class="doc0626-option-btn" data-option-index="${idx}">
-              <div class="doc0626-option-icon">${opt.icon}</div>
-              <div class="doc0626-option-label">${opt.label}</div>
+            <div class="doc0726-option-btn" data-option-index="${idx}">
+              <div class="doc0726-option-icon">${opt.icon}</div>
+              <div class="doc0726-option-label">${opt.label}</div>
             </div>
           `;
         });
 
-        doc0626OptionsContainer.innerHTML = optionsHtml;
+        doc0726OptionsContainer.innerHTML = optionsHtml;
 
-        document.querySelectorAll('.doc0626-option-btn').forEach(btn => {
-          btn.addEventListener('click', doc0626OptionClickHandler);
+        document.querySelectorAll('.doc0726-option-btn').forEach(btn => {
+          btn.addEventListener('click', doc0726OptionClickHandler);
         });
 
-        const progressPercent = ((doc0626CurrentIndex + 1) / doc0626TotalQuestions) * 100;
-        doc0626ProgressFill.style.width = `${progressPercent}%`;
-        doc0626QuestionCounter.textContent = `${doc0626CurrentIndex + 1}/${doc0626TotalQuestions}`;
+        const progressPercent = ((doc0726CurrentIndex + 1) / doc0726TotalQuestions) * 100;
+        doc0726ProgressFill.style.width = `${progressPercent}%`;
+        doc0726QuestionCounter.textContent = `${doc0726CurrentIndex + 1}/${doc0726TotalQuestions}`;
       }
 
-      function doc0626OptionClickHandler(e) {
+      function doc0726OptionClickHandler(e) {
         const optionBtn = e.currentTarget;
         const selectedIndex = parseInt(optionBtn.getAttribute('data-option-index'), 10);
-        const currentQuestionData = doc0626questions[doc0626CurrentIndex];
+        const currentQuestionData = doc0726questions[doc0726CurrentIndex];
         const selectedOption = currentQuestionData.options[selectedIndex];
 
-        // Record answer (correct = B answer)
-        doc0626UserAnswers[doc0626CurrentIndex] = selectedOption.correct;
+        // Record answer (correct = B answer = true)
+        doc0726UserAnswers[doc0726CurrentIndex] = selectedOption.correct;
 
-        doc0626CurrentIndex++;
+        doc0726CurrentIndex++;
 
-        if (doc0626CurrentIndex < doc0626TotalQuestions) {
-          doc0626RenderQuestion();
+        if (doc0726CurrentIndex < doc0726TotalQuestions) {
+          doc0726RenderQuestion();
         } else {
-          doc0626ShowScorePopup();
+          doc0726ShowScorePopup();
         }
       }
 
-      function doc0626ShowScorePopup() {
+      function doc0726ShowScorePopup() {
         // Count A vs B (false = A, true = B)
-        let doc0626CountA = 0;
-        let doc0626CountB = 0;
-        doc0626UserAnswers.forEach(answer => {
+        let doc0726CountA = 0;
+        let doc0726CountB = 0;
+        doc0726UserAnswers.forEach(answer => {
           if (answer === true) {
-            doc0626CountB++;
+            doc0726CountB++;
           } else if (answer === false) {
-            doc0626CountA++;
+            doc0726CountA++;
           }
         });
 
-        let sleepType = '';
+        let stressProfile = '';
         let feedbackMessage = '';
 
-        if (doc0626CountA > doc0626CountB) {
+        if (doc0726CountA > doc0726CountB) {
           // Mostly As
-          sleepType = 'The always-on sleeper';
+          stressProfile = 'The overloaded professional';
           feedbackMessage = `
-            Your daily habits and routine are keeping your mind awake, even when it needs rest.<br>
-            Implementing small changes to your routine, like limiting screen time before bed can dramatically improve your sleep quality.
+            You keep pushing through, but stress is creeping up.<br>
+            Create boundaries and ask for help — these alone can make a significant difference.
           `;
         } else {
-          // Mostly Bs (or equal, default to well rested)
-          sleepType = 'The well rested sleeper';
+          // Mostly Bs (or equal)
+          stressProfile = 'The balanced achiever';
           feedbackMessage = `
-            You have habits that support a good sleep schedule, helping you recover and recharge everyday.<br>
-            Keep protecting this routine, it is a key foundation for your wellbeing.
+            Responsibilities and your wellbeing are equally important, you are able to balance and manage both.<br>
+            Your approach helps you stay productive throughout the day without feeling burnt out.
           `;
         }
 
-        doc0626ScoreType.textContent = sleepType;
-        doc0626FeedbackText.innerHTML = feedbackMessage;
+        doc0726ScoreType.textContent = stressProfile;
+        doc0726FeedbackText.innerHTML = feedbackMessage;
 
-        doc0626PopupOverlay.classList.add('doc0626-active');
+        doc0726PopupOverlay.classList.add('doc0726-active');
       }
 
-      function doc0626ClosePopup() {
-        doc0626PopupOverlay.classList.remove('doc0626-active');
+      function doc0726ClosePopup() {
+        doc0726PopupOverlay.classList.remove('doc0726-active');
         // Reset quiz
-        doc0626CurrentIndex = 0;
-        doc0626UserAnswers = new Array(doc0626TotalQuestions).fill(null);
-        doc0626RenderQuestion();
+        doc0726CurrentIndex = 0;
+        doc0726UserAnswers = new Array(doc0726TotalQuestions).fill(null);
+        doc0726RenderQuestion();
       }
 
-      doc0626ClosePopupBtn.addEventListener('click', doc0626ClosePopup);
+      doc0726ClosePopupBtn.addEventListener('click', doc0726ClosePopup);
 
-      doc0626PopupOverlay.addEventListener('click', function(e) {
-        if (e.target === doc0626PopupOverlay) {
-          doc0626ClosePopup();
+      doc0726PopupOverlay.addEventListener('click', function(e) {
+        if (e.target === doc0726PopupOverlay) {
+          doc0726ClosePopup();
         }
       });
 
-      // Start
-      doc0626RenderQuestion();
+      // Start quiz
+      doc0726RenderQuestion();
     })();
   </script>
 
