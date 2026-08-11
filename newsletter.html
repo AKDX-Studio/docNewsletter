@@ -2164,31 +2164,55 @@ box-shadow:0 16px 24px -16px #001e33;
 
 	    
 	    
-    .doc0526-quiz-container {
+    .doc0826-quiz-container {
       width: 100%;
-      max-width: 610px;
+      max-width: 600px;
       background: #ffffff;
-      border-radius: 2.5rem;
-      box-shadow: 0 25px 45px rgba(18, 52, 86, 0.1), 0 10px 20px rgba(18, 52, 86, 0.05);
-      padding: 2.2rem 2rem;
+      border-radius: 2.8rem;
+      box-shadow: 0 25px 50px rgba(25, 55, 80, 0.1), 0 8px 20px rgba(25, 55, 80, 0.05);
+      padding: 2.4rem 2.2rem;
       display: flex;
       flex-direction: column;
-      gap: 2.2rem;
+      gap: 2rem;
       transition: all 0.2s ease;
     }
 
-    .doc0526-progress {
+    .doc0826-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .doc0826-title {
+      font-size: 1.3rem;
+      font-weight: 650;
+      color: #1a3a4f;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .doc0826-subtitle {
+      font-size: 0.9rem;
+      color: #4d6b7d;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .doc0826-progress {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: #1e3a5f;
+      color: #2a4d64;
       font-weight: 500;
       font-size: 0.9rem;
       letter-spacing: 0.02em;
+      margin-top: 0.2rem;
     }
 
-    .doc0526-progress-bar-bg {
-      background: #dce6f0;
+    .doc0826-progress-bar-bg {
+      background: #d5e3ec;
       height: 6px;
       border-radius: 20px;
       flex: 1;
@@ -2196,89 +2220,89 @@ box-shadow:0 16px 24px -16px #001e33;
       overflow: hidden;
     }
 
-    .doc0526-progress-fill {
-      background: #1a56a4;
+    .doc0826-progress-fill {
+      background: #2e7a9e;
       height: 100%;
       width: 0%;
       border-radius: 20px;
       transition: width 0.3s ease;
     }
 
-    .doc0526-question-text {
-      font-size: 1.7rem;
+    .doc0826-question-text {
+      font-size: 1.65rem;
       font-weight: 550;
       line-height: 1.4;
-      color: #0f2b47;
-      margin-bottom: 0.2rem;
+      color: #0f2b3a;
+      margin-bottom: 0.1rem;
     }
 
-    .doc0526-options-grid {
+    .doc0826-options-grid {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      margin-top: 0.25rem;
+      margin-top: 0.2rem;
     }
 
-    .doc0526-option-btn {
-      background: #f5f9fd;
-      border: 1.5px solid #c7d9eb;
-      border-radius: 1.5rem;
+    .doc0826-option-btn {
+      background: #f5f9fb;
+      border: 1.5px solid #c5d7e3;
+      border-radius: 1.6rem;
       padding: 1.2rem 1.5rem;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.1rem;
       cursor: pointer;
       transition: all 0.2s ease;
-      box-shadow: 0 4px 10px rgba(18, 52, 86, 0.03);
+      box-shadow: 0 4px 12px rgba(20, 45, 65, 0.03);
       text-align: left;
-      color: #1a3350;
+      color: #1c394b;
     }
 
-    .doc0526-option-btn:hover {
-      background: #e5eff9;
-      border-color: #8aafd4;
-      transform: translateY(-1px);
-      box-shadow: 0 12px 18px rgba(18, 52, 86, 0.08);
+    .doc0826-option-btn:hover {
+      background: #edf5fa;
+      border-color: #8ab3cc;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 22px rgba(20, 50, 70, 0.08);
     }
 
-    .doc0526-option-btn:active {
+    .doc0826-option-btn:active {
       transform: translateY(1px);
-      background: #d4e4f5;
+      background: #dfedf6;
     }
 
-    .doc0526-option-icon {
-      font-size: 2rem;
+    .doc0826-option-icon {
+      font-size: 2.2rem;
       min-width: 2.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #e2eef9;
+      background: #e0eef7;
       border-radius: 50%;
-      width: 3rem;
-      height: 3rem;
-      color: #1a56a4;
+      width: 3.4rem;
+      height: 3.4rem;
+      color: #2a6b8a;
       transition: 0.2s;
     }
 
-    .doc0526-option-btn:hover .doc0526-option-icon {
-      background: #c5daf2;
+    .doc0826-option-btn:hover .doc0826-option-icon {
+      background: #cde1f0;
     }
 
-    .doc0526-option-label {
+    .doc0826-option-label {
       font-size: 1.15rem;
       font-weight: 500;
       flex: 1;
     }
 
     /* Score popup overlay */
-    .doc0526-popup-overlay {
+    .doc0826-popup-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(10, 30, 55, 0.55);
-      backdrop-filter: blur(5px);
+      background: rgba(8, 25, 40, 0.6);
+      backdrop-filter: blur(6px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2288,275 +2312,19 @@ box-shadow:0 16px 24px -16px #001e33;
       transition: visibility 0.2s, opacity 0.25s ease;
       padding: 1.5rem;
     }
-@media (max-width: 450px) {
-		.doc0526-popup-overlay {
 
-			width:auto;
-		}
-}
-    .doc0526-popup-overlay.doc0526-active {
+    .doc0826-popup-overlay.doc0826-active {
       visibility: visible;
       opacity: 1;
     }
 
-    .doc0526-score-card {
-      background: #ffffff;
-      border-radius: 2.5rem;
-      max-width: 460px;
-      width: 100%;
-      padding: 2.3rem 2rem 2rem;
-      box-shadow: 0 30px 50px rgba(13, 38, 73, 0.25);
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      text-align: center;
-      transform: scale(0.95);
-      transition: transform 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
-    }
-
-    .doc0526-popup-overlay.doc0526-active .doc0526-score-card {
-      transform: scale(1);
-    }
-
-    .doc0526-score-title {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #0f2b47;
-    }
-
-    .doc0526-score-number {
-      font-size: 3.5rem;
-      font-weight: 650;
-      background: #e6f0fa;
-      display: inline-block;
-      padding: 0.4rem 2.2rem;
-      border-radius: 60px;
-      margin: 0 auto;
-      color: #0d3b6e;
-    }
-
-    .doc0526-feedback-message {
-      color: #1e3b5a;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      background: #f3f8fc;
-      padding: 1.3rem;
-      border-radius: 1.5rem;
-      text-align: center;
-      font-weight: 450;
-    }
-
-    .doc0526-helpline {
-        
-      margin-top: 0.5rem;
-      font-weight: 550;
-      color: #1a4476;
-      background: #e4effa;
-      padding: 0.8rem;
-      border-radius: 2rem;
-      font-size: 0.95rem;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
-      flex-wrap: wrap;
-    }
-
-    .doc0526-helpline span {
-      font-weight: 650;
-      color: #0a2a4a;
-    }
-
-    .doc0526-close-btn {
-      background: #b0cce6;
-      border: none;
-      padding: 0.8rem 2rem;
-      border-radius: 3rem;
-      font-weight: 600;
-      color: #0d2d52;
-      cursor: pointer;
-      margin-top: 0.4rem;
-      transition: 0.2s;
-      font-size: 1rem;
-      letter-spacing: 0.3px;
-    }
-
-    .doc0526-close-btn:hover {
-      background: #8db3d8;
-    }
-
-    @media (max-width: 450px) {
-      .doc0526-quiz-container {
-        padding: 1.8rem 1.3rem;
-		  width:auto;
-      }
-      .doc0526-question-text {
-        font-size: 1.4rem;
-      }
-    }	    
-	    
-	   
-	   
-	   
-	   
-	 .doc0626-quiz-container {
-      width: 100%;
-      max-width: 600px;
-      background: #ffffff;
-      border-radius: 2.8rem;
-      box-shadow: 0 25px 50px rgba(30, 40, 80, 0.1), 0 8px 20px rgba(30, 40, 80, 0.05);
-      padding: 2.4rem 2.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      transition: all 0.2s ease;
-    }
-
-    .doc0626-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .doc0626-title {
-      font-size: 1.3rem;
-      font-weight: 650;
-      color: #1e2b4f;
-      letter-spacing: -0.2px;
-    }
-
-    .doc0626-subtitle {
-      font-size: 0.9rem;
-      color: #4a5b7a;
-      font-weight: 400;
-      line-height: 1.4;
-    }
-
-    .doc0626-progress {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #2c3d63;
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      margin-top: 0.2rem;
-    }
-
-    .doc0626-progress-bar-bg {
-      background: #dfe5f0;
-      height: 6px;
-      border-radius: 20px;
-      flex: 1;
-      margin: 0 1rem;
-      overflow: hidden;
-    }
-
-    .doc0626-progress-fill {
-      background: #2a4b8c;
-      height: 100%;
-      width: 0%;
-      border-radius: 20px;
-      transition: width 0.3s ease;
-    }
-
-    .doc0626-question-text {
-      font-size: 1.65rem;
-      font-weight: 550;
-      line-height: 1.4;
-      color: #16203d;
-      margin-bottom: 0.1rem;
-    }
-
-    .doc0626-options-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 0.2rem;
-    }
-
-    .doc0626-option-btn {
-      background: #f6f9fd;
-      border: 1.5px solid #cbd6e8;
-      border-radius: 1.6rem;
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1.1rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 12px rgba(40, 55, 90, 0.03);
-      text-align: left;
-      color: #1f2c46;
-    }
-
-    .doc0626-option-btn:hover {
-      background: #edf3fc;
-      border-color: #9bafd0;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 22px rgba(35, 55, 100, 0.07);
-    }
-
-    .doc0626-option-btn:active {
-      transform: translateY(1px);
-      background: #e2ebf9;
-    }
-
-    .doc0626-option-icon {
-      font-size: 2.2rem;
-      min-width: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #eaf1fd;
-      border-radius: 50%;
-      width: 3.4rem;
-      height: 3.4rem;
-      color: #2d4b7c;
-      transition: 0.2s;
-    }
-
-    .doc0626-option-btn:hover .doc0626-option-icon {
-      background: #d6e3fc;
-    }
-
-    .doc0626-option-label {
-      font-size: 1.15rem;
-      font-weight: 500;
-      flex: 1;
-    }
-
-    /* Score popup overlay */
-    .doc0626-popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 720px;
-      height: 100%;
-      background: rgba(12, 20, 40, 0.6);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0.2s, opacity 0.25s ease;
-      xxxxpadding: 1.5rem;
-    }
-
-    .doc0626-popup-overlay.doc0626-active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .doc0626-score-card {
+    .doc0826-score-card {
       background: #ffffff;
       border-radius: 2.8rem;
       max-width: 480px;
       width: 100%;
       padding: 2.5rem 2.2rem 2.2rem;
-      box-shadow: 0 35px 55px rgba(15, 25, 55, 0.3);
+      box-shadow: 0 35px 55px rgba(10, 30, 48, 0.3);
       display: flex;
       flex-direction: column;
       gap: 1.6rem;
@@ -2565,44 +2333,44 @@ box-shadow:0 16px 24px -16px #001e33;
       transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
     }
 
-    .doc0626-popup-overlay.doc0626-active .doc0626-score-card {
+    .doc0826-popup-overlay.doc0826-active .doc0826-score-card {
       transform: scale(1);
     }
 
-    .doc0626-score-title {
+    .doc0826-score-title {
       font-size: 2.1rem;
       font-weight: 650;
-      color: #14233f;
+      color: #0f2b3a;
     }
 
-    .doc0626-score-type {
-      font-size: 1.7rem;
+    .doc0826-score-type {
+      font-size: 1.6rem;
       font-weight: 600;
-      background: #e8f0fe;
+      background: #e0eef7;
       display: inline-block;
       padding: 0.6rem 2rem;
       border-radius: 50px;
       margin: 0 auto;
-      color: #1f3a6b;
+      color: #1e5572;
       letter-spacing: -0.3px;
     }
 
-    .doc0626-feedback-message {
-      color: #1e2e4a;
+    .doc0826-feedback-message {
+      color: #1c3a4b;
       font-size: 1.1rem;
       line-height: 1.6;
-      background: #f3f7fe;
+      background: #f2f8fc;
       padding: 1.3rem 1.4rem;
       border-radius: 1.6rem;
-      text-align: center;
+      text-align: left;
       font-weight: 440;
     }
 
-    .doc0626-helpline {
+    .doc0826-helpline {
       margin-top: 0.3rem;
       font-weight: 520;
-      color: #1d3763;
-      background: #e4edfc;
+      color: #1e4d64;
+      background: #dbeaf4;
       padding: 0.9rem 1rem;
       border-radius: 2.2rem;
       font-size: 0.98rem;
@@ -2613,18 +2381,18 @@ box-shadow:0 16px 24px -16px #001e33;
       flex-wrap: wrap;
     }
 
-    .doc0626-helpline span {
+    .doc0826-helpline span {
       font-weight: 650;
-      color: #0e2447;
+      color: #0d2738;
     }
 
-    .doc0626-close-btn {
-      background: #b8cae6;
+    .doc0826-close-btn {
+      background: #b7d2e4;
       border: none;
       padding: 0.8rem 2.2rem;
       border-radius: 3rem;
       font-weight: 600;
-      color: #132242;
+      color: #0d2738;
       cursor: pointer;
       margin-top: 0.2rem;
       transition: 0.2s;
@@ -2632,279 +2400,18 @@ box-shadow:0 16px 24px -16px #001e33;
       letter-spacing: 0.3px;
     }
 
-    .doc0626-close-btn:hover {
-      background: #96afd6;
+    .doc0826-close-btn:hover {
+      background: #98bdd4;
     }
 
     @media (max-width: 480px) {
-      .doc0626-quiz-container {
+      .doc0826-quiz-container {
         padding: 1.8rem 1.3rem;
-        width:auto;
       }
-      .doc0626-question-text {
+      .doc0826-question-text {
         font-size: 1.4rem;
       }
-      
-      .doc0626-popup-overlay {
-        width:auto;    
-      }
-      
-      .doc0626-popup-overlay.doc0626-active .doc0626-score-card {
-      transform: scale(.8);
-    }
-    }
-   
-	    
-.doc0726-quiz-container {
-      width: 100%;
-      max-width: 600px;
-      background: #ffffff;
-      border-radius: 2.8rem;
-      box-shadow: 0 25px 50px rgba(80, 50, 30, 0.08), 0 8px 20px rgba(80, 50, 30, 0.04);
-      padding: 2.4rem 2.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      transition: all 0.2s ease;
-    }
-
-    .doc0726-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .doc0726-title {
-      font-size: 1.3rem;
-      font-weight: 650;
-      color: #3e2c1c;
-      letter-spacing: -0.2px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .doc0726-subtitle {
-      font-size: 0.9rem;
-      color: #6b5d4f;
-      font-weight: 400;
-      line-height: 1.5;
-    }
-
-    .doc0726-progress {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #4a3725;
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      margin-top: 0.2rem;
-    }
-
-    .doc0726-progress-bar-bg {
-      background: #e7dfd3;
-      height: 6px;
-      border-radius: 20px;
-      flex: 1;
-      margin: 0 1rem;
-      overflow: hidden;
-    }
-
-    .doc0726-progress-fill {
-      background: #b8753e;
-      height: 100%;
-      width: 0%;
-      border-radius: 20px;
-      transition: width 0.3s ease;
-    }
-
-    .doc0726-question-text {
-      font-size: 1.65rem;
-      font-weight: 550;
-      line-height: 1.4;
-      color: #2e1f10;
-      margin-bottom: 0.1rem;
-    }
-
-    .doc0726-options-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 0.2rem;
-    }
-
-    .doc0726-option-btn {
-      background: #fdfaf6;
-      border: 1.5px solid #ddd1c0;
-      border-radius: 1.6rem;
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1.1rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 12px rgba(70, 45, 25, 0.03);
-      text-align: left;
-      color: #3b2a18;
-    }
-
-    .doc0726-option-btn:hover {
-      background: #f9f2e7;
-      border-color: #c4a87c;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 22px rgba(90, 55, 30, 0.07);
-    }
-
-    .doc0726-option-btn:active {
-      transform: translateY(1px);
-      background: #f3e9d7;
-    }
-
-    .doc0726-option-icon {
-      font-size: 2.2rem;
-      min-width: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f7efe2;
-      border-radius: 50%;
-      width: 3.4rem;
-      height: 3.4rem;
-      color: #7a5a3a;
-      transition: 0.2s;
-    }
-
-    .doc0726-option-btn:hover .doc0726-option-icon {
-      background: #eedcc3;
-    }
-
-    .doc0726-option-label {
-      font-size: 1.15rem;
-      font-weight: 500;
-      flex: 1;
-    }
-
-    /* Score popup overlay */
-    .doc0726-popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(30, 18, 10, 0.6);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0.2s, opacity 0.25s ease;
-      xxxxpadding: 1.5rem;
-    }
-
-    .doc0726-popup-overlay.doc0726-active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .doc0726-score-card {
-      background: #ffffff;
-      border-radius: 2.8rem;
-      max-width: 480px;
-      width: 100%;
-      padding: 2.5rem 2.2rem 2.2rem;
-      box-shadow: 0 35px 55px rgba(40, 25, 10, 0.3);
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
-      text-align: center;
-      transform: scale(0.95);
-      transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
-    }
-
-    .doc0726-popup-overlay.doc0726-active .doc0726-score-card {
-      transform: scale(1);
-    }
-
-    .doc0726-score-title {
-      font-size: 2.1rem;
-      font-weight: 650;
-      color: #2e1f10;
-    }
-
-    .doc0726-score-type {
-      font-size: 1.7rem;
-      font-weight: 600;
-      background: #f7efe2;
-      display: inline-block;
-      padding: 0.6rem 2rem;
-      border-radius: 50px;
-      margin: 0 auto;
-      color: #5c3f24;
-      letter-spacing: -0.3px;
-    }
-
-    .doc0726-feedback-message {
-      color: #3b2c1c;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      background: #faf6ef;
-      padding: 1.3rem 1.4rem;
-      border-radius: 1.6rem;
-      text-align: center;
-      font-weight: 440;
-    }
-
-    .doc0726-helpline {
-      margin-top: 0.3rem;
-      font-weight: 520;
-      color: #5a3f28;
-      background: #f2e8d8;
-      padding: 0.9rem 1rem;
-      border-radius: 2.2rem;
-      font-size: 0.98rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
-      flex-wrap: wrap;
-    }
-
-    .doc0726-helpline span {
-      font-weight: 650;
-      color: #2e1c0d;
-    }
-
-    .doc0726-close-btn {
-      background: #d6c4a8;
-      border: none;
-      padding: 0.8rem 2.2rem;
-      border-radius: 3rem;
-      font-weight: 600;
-      color: #2e1c0d;
-      cursor: pointer;
-      margin-top: 0.2rem;
-      transition: 0.2s;
-      font-size: 1rem;
-      letter-spacing: 0.3px;
-    }
-
-    .doc0726-close-btn:hover {
-      background: #c2ab87;
-    }
-
-    @media (max-width: 480px) {
-      .doc0726-quiz-container {
-        padding: 1.8rem 1.3rem;
-        width:auto;
-      }
-      .doc0726-question-text {
-        font-size: 1.4rem;
-      }
-    }	    
-	   
+    }	   
 	   
 	 .BqTXT-M-Title {display:none;}  
 	 .BqTXT-D-Title {display:block;}
@@ -3379,7 +2886,7 @@ whose expertise and empathy inspire us every day.
 
 
 
-                <!-- ARTICLE 4 **HIDDEN -->
+                <!-- ARTICLE 4 **NOT HIDDEN -->
 
 
                 <section class="home--personal bg--color--spaceX all-sol-block all-sol-block-01 newsletter-Box-wrap" style="">
@@ -3851,7 +3358,7 @@ and access, helping communities spot problems early and act sooner. </b>
                 
 
 
-                <!-- HIGHLIGHT OF THE MONTH SECTION WRAP (3 styles) VIDEO EMBEDD INCL *NOT Hidden -->
+                <!-- HIGHLIGHT OF THE MONTH SECTION WRAP (3 styles) VIDEO EMBED INCL *NOT Hidden -->
 
                 <section class="home--personal bg--color--spaceX all-sol-block all-sol-block-01 newsletter-Box-wrap highlight-Sec" style="margin: 0 auto; xxxdisplay:none;">
 
@@ -4096,29 +3603,34 @@ changes that can help you keep your liver healthy.</p>
 
 <!-- QUIZ PASTE START-->
 
- <div class="doc0726-quiz-container" id="doc0726QuizBox">
-    
-    <div class="doc0726-progress">
-      <span id="doc0726QuestionCounter">1/5</span>
-      <div class="doc0726-progress-bar-bg">
-        <div class="doc0726-progress-fill" id="doc0726ProgressFill" style="width: 20%;"></div>
+<div class="doc0826-quiz-container" id="doc0826QuizBox">
+    <div class="doc0826-header">
+      <div class="doc0826-title">📱 Screen time & digital habits</div>
+      <div class="doc0826-subtitle">How mindful are you with your screen use? Let's find out.</div>
+    </div>
+    <div class="doc0826-progress">
+      <span id="doc0826QuestionCounter">1/5</span>
+      <div class="doc0826-progress-bar-bg">
+        <div class="doc0826-progress-fill" id="doc0826ProgressFill" style="width: 20%;"></div>
       </div>
       <span>5</span>
     </div>
 
-    <div class="doc0726-question-text" id="doc0726QuestionDisplay"></div>
+    <div class="doc0826-question-text" id="doc0826QuestionDisplay"></div>
 
-    <div class="doc0726-options-grid" id="doc0726OptionsContainer"></div>
+    <div class="doc0826-options-grid" id="doc0826OptionsContainer"></div>
   </div>
 
   <!-- Score popup -->
-  <div class="doc0726-popup-overlay" id="doc0726PopupOverlay">
-    <div class="doc0726-score-card">
-      <div class="doc0726-score-title">Your work stress profile</div>
-      <div class="doc0726-score-type" id="doc0726ScoreType">...</div>
-      <div class="doc0726-feedback-message" id="doc0726FeedbackText"></div>
-      
-      <button class="doc0726-close-btn" id="doc0726ClosePopupBtn">Restart quiz</button>
+  <div class="doc0826-popup-overlay" id="doc0826PopupOverlay">
+    <div class="doc0826-score-card">
+      <div class="doc0826-score-title">Your screen habit profile</div>
+      <div class="doc0826-score-type" id="doc0826ScoreType">...</div>
+      <div class="doc0826-feedback-message" id="doc0826FeedbackText"></div>
+      <div class="doc0826-helpline">
+        📞 <span>DocOnline</span> · <span>8822 126 126</span>
+      </div>
+      <button class="doc0826-close-btn" id="doc0826ClosePopupBtn">Restart quiz</button>
     </div>
   </div>
                            
@@ -4621,166 +4133,166 @@ It has been a pleasure working with you and your team, and we look forward to st
 
 <script>
     (function() {
-      // ----- doc0726 prefixed JS variables -----
-      const doc0726questions = [
+      // ----- doc0826 prefixed JS variables -----
+      const doc0826questions = [
         {
-          text: "When work piles up, you:",
+          text: "What is the first thing you do when you wake up?",
           options: [
-            { label: "Feel overwhelmed", icon: "😰", correct: false },
-            { label: "Break the task down into smaller, manageable steps", icon: "📋", correct: true }
+            { label: "Check my phone to stay up-to-date", icon: "📱", correct: false },
+            { label: "Take some time by stretching or planning out the day, before going online", icon: "🧘", correct: true }
           ]
         },
         {
-          text: "Asking for help from a coworker/boss is:",
+          text: "When messages come in, you tend to:",
           options: [
-            { label: "Difficult, you prefer to handle it yourself", icon: "🤐", correct: false },
-            { label: "Comfortable and easy to do when required", icon: "🤝", correct: true }
+            { label: "Reply instantly", icon: "⚡", correct: false },
+            { label: "Respond when it is suitable, depending on importance", icon: "📝", correct: true }
           ]
         },
         {
-          text: "At the start of the workday, you feel:",
+          text: "Screen breaks during the day are taken:",
           options: [
-            { label: "Stressed and already feel like you're falling behind", icon: "😟", correct: false },
-            { label: "Calm, composed and ready to take on the day", icon: "😌", correct: true }
+            { label: "Rarely", icon: "⏭️", correct: false },
+            { label: "Regularly and intentionally", icon: "🌿", correct: true }
           ]
         },
         {
-          text: "Taking breaks at work is:",
+          text: "During conversations/meal time, you:",
           options: [
-            { label: "Often skipping", icon: "⏭️", correct: false },
-            { label: "Essential, has become a regular habit", icon: "☕", correct: true }
+            { label: "Often check your phone", icon: "👀", correct: false },
+            { label: "Stay present and in the moment", icon: "💬", correct: true }
           ]
         },
         {
-          text: "After clocking out, you:",
+          text: "Long screen hours make you feel:",
           options: [
-            { label: "Keep thinking about work like pending tasks and emails", icon: "💭", correct: false },
-            { label: "Truly disconnect and focus on non-work related tasks", icon: "🧘", correct: true }
+            { label: "Drained, distracted, cause headaches", icon: "😫", correct: false },
+            { label: "Balanced, in control, no real impact", icon: "😊", correct: true }
           ]
         }
       ];
 
-      // State variables doc0726
-      let doc0726CurrentIndex = 0;
-      const doc0726TotalQuestions = doc0726questions.length;
-      let doc0726UserAnswers = new Array(doc0726TotalQuestions).fill(null); // true = B (correct), false = A
+      // State variables doc0826
+      let doc0826CurrentIndex = 0;
+      const doc0826TotalQuestions = doc0826questions.length;
+      let doc0826UserAnswers = new Array(doc0826TotalQuestions).fill(null); // true = B (correct), false = A
 
-      // DOM elements doc0726
-      const doc0726QuestionDisplay = document.getElementById('doc0726QuestionDisplay');
-      const doc0726OptionsContainer = document.getElementById('doc0726OptionsContainer');
-      const doc0726QuestionCounter = document.getElementById('doc0726QuestionCounter');
-      const doc0726ProgressFill = document.getElementById('doc0726ProgressFill');
-      const doc0726PopupOverlay = document.getElementById('doc0726PopupOverlay');
-      const doc0726ScoreType = document.getElementById('doc0726ScoreType');
-      const doc0726FeedbackText = document.getElementById('doc0726FeedbackText');
-      const doc0726ClosePopupBtn = document.getElementById('doc0726ClosePopupBtn');
+      // DOM elements doc0826
+      const doc0826QuestionDisplay = document.getElementById('doc0826QuestionDisplay');
+      const doc0826OptionsContainer = document.getElementById('doc0826OptionsContainer');
+      const doc0826QuestionCounter = document.getElementById('doc0826QuestionCounter');
+      const doc0826ProgressFill = document.getElementById('doc0826ProgressFill');
+      const doc0826PopupOverlay = document.getElementById('doc0826PopupOverlay');
+      const doc0826ScoreType = document.getElementById('doc0826ScoreType');
+      const doc0826FeedbackText = document.getElementById('doc0826FeedbackText');
+      const doc0826ClosePopupBtn = document.getElementById('doc0826ClosePopupBtn');
 
-      function doc0726RenderQuestion() {
-        if (doc0726CurrentIndex >= doc0726TotalQuestions) {
-          doc0726ShowScorePopup();
+      function doc0826RenderQuestion() {
+        if (doc0826CurrentIndex >= doc0826TotalQuestions) {
+          doc0826ShowScorePopup();
           return;
         }
 
-        const currentQ = doc0726questions[doc0726CurrentIndex];
-        doc0726QuestionDisplay.textContent = currentQ.text;
+        const currentQ = doc0826questions[doc0826CurrentIndex];
+        doc0826QuestionDisplay.textContent = currentQ.text;
 
         let optionsHtml = '';
         currentQ.options.forEach((opt, idx) => {
           optionsHtml += `
-            <div class="doc0726-option-btn" data-option-index="${idx}">
-              <div class="doc0726-option-icon">${opt.icon}</div>
-              <div class="doc0726-option-label">${opt.label}</div>
+            <div class="doc0826-option-btn" data-option-index="${idx}">
+              <div class="doc0826-option-icon">${opt.icon}</div>
+              <div class="doc0826-option-label">${opt.label}</div>
             </div>
           `;
         });
 
-        doc0726OptionsContainer.innerHTML = optionsHtml;
+        doc0826OptionsContainer.innerHTML = optionsHtml;
 
-        document.querySelectorAll('.doc0726-option-btn').forEach(btn => {
-          btn.addEventListener('click', doc0726OptionClickHandler);
+        document.querySelectorAll('.doc0826-option-btn').forEach(btn => {
+          btn.addEventListener('click', doc0826OptionClickHandler);
         });
 
-        const progressPercent = ((doc0726CurrentIndex + 1) / doc0726TotalQuestions) * 100;
-        doc0726ProgressFill.style.width = `${progressPercent}%`;
-        doc0726QuestionCounter.textContent = `${doc0726CurrentIndex + 1}/${doc0726TotalQuestions}`;
+        const progressPercent = ((doc0826CurrentIndex + 1) / doc0826TotalQuestions) * 100;
+        doc0826ProgressFill.style.width = `${progressPercent}%`;
+        doc0826QuestionCounter.textContent = `${doc0826CurrentIndex + 1}/${doc0826TotalQuestions}`;
       }
 
-      function doc0726OptionClickHandler(e) {
+      function doc0826OptionClickHandler(e) {
         const optionBtn = e.currentTarget;
         const selectedIndex = parseInt(optionBtn.getAttribute('data-option-index'), 10);
-        const currentQuestionData = doc0726questions[doc0726CurrentIndex];
+        const currentQuestionData = doc0826questions[doc0826CurrentIndex];
         const selectedOption = currentQuestionData.options[selectedIndex];
 
         // Record answer (correct = B answer = true)
-        doc0726UserAnswers[doc0726CurrentIndex] = selectedOption.correct;
+        doc0826UserAnswers[doc0826CurrentIndex] = selectedOption.correct;
 
-        doc0726CurrentIndex++;
+        doc0826CurrentIndex++;
 
-        if (doc0726CurrentIndex < doc0726TotalQuestions) {
-          doc0726RenderQuestion();
+        if (doc0826CurrentIndex < doc0826TotalQuestions) {
+          doc0826RenderQuestion();
         } else {
-          doc0726ShowScorePopup();
+          doc0826ShowScorePopup();
         }
       }
 
-      function doc0726ShowScorePopup() {
+      function doc0826ShowScorePopup() {
         // Count A vs B (false = A, true = B)
-        let doc0726CountA = 0;
-        let doc0726CountB = 0;
-        doc0726UserAnswers.forEach(answer => {
+        let doc0826CountA = 0;
+        let doc0826CountB = 0;
+        doc0826UserAnswers.forEach(answer => {
           if (answer === true) {
-            doc0726CountB++;
+            doc0826CountB++;
           } else if (answer === false) {
-            doc0726CountA++;
+            doc0826CountA++;
           }
         });
 
-        let stressProfile = '';
+        let screenProfile = '';
         let feedbackMessage = '';
 
-        if (doc0726CountA > doc0726CountB) {
+        if (doc0826CountA > doc0826CountB) {
           // Mostly As
-          stressProfile = 'The overloaded professional';
+          screenProfile = 'The screen magnet';
           feedbackMessage = `
-            You keep pushing through, but stress is creeping up.<br>
-            Create boundaries and ask for help — these alone can make a significant difference.
+            You are someone who struggles to look up from screens, often finding yourself distracted, even in situations when it matters the most.<br>
+            You might be highly connected, however it is costing your productivity and focus.<br><br>
+            <strong>Try limiting your screen time gradually and live more in the moment to feel more in control.</strong>
           `;
         } else {
           // Mostly Bs (or equal)
-          stressProfile = 'The balanced achiever';
+          screenProfile = 'The mindful screen user';
           feedbackMessage = `
-            Responsibilities and your wellbeing are equally important, you are able to balance and manage both.<br>
-            Your approach helps you stay productive throughout the day without feeling burnt out.
+            Your digital habits are managed well, you are able to live in the moment and not let screen time distract you.<br>
+            Protect this along with your time and attention for better productivity and overall wellbeing.
           `;
         }
 
-        doc0726ScoreType.textContent = stressProfile;
-        doc0726FeedbackText.innerHTML = feedbackMessage;
+        doc0826ScoreType.textContent = screenProfile;
+        doc0826FeedbackText.innerHTML = feedbackMessage;
 
-        doc0726PopupOverlay.classList.add('doc0726-active');
+        doc0826PopupOverlay.classList.add('doc0826-active');
       }
 
-      function doc0726ClosePopup() {
-        doc0726PopupOverlay.classList.remove('doc0726-active');
+      function doc0826ClosePopup() {
+        doc0826PopupOverlay.classList.remove('doc0826-active');
         // Reset quiz
-        doc0726CurrentIndex = 0;
-        doc0726UserAnswers = new Array(doc0726TotalQuestions).fill(null);
-        doc0726RenderQuestion();
+        doc0826CurrentIndex = 0;
+        doc0826UserAnswers = new Array(doc0826TotalQuestions).fill(null);
+        doc0826RenderQuestion();
       }
 
-      doc0726ClosePopupBtn.addEventListener('click', doc0726ClosePopup);
+      doc0826ClosePopupBtn.addEventListener('click', doc0826ClosePopup);
 
-      doc0726PopupOverlay.addEventListener('click', function(e) {
-        if (e.target === doc0726PopupOverlay) {
-          doc0726ClosePopup();
+      doc0826PopupOverlay.addEventListener('click', function(e) {
+        if (e.target === doc0826PopupOverlay) {
+          doc0826ClosePopup();
         }
       });
 
       // Start quiz
-      doc0726RenderQuestion();
+      doc0826RenderQuestion();
     })();
   </script>
-
 
 
 
