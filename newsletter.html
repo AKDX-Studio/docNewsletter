@@ -2057,6 +2057,45 @@ visibility:visible;
 opacity:1;
 }
 
+
+
+/* gradient border ring via pseudo-element */
+    .doc0826-option-btn::before {
+      content: "";
+      position: absolute;
+      inset: -2px;                     /* thickness of ring */
+      border-radius: 60px;
+      padding: 2px;
+      background: linear-gradient(90deg,
+        #ff7e5f, #feb47b, #ffb347, #7bc5d9, #6a9ab0, #b3d9e8, #ff7e5f);
+      background-size: 300% 100%;
+      /* mask trick to create a border-only effect */
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+    }
+
+    /* when active → animate */
+    .doc0826-option-btn.animate-border::before {
+      opacity: 1;
+      animation: borderFlow 0.75s ease-in-out forwards;
+    }
+
+    @keyframes borderFlow {
+      0%   { background-position:   0% 50%; opacity: 0.6; }
+      50%  { background-position: 100% 50%; opacity: 1;   }
+      100% { background-position: 200% 50%; opacity: 0;   }
+    }
+
+
+
+
+
 .docM26popup-card{
 background:#fbfdff;
 max-width:520px;
