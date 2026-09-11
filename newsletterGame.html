@@ -1,529 +1,471 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Quiz: Improved Alpha-Numeric Mix</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background-color: white;
-            width: 612px;
-            height: 380px;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .score-display {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            color: #4e54c8;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .cards-row {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin: 60px 0 20px;
-        }
-        
-        .card {
-            width: 110px;
-            height: 160px;
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 5.5rem;
-            font-weight: bold;
-            color: white;
-            transition: all 0.2s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            user-select: none;
-            position: relative;
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-        
-        .card.flipped {
-            transform: rotateY(180deg);
-        }
-        
-        .card-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 8px;
-        }
-        
-        .card-front {
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
-        }
-        
-        .card-back {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-            transform: rotateY(180deg);
-        }
-        
-        /* Hover effect only for flipped cards */
-        .card.flipped:hover {
-            transform: rotateY(180deg) translateY(-5px) scale(1.03);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .card.selected {
-            transform: scale(0.95) rotateY(180deg);
-            box-shadow: 0 0 0 3px #ffc107, 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .instruction-text {
-            margin: 10px 0 20px;
-            font-size: 1.2rem;
-            color: #4e54c8;
-            font-weight: 600;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            height: 24px;
-        }
-        
-        .instruction-text.visible {
-            opacity: 1;
-        }
-        
-        .btn {
-            background: linear-gradient(to right, #4e54c8, #8f94fb);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .btn-restart {
-            background: linear-gradient(to right, #28a745, #20c997);
-            margin-top: 20px;
-        }
-        
-        /* Modals positioned inside the container */
-        .modal {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            border-radius: 12px;
-        }
-        
-        .modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 90%;
-            width: 450px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            transform: translateY(-50px);
-            transition: transform 0.3s ease;
-        }
-        
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-        
-        .modal h2 {
-            margin-bottom: 20px;
-            color: #333;
-            font-size: 2rem;
-        }
-        
-        .modal p {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            color: #555;
-        }
-        
-        .correct-modal h2 {
-            color: #28a745;
-        }
-        
-        .incorrect-modal h2 {
-            color: #dc3545;
-        }
-        
-        .final-score {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: #4e54c8;
-            margin: 20px 0;
-        }
-        
-        .hidden {
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>DocOnline · Screen time habits quiz</title>
+  <style>
+    /* ----- doc0826 prefixed CSS ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eaf1f5;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 1.5rem;
+    }
+
+    .doc0826-quiz-container {
+      width: 100%;
+      max-width: 600px;
+      background: #ffffff;
+      border-radius: 2.8rem;
+      box-shadow: 0 25px 50px rgba(25, 55, 80, 0.1), 0 8px 20px rgba(25, 55, 80, 0.05);
+      padding: 2.4rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      transition: all 0.2s ease;
+    }
+
+    .doc0826-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .doc0826-title {
+      font-size: 1.3rem;
+      font-weight: 650;
+      color: #1a3a4f;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .doc0826-subtitle {
+      font-size: 0.9rem;
+      color: #4d6b7d;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .doc0826-progress {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #2a4d64;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      margin-top: 0.2rem;
+    }
+
+    .doc0826-progress-bar-bg {
+      background: #d5e3ec;
+      height: 6px;
+      border-radius: 20px;
+      flex: 1;
+      margin: 0 1rem;
+      overflow: hidden;
+    }
+
+    .doc0826-progress-fill {
+      background: #2e7a9e;
+      height: 100%;
+      width: 0%;
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .doc0826-question-text {
+      font-size: 1.65rem;
+      font-weight: 550;
+      line-height: 1.4;
+      color: #0f2b3a;
+      margin-bottom: 0.1rem;
+    }
+
+    .doc0826-options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .doc0826-option-btn {
+      background: #f5f9fb;
+      border: 1.5px solid #c5d7e3;
+      border-radius: 1.6rem;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(20, 45, 65, 0.03);
+      text-align: left;
+      color: #1c394b;
+    }
+
+    .doc0826-option-btn:hover {
+      background: #edf5fa;
+      border-color: #8ab3cc;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 22px rgba(20, 50, 70, 0.08);
+    }
+
+    .doc0826-option-btn:active {
+      transform: translateY(1px);
+      background: #dfedf6;
+    }
+
+    .doc0826-option-icon {
+      font-size: 2.2rem;
+      min-width: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e0eef7;
+      border-radius: 50%;
+      width: 3.4rem;
+      height: 3.4rem;
+      color: #2a6b8a;
+      transition: 0.2s;
+    }
+
+    .doc0826-option-btn:hover .doc0826-option-icon {
+      background: #cde1f0;
+    }
+
+    .doc0826-option-label {
+      font-size: 1.15rem;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    /* Score popup overlay */
+    .doc0826-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(8, 25, 40, 0.6);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.2s, opacity 0.25s ease;
+      padding: 1.5rem;
+    }
+
+    .doc0826-popup-overlay.doc0826-active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .doc0826-score-card {
+      background: #ffffff;
+      border-radius: 2.8rem;
+      max-width: 480px;
+      width: 100%;
+      padding: 2.5rem 2.2rem 2.2rem;
+      box-shadow: 0 35px 55px rgba(10, 30, 48, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      text-align: center;
+      transform: scale(0.95);
+      transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
+    }
+
+    .doc0826-popup-overlay.doc0826-active .doc0826-score-card {
+      transform: scale(1);
+    }
+
+    .doc0826-score-title {
+      font-size: 2.1rem;
+      font-weight: 650;
+      color: #0f2b3a;
+    }
+
+    .doc0826-score-type {
+      font-size: 1.6rem;
+      font-weight: 600;
+      background: #e0eef7;
+      display: inline-block;
+      padding: 0.6rem 2rem;
+      border-radius: 50px;
+      margin: 0 auto;
+      color: #1e5572;
+      letter-spacing: -0.3px;
+    }
+
+    .doc0826-feedback-message {
+      color: #1c3a4b;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      background: #f2f8fc;
+      padding: 1.3rem 1.4rem;
+      border-radius: 1.6rem;
+      text-align: left;
+      font-weight: 440;
+    }
+
+    .doc0826-helpline {
+      margin-top: 0.3rem;
+      font-weight: 520;
+      color: #1e4d64;
+      background: #dbeaf4;
+      padding: 0.9rem 1rem;
+      border-radius: 2.2rem;
+      font-size: 0.98rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .doc0826-helpline span {
+      font-weight: 650;
+      color: #0d2738;
+    }
+
+    .doc0826-close-btn {
+      background: #b7d2e4;
+      border: none;
+      padding: 0.8rem 2.2rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      color: #0d2738;
+      cursor: pointer;
+      margin-top: 0.2rem;
+      transition: 0.2s;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .doc0826-close-btn:hover {
+      background: #98bdd4;
+    }
+
+    @media (max-width: 480px) {
+      .doc0826-quiz-container {
+        padding: 1.8rem 1.3rem;
+      }
+      .doc0826-question-text {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="score-display">Q: <span id="question">1</span>/4 | Score: <span id="score">0</span></div>
-        
-        <div class="cards-row" id="cards-row">
-            <!-- Cards will be generated here -->
-        </div>
-        
-        <div class="instruction-text" id="instruction-text">Click the Odd One Out!</div>
-        
-        <button class="btn" id="flip-btn">Flip Cards</button>
-        
-        <!-- All modals inside the container -->
-        <!-- Modal for correct answer -->
-        <div class="modal correct-modal" id="correct-modal">
-            <div class="modal-content">
-                <h2>Correct!</h2>
-                <p>Well done! You found the odd one out.</p>
-                <button class="btn" id="modal-next-btn">Next Question</button>
-            </div>
-        </div>
-        
-        <!-- Modal for incorrect answer -->
-        <div class="modal incorrect-modal" id="incorrect-modal">
-            <div class="modal-content">
-                <h2>Incorrect!</h2>
-                <p>The odd one out was: <span id="correct-answer"></span></p>
-                <button class="btn" id="modal-next-btn-incorrect">Next Question</button>
-            </div>
-        </div>
-        
-        <!-- Results modal -->
-        <div class="modal" id="results-modal">
-            <div class="modal-content">
-                <h2>Quiz Completed!</h2>
-                <p>Your final score:</p>
-                <div class="final-score" id="final-score">0</div>
-                <button class="btn btn-restart" id="restart-btn">Play Again</button>
-            </div>
-        </div>
+  <div class="doc0826-quiz-container" id="doc0826QuizBox">
+    <div class="doc0826-header">
+      <div class="doc0826-title">📱 Screen time & digital habits</div>
+      <div class="doc0826-subtitle">How mindful are you with your screen use? Let's find out.</div>
+    </div>
+    <div class="doc0826-progress">
+      <span id="doc0826QuestionCounter">1/5</span>
+      <div class="doc0826-progress-bar-bg">
+        <div class="doc0826-progress-fill" id="doc0826ProgressFill" style="width: 20%;"></div>
+      </div>
+      <span>5</span>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // DOM elements
-            const cardsRow = document.getElementById('cards-row');
-            const scoreElement = document.getElementById('score');
-            const questionElement = document.getElementById('question');
-            const flipButton = document.getElementById('flip-btn');
-            const instructionText = document.getElementById('instruction-text');
-            const correctModal = document.getElementById('correct-modal');
-            const incorrectModal = document.getElementById('incorrect-modal');
-            const correctAnswerElement = document.getElementById('correct-answer');
-            const modalNextBtn = document.getElementById('modal-next-btn');
-            const modalNextBtnIncorrect = document.getElementById('modal-next-btn-incorrect');
-            const resultsModal = document.getElementById('results-modal');
-            const finalScoreElement = document.getElementById('final-score');
-            const restartButton = document.getElementById('restart-btn');
-            
-            // Game state
-            let score = 0;
-            let currentQuestion = 1;
-            let originalCards = [];
-            let shuffledCards = [];
-            let oddOneOut = null;
-            let canSelect = false;
-            let cardsFlipped = false;
-            
-            // Start the game
-            startGame();
-            
-            // Initialize the game
-            function startGame() {
-                score = 0;
-                currentQuestion = 1;
-                scoreElement.textContent = score;
-                questionElement.textContent = currentQuestion;
-                cardsFlipped = false;
-                instructionText.classList.remove('visible');
-                
-                generateQuestion();
-            }
-            
-            // Generate a new question with guaranteed mix of letters and numbers
-            function generateQuestion() {
-                // Clear previous cards
-                cardsRow.innerHTML = '';
-                canSelect = false;
-                cardsFlipped = false;
-                flipButton.style.display = 'block';
-                instructionText.classList.remove('visible');
-                
-                // Generate 4 unique values with guaranteed mix of letters and numbers
-                const uniqueValues = generateMixedValues(4);
-                originalCards = [...uniqueValues];
-                
-                // Display original cards
-                originalCards.forEach((card, index) => {
-                    const cardElement = document.createElement('div');
-                    cardElement.className = 'card';
-                    
-                    const frontFace = document.createElement('div');
-                    frontFace.className = 'card-face card-front';
-                    frontFace.textContent = card;
-                    
-                    const backFace = document.createElement('div');
-                    backFace.className = 'card-face card-back';
-                    backFace.textContent = card;
-                    
-                    cardElement.appendChild(frontFace);
-                    cardElement.appendChild(backFace);
-                    
-                    cardsRow.appendChild(cardElement);
-                });
-            }
-            
-            // Generate values with guaranteed mix of letters and numbers
-            function generateMixedValues(count) {
-                const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
-                const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
-                const values = [];
-                
-                // Ensure at least one letter and one number
-                const numLetters = Math.floor(Math.random() * (count - 1)) + 1; // 1 to (count-1)
-                const numNumbers = count - numLetters;
-                
-                // Shuffle the arrays
-                for (let i = letters.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [letters[i], letters[j]] = [letters[j], letters[i]];
-                }
-                
-                for (let i = numbers.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
-                }
-                
-                // Add letters
-                for (let i = 0; i < numLetters; i++) {
-                    values.push(letters[i]);
-                }
-                
-                // Add numbers
-                for (let i = 0; i < numNumbers; i++) {
-                    values.push(numbers[i]);
-                }
-                
-                // Shuffle the final array
-                for (let i = values.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [values[i], values[j]] = [values[j], values[i]];
-                }
-                
-                return values;
-            }
-            
-            // Flip and shuffle the cards
-            function flipCards() {
-                if (cardsFlipped) return;
-                
-                cardsFlipped = true;
-                flipButton.style.display = 'none';
-                
-                // Create a shuffled version with one card replaced
-                shuffledCards = [...originalCards];
-                
-                // Replace one random card with a new unique value
-                const replaceIndex = Math.floor(Math.random() * 4);
-                
-                // Determine if we should replace with a letter or number
-                const isCurrentlyLetter = /[A-F]/.test(originalCards[replaceIndex]);
-                let newCard;
-                
-                if (isCurrentlyLetter) {
-                    // Replace with a number not in the original set
-                    const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
-                    const availableNumbers = numbers.filter(num => !originalCards.includes(num));
-                    newCard = availableNumbers[Math.floor(Math.random() * availableNumbers.length)];
-                } else {
-                    // Replace with a letter not in the original set
-                    const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
-                    const availableLetters = letters.filter(letter => !originalCards.includes(letter));
-                    newCard = availableLetters[Math.floor(Math.random() * availableLetters.length)];
-                }
-                
-                shuffledCards[replaceIndex] = newCard;
-                
-                // Update the odd one out
-                oddOneOut = newCard;
-                
-                // Shuffle the array
-                for (let i = shuffledCards.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]];
-                }
-                
-                // Flip the cards with animation (faster)
-                const cardElements = cardsRow.querySelectorAll('.card');
-                cardElements.forEach((cardElement, index) => {
-                    // Flip the card (faster animation)
-                    setTimeout(() => {
-                        cardElement.classList.add('flipped');
-                    }, 150 * index);
-                    
-                    // Update the card value after flip
-                    setTimeout(() => {
-                        const backFace = cardElement.querySelector('.card-back');
-                        backFace.textContent = shuffledCards[index];
-                        cardElement.dataset.value = shuffledCards[index];
-                        
-                        // After all cards are flipped, allow selection
-                        if (index === 3) {
-                            setTimeout(() => {
-                                canSelect = true;
-                                instructionText.classList.add('visible');
-                                setupCardSelection();
-                            }, 300);
-                        }
-                    }, 150 * index + 120);
-                });
-            }
-            
-            // Set up card selection after flipping
-            function setupCardSelection() {
-                const cardElements = cardsRow.querySelectorAll('.card');
-                
-                cardElements.forEach(card => {
-                    card.addEventListener('click', handleCardSelection);
-                });
-            }
-            
-            // Handle card selection
-            function handleCardSelection(e) {
-                if (!canSelect) return;
-                
-                const selectedCard = e.currentTarget;
-                const selectedValue = selectedCard.dataset.value;
-                
-                // Check if the answer is correct
-                if (selectedValue === oddOneOut) {
-                    // Correct answer
-                    score++;
-                    scoreElement.textContent = score;
-                    showModal(true);
-                } else {
-                    // Incorrect answer
-                    correctAnswerElement.textContent = oddOneOut;
-                    showModal(false);
-                }
-                
-                // Remove event listeners
-                const cardElements = cardsRow.querySelectorAll('.card');
-                cardElements.forEach(card => {
-                    card.removeEventListener('click', handleCardSelection);
-                });
-                
-                // Hide instruction text
-                instructionText.classList.remove('visible');
-            }
-            
-            // Show modal with result
-            function showModal(isCorrect) {
-                if (isCorrect) {
-                    correctModal.classList.add('active');
-                } else {
-                    incorrectModal.classList.add('active');
-                }
-            }
-            
-            // Move to the next question
-            function nextQuestion() {
-                // Hide modals
-                correctModal.classList.remove('active');
-                incorrectModal.classList.remove('active');
-                
-                currentQuestion++;
-                
-                if (currentQuestion > 4) {
-                    // Show results
-                    showResults();
-                } else {
-                    questionElement.textContent = currentQuestion;
-                    flipButton.style.display = 'block';
-                    generateQuestion();
-                }
-            }
-            
-            // Show results when game is over
-            function showResults() {
-                finalScoreElement.textContent = `${score}/4`;
-                resultsModal.classList.add('active');
-            }
-            
-            // Event listeners
-            flipButton.addEventListener('click', flipCards);
-            
-            modalNextBtn.addEventListener('click', nextQuestion);
-            modalNextBtnIncorrect.addEventListener('click', nextQuestion);
-            
-            restartButton.addEventListener('click', () => {
-                resultsModal.classList.remove('active');
-                startGame();
-            });
+    <div class="doc0826-question-text" id="doc0826QuestionDisplay"></div>
+
+    <div class="doc0826-options-grid" id="doc0826OptionsContainer"></div>
+  </div>
+
+  <!-- Score popup -->
+  <div class="doc0826-popup-overlay" id="doc0826PopupOverlay">
+    <div class="doc0826-score-card">
+      <div class="doc0826-score-title">Your screen habit profile</div>
+      <div class="doc0826-score-type" id="doc0826ScoreType">...</div>
+      <div class="doc0826-feedback-message" id="doc0826FeedbackText"></div>
+      <div class="doc0826-helpline">
+        📞 <span>DocOnline</span> · <span>8822 126 126</span>
+      </div>
+      <button class="doc0826-close-btn" id="doc0826ClosePopupBtn">Restart quiz</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ----- doc0826 prefixed JS variables -----
+      const doc0826questions = [
+        {
+          text: "What is the first thing you do when you wake up?",
+          options: [
+            { label: "Check my phone to stay up-to-date", icon: "📱", correct: false },
+            { label: "Take some time by stretching or planning out the day, before going online", icon: "🧘", correct: true }
+          ]
+        },
+        {
+          text: "When messages come in, you tend to:",
+          options: [
+            { label: "Reply instantly", icon: "⚡", correct: false },
+            { label: "Respond when it is suitable, depending on importance", icon: "📝", correct: true }
+          ]
+        },
+        {
+          text: "Screen breaks during the day are taken:",
+          options: [
+            { label: "Rarely", icon: "⏭️", correct: false },
+            { label: "Regularly and intentionally", icon: "🌿", correct: true }
+          ]
+        },
+        {
+          text: "During conversations/meal time, you:",
+          options: [
+            { label: "Often check your phone", icon: "👀", correct: false },
+            { label: "Stay present and in the moment", icon: "💬", correct: true }
+          ]
+        },
+        {
+          text: "Long screen hours make you feel:",
+          options: [
+            { label: "Drained, distracted, cause headaches", icon: "😫", correct: false },
+            { label: "Balanced, in control, no real impact", icon: "😊", correct: true }
+          ]
+        }
+      ];
+
+      // State variables doc0826
+      let doc0826CurrentIndex = 0;
+      const doc0826TotalQuestions = doc0826questions.length;
+      let doc0826UserAnswers = new Array(doc0826TotalQuestions).fill(null); // true = B (correct), false = A
+
+      // DOM elements doc0826
+      const doc0826QuestionDisplay = document.getElementById('doc0826QuestionDisplay');
+      const doc0826OptionsContainer = document.getElementById('doc0826OptionsContainer');
+      const doc0826QuestionCounter = document.getElementById('doc0826QuestionCounter');
+      const doc0826ProgressFill = document.getElementById('doc0826ProgressFill');
+      const doc0826PopupOverlay = document.getElementById('doc0826PopupOverlay');
+      const doc0826ScoreType = document.getElementById('doc0826ScoreType');
+      const doc0826FeedbackText = document.getElementById('doc0826FeedbackText');
+      const doc0826ClosePopupBtn = document.getElementById('doc0826ClosePopupBtn');
+
+      function doc0826RenderQuestion() {
+        if (doc0826CurrentIndex >= doc0826TotalQuestions) {
+          doc0826ShowScorePopup();
+          return;
+        }
+
+        const currentQ = doc0826questions[doc0826CurrentIndex];
+        doc0826QuestionDisplay.textContent = currentQ.text;
+
+        let optionsHtml = '';
+        currentQ.options.forEach((opt, idx) => {
+          optionsHtml += `
+            <div class="doc0826-option-btn" data-option-index="${idx}">
+              <div class="doc0826-option-icon">${opt.icon}</div>
+              <div class="doc0826-option-label">${opt.label}</div>
+            </div>
+          `;
         });
-    </script>
+
+        doc0826OptionsContainer.innerHTML = optionsHtml;
+
+        document.querySelectorAll('.doc0826-option-btn').forEach(btn => {
+          btn.addEventListener('click', doc0826OptionClickHandler);
+        });
+
+        const progressPercent = ((doc0826CurrentIndex + 1) / doc0826TotalQuestions) * 100;
+        doc0826ProgressFill.style.width = `${progressPercent}%`;
+        doc0826QuestionCounter.textContent = `${doc0826CurrentIndex + 1}/${doc0826TotalQuestions}`;
+      }
+
+      function doc0826OptionClickHandler(e) {
+        const optionBtn = e.currentTarget;
+        const selectedIndex = parseInt(optionBtn.getAttribute('data-option-index'), 10);
+        const currentQuestionData = doc0826questions[doc0826CurrentIndex];
+        const selectedOption = currentQuestionData.options[selectedIndex];
+
+        // Record answer (correct = B answer = true)
+        doc0826UserAnswers[doc0826CurrentIndex] = selectedOption.correct;
+
+        doc0826CurrentIndex++;
+
+        if (doc0826CurrentIndex < doc0826TotalQuestions) {
+          doc0826RenderQuestion();
+        } else {
+          doc0826ShowScorePopup();
+        }
+      }
+
+      function doc0826ShowScorePopup() {
+        // Count A vs B (false = A, true = B)
+        let doc0826CountA = 0;
+        let doc0826CountB = 0;
+        doc0826UserAnswers.forEach(answer => {
+          if (answer === true) {
+            doc0826CountB++;
+          } else if (answer === false) {
+            doc0826CountA++;
+          }
+        });
+
+        let screenProfile = '';
+        let feedbackMessage = '';
+
+        if (doc0826CountA > doc0826CountB) {
+          // Mostly As
+          screenProfile = 'The screen magnet';
+          feedbackMessage = `
+            You are someone who struggles to look up from screens, often finding yourself distracted, even in situations when it matters the most.<br>
+            You might be highly connected, however it is costing your productivity and focus.<br><br>
+            <strong>Try limiting your screen time gradually and live more in the moment to feel more in control.</strong>
+          `;
+        } else {
+          // Mostly Bs (or equal)
+          screenProfile = 'The mindful screen user';
+          feedbackMessage = `
+            Your digital habits are managed well, you are able to live in the moment and not let screen time distract you.<br>
+            Protect this along with your time and attention for better productivity and overall wellbeing.
+          `;
+        }
+
+        doc0826ScoreType.textContent = screenProfile;
+        doc0826FeedbackText.innerHTML = feedbackMessage;
+
+        doc0826PopupOverlay.classList.add('doc0826-active');
+      }
+
+      function doc0826ClosePopup() {
+        doc0826PopupOverlay.classList.remove('doc0826-active');
+        // Reset quiz
+        doc0826CurrentIndex = 0;
+        doc0826UserAnswers = new Array(doc0826TotalQuestions).fill(null);
+        doc0826RenderQuestion();
+      }
+
+      doc0826ClosePopupBtn.addEventListener('click', doc0826ClosePopup);
+
+      doc0826PopupOverlay.addEventListener('click', function(e) {
+        if (e.target === doc0826PopupOverlay) {
+          doc0826ClosePopup();
+        }
+      });
+
+      // Start quiz
+      doc0826RenderQuestion();
+    })();
+  </script>
 </body>
 </html>
