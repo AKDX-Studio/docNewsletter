@@ -2476,6 +2476,256 @@ box-shadow:0 16px 24px -16px #001e33;
             width:auto;
         }
       }
+
+         .doc0926-quiz-container {
+      width: 100%;
+      max-width: 600px;
+      background: #ffffff;
+      border-radius: 2.8rem;
+      box-shadow: 0 25px 50px rgba(25, 60, 40, 0.1), 0 8px 20px rgba(25, 60, 40, 0.05);
+      padding: 2.4rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      transition: all 0.2s ease;
+    }
+
+    .doc0926-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .doc0926-title {
+      font-size: 1.3rem;
+      font-weight: 650;
+      color: #1d3d2c;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .doc0926-subtitle {
+      font-size: 0.9rem;
+      color: #4d6b58;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .doc0926-progress {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #2a4d39;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      margin-top: 0.2rem;
+    }
+
+    .doc0926-progress-bar-bg {
+      background: #d9e6dd;
+      height: 6px;
+      border-radius: 20px;
+      flex: 1;
+      margin: 0 1rem;
+      overflow: hidden;
+    }
+
+    .doc0926-progress-fill {
+      background: #2e7d52;
+      height: 100%;
+      width: 0%;
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .doc0926-question-text {
+      font-size: 1.65rem;
+      font-weight: 550;
+      line-height: 1.4;
+      color: #102b1e;
+      margin-bottom: 0.1rem;
+    }
+
+    .doc0926-options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .doc0926-option-btn {
+      background: #f6faf7;
+      border: 1.5px solid #c8dccf;
+      border-radius: 1.6rem;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(20, 50, 35, 0.03);
+      text-align: left;
+      color: #1d3a2a;
+    }
+
+    .doc0926-option-btn:hover {
+      background: #eff7f1;
+      border-color: #93bda3;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 22px rgba(20, 55, 35, 0.08);
+    }
+
+    .doc0926-option-btn:active {
+      transform: translateY(1px);
+      background: #e3f0e7;
+    }
+
+    .doc0926-option-icon {
+      font-size: 2.2rem;
+      min-width: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e3f0e7;
+      border-radius: 50%;
+      width: 3.4rem;
+      height: 3.4rem;
+      color: #2e6b48;
+      transition: 0.2s;
+    }
+
+    .doc0926-option-btn:hover .doc0926-option-icon {
+      background: #cfe6d6;
+    }
+
+    .doc0926-option-label {
+      font-size: 1.15rem;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    /* Score popup overlay */
+    .doc0926-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 30, 20, 0.6);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.2s, opacity 0.25s ease;
+      padding: 1.5rem;
+    }
+
+    .doc0926-popup-overlay.doc0926-active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .doc0926-score-card {
+      background: #ffffff;
+      border-radius: 2.8rem;
+      max-width: 480px;
+      width: 100%;
+      padding: 2.5rem 2.2rem 2.2rem;
+      box-shadow: 0 35px 55px rgba(10, 35, 22, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      text-align: center;
+      transform: scale(0.95);
+      transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
+    }
+
+    .doc0926-popup-overlay.doc0926-active .doc0926-score-card {
+      transform: scale(1);
+    }
+
+    .doc0926-score-title {
+      font-size: 2.1rem;
+      font-weight: 650;
+      color: #102b1e;
+    }
+
+    .doc0926-score-type {
+      font-size: 1.6rem;
+      font-weight: 600;
+      background: #e3f0e7;
+      display: inline-block;
+      padding: 0.6rem 2rem;
+      border-radius: 50px;
+      margin: 0 auto;
+      color: #1e5738;
+      letter-spacing: -0.3px;
+    }
+
+    .doc0926-feedback-message {
+      color: #1c3a2b;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      background: #f3f9f5;
+      padding: 1.3rem 1.4rem;
+      border-radius: 1.6rem;
+      text-align: left;
+      font-weight: 440;
+    }
+
+    .doc0926-helpline {
+      margin-top: 0.3rem;
+      font-weight: 520;
+      color: #1e4d36;
+      background: #dceee2;
+      padding: 0.9rem 1rem;
+      border-radius: 2.2rem;
+      font-size: 0.98rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .doc0926-helpline span {
+      font-weight: 650;
+      color: #0d271a;
+    }
+
+    .doc0926-close-btn {
+      background: #b8d9c4;
+      border: none;
+      padding: 0.8rem 2.2rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      color: #0d271a;
+      cursor: pointer;
+      margin-top: 0.2rem;
+      transition: 0.2s;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .doc0926-close-btn:hover {
+      background: #9bc7ab;
+    }
+
+    @media (max-width: 480px) {
+      .doc0926-quiz-container {
+        padding: 1.8rem 1.3rem;
+      }
+      .doc0926-question-text {
+        font-size: 1.4rem;
+      }
+    }
+
    
     </style>
 
@@ -2882,93 +3132,7 @@ This continued collaboration reflects our shared commitment to improving healthc
 
                 </section>
 
-<!-- ADD HYPERLINK OUTLOOK BANNER HERE **HIDDDEN value:block -->
 
- <!-- BlockQUOTE adapt-->
-
-                <section class="home--personal bg--color--spaceX all-sol-block all-sol-block-01 newsletter-Box-wrap" style="display:none;">
-
-
-
-
-
-
-                    <div class="newsletter-Main-BOX header--text--banner" style="">
-
-                        <div class="Month-wrapper" style="">
-
-
-							   <p class="txt-12--bold BqTXT-M-Title" style="margin:0 0 12px 0 !important;">NATIONAL DOCTORS' DAY, 2026
-                                        <br>
-                                        
-                                    </p>
-
-<hr class="BqTXT-M-Title" style="margin-bottom:1rem;">
-
-                            <div class="Month-Box Month-Box-Bottom" style="">
-
-
-
-                                <div class="QT-Month-Txt" style="">
-
-                                    <p class="txt-12--bold BqTXT-D-Title" style="margin:0 0 12px 0 !important;">NATIONAL DOCTORS' DAY, 2026
-                                        <br>
-                                        
-                                    </p>
-
-<hr class="BqTXT-D-Title">
-
-                                    <p class="p--class--typo--Story" style="line-height:1.5;"><b> 
-                                    
-                                    As we marked Doctor&#39;s Day on 1st July, we shared a message of appreciation for the doctors
-whose expertise and empathy inspire us every day.
-                                    
-                                    </b>
- 
-                                    </p>
-
-                                     <a href="https://www.linkedin.com/feed/update/urn:li:activity:7477967119884800000/" target="_blank" >
-
-                                        <div class="ntHotLink ntHotLink-monthly" style="bottom:-24px; right:0;">
-
-                                            <p class="txt-12--bold" style="margin:0; color:white;">View Now</p>
-
-                                            <img class="" style="transform: rotate(0deg); width:14px; height:14px;" src="images/LinkArrow-W-icon.png" alt="DocOnline"></div>
-
-                                    </a>
-
-
-                                </div>
-
-                                <div class="Month-Img QT-Month-Img-Bottom " style="background-image: url('images/Sept-26-BQ.jpg');"></div>
-
-                            </div>
-
-
-
-
-
-
-
-                        </div>
-
-
-
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </section>
 
 
 
@@ -3071,6 +3235,107 @@ healthcare closer to those who need it most.
                 
                 
                 
+                <!-- ADD HYPERLINK OUTLOOK BANNER HERE **NOT HIDDDEN display value:block -->
+
+ <!-- BlockQUOTE adapt-->
+
+                <section class="home--personal bg--color--spaceX all-sol-block all-sol-block-01 newsletter-Box-wrap" style="display: block;">
+
+
+
+
+
+
+                    <div class="newsletter-Main-BOX header--text--banner" style="">
+
+                        <div class="Month-wrapper" style="">
+
+
+							   <p class="txt-12--bold BqTXT-M-Title" style="margin:0 0 12px 0 !important;">Highlight of the Month
+                                        <br>
+                                        
+                                    </p>
+
+<hr class="BqTXT-M-Title" style="margin-bottom:1rem;">
+
+                            <div class="Month-Box Month-Box-Bottom" style="">
+
+
+
+                                <div class="QT-Month-Txt" style="">
+
+                                    <p class="txt-12--bold BqTXT-D-Title" style="margin:0 0 12px 0 !important;">10 Million+ Families Reached
+                                        <br>
+                                        
+                                    </p>
+
+<hr class="BqTXT-D-Title">
+
+                                    <p class="p--class--typo--Story" style="line-height:1.5;"><b> 
+                                    
+                                    DocOnline has reached <b>10 million+ families</b>, connecting individuals and communities with
+quality healthcare services across the country.
+<br><br>
+As we celebrate this milestone, we remain committed to expanding our impact and bringing
+better health outcomes to even more families across India.
+                                    
+                                    </b>
+ 
+                                    </p>
+<!-- Multiline comment to add CTA button for LinkedIn post 
+ 
+                                     <a href="https://www.linkedin.com/feed/update/urn:li:activity:7477967119884800000/" target="_blank" >
+
+                                        <div class="ntHotLink ntHotLink-monthly" style="bottom:-24px; right:0;">
+
+                                            <p class="txt-12--bold" style="margin:0; color:white;">View Now</p>
+
+                                            <img class="" style="transform: rotate(0deg); width:14px; height:14px;" src="images/LinkArrow-W-icon.png" alt="DocOnline"></div>
+
+                                    </a> -->
+
+
+                                </div>
+
+                                <div class="Month-Img QT-Month-Img-Bottom " style="background-image: url('images/Sept-26-BQ.jpg');"></div>
+
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+
                 
                  <!-- ARTICLE XX WITH AUTHOR - DOC DESK **HIDEN**  -->
 
@@ -3696,15 +3961,33 @@ Let's see how well you manage your daily digital habits.</b>
 
 <!-- QUIZ IFRAME GOES HERE PASTE START-->
 
-<iframe 
-  src="newsletterGame.html" 
-  style="border: none; margin: 0; padding: 0; width: 100%; height: 100vh; display: block;"
-  frameborder="0"
-  scrolling="no"
-  allowfullscreen
-  title="Newsletter Game">
-</iframe>
-                           
+ <div class="doc0926-quiz-container" id="doc0926QuizBox">
+    
+    <div class="doc0926-progress">
+      <span id="doc0926QuestionCounter">1/5</span>
+      <div class="doc0926-progress-bar-bg">
+        <div class="doc0926-progress-fill" id="doc0926ProgressFill" style="width: 20%;"></div>
+      </div>
+      <span>5</span>
+    </div>
+
+    <div class="doc0926-question-text" id="doc0926QuestionDisplay"></div>
+
+    <div class="doc0926-options-grid" id="doc0926OptionsContainer"></div>
+  </div>
+
+  <!-- Score popup -->
+  <div class="doc0926-popup-overlay" id="doc0926PopupOverlay">
+    <div class="doc0926-score-card">
+      <div class="doc0926-score-title">Your health search profile</div>
+      <div class="doc0926-score-type" id="doc0926ScoreType">...</div>
+      <div class="doc0926-feedback-message" id="doc0926FeedbackText"></div>
+      
+      <button class="doc0926-close-btn" id="doc0926ClosePopupBtn">Restart quiz</button>
+    </div>
+  </div>
+
+                            
 <!-- QUIZ PASTE END-->                           
                            
                            
@@ -4199,7 +4482,170 @@ It has been a pleasure working with you and your team, and we look forward to st
 
     </section>
 
+<!-- GAME JS SCRIPT -->
 
+
+ <script>
+    (function() {
+      // ----- doc0926 prefixed JS variables -----
+      const doc0926questions = [
+        {
+          text: "You notice a new symptom. Your first instinct is:",
+          options: [
+            { label: "Google it immediately", icon: "🔎", correct: false },
+            { label: "Observe it first and look for reliable information if needed", icon: "🧐", correct: true }
+          ]
+        },
+        {
+          text: "You find a website that says your symptom could mean something serious. You:",
+          options: [
+            { label: "Assume the worst", icon: "😨", correct: false },
+            { label: "Remember that one symptom can have many possible causes", icon: "🧠", correct: true }
+          ]
+        },
+        {
+          text: "You see a health tip on Instagram. You:",
+          options: [
+            { label: "Save it because it sounds convincing", icon: "💾", correct: false },
+            { label: "Check who posted it and whether it's evidence-based", icon: "✅", correct: true }
+          ]
+        },
+        {
+          text: "You find conflicting information online. You:",
+          options: [
+            { label: "Pick whichever answer sounds better", icon: "🤷", correct: false },
+            { label: "Look for information from reliable medical sources", icon: "🏥", correct: true }
+          ]
+        },
+        {
+          text: "After researching your symptoms for an hour, you:",
+          options: [
+            { label: "Somehow feel more confused than when you started", icon: "😵", correct: false },
+            { label: "Know when it's time to stop searching and speak to a professional", icon: "👩‍⚕️", correct: true }
+          ]
+        }
+      ];
+
+      // State variables doc0926
+      let doc0926CurrentIndex = 0;
+      const doc0926TotalQuestions = doc0926questions.length;
+      let doc0926UserAnswers = new Array(doc0926TotalQuestions).fill(null); // true = B (correct), false = A
+
+      // DOM elements doc0926
+      const doc0926QuestionDisplay = document.getElementById('doc0926QuestionDisplay');
+      const doc0926OptionsContainer = document.getElementById('doc0926OptionsContainer');
+      const doc0926QuestionCounter = document.getElementById('doc0926QuestionCounter');
+      const doc0926ProgressFill = document.getElementById('doc0926ProgressFill');
+      const doc0926PopupOverlay = document.getElementById('doc0926PopupOverlay');
+      const doc0926ScoreType = document.getElementById('doc0926ScoreType');
+      const doc0926FeedbackText = document.getElementById('doc0926FeedbackText');
+      const doc0926ClosePopupBtn = document.getElementById('doc0926ClosePopupBtn');
+
+      function doc0926RenderQuestion() {
+        if (doc0926CurrentIndex >= doc0926TotalQuestions) {
+          doc0926ShowScorePopup();
+          return;
+        }
+
+        const currentQ = doc0926questions[doc0926CurrentIndex];
+        doc0926QuestionDisplay.textContent = currentQ.text;
+
+        let optionsHtml = '';
+        currentQ.options.forEach((opt, idx) => {
+          optionsHtml += `
+            <div class="doc0926-option-btn" data-option-index="${idx}">
+              <div class="doc0926-option-icon">${opt.icon}</div>
+              <div class="doc0926-option-label">${opt.label}</div>
+            </div>
+          `;
+        });
+
+        doc0926OptionsContainer.innerHTML = optionsHtml;
+
+        document.querySelectorAll('.doc0926-option-btn').forEach(btn => {
+          btn.addEventListener('click', doc0926OptionClickHandler);
+        });
+
+        const progressPercent = ((doc0926CurrentIndex + 1) / doc0926TotalQuestions) * 100;
+        doc0926ProgressFill.style.width = `${progressPercent}%`;
+        doc0926QuestionCounter.textContent = `${doc0926CurrentIndex + 1}/${doc0926TotalQuestions}`;
+      }
+
+      function doc0926OptionClickHandler(e) {
+        const optionBtn = e.currentTarget;
+        const selectedIndex = parseInt(optionBtn.getAttribute('data-option-index'), 10);
+        const currentQuestionData = doc0926questions[doc0926CurrentIndex];
+        const selectedOption = currentQuestionData.options[selectedIndex];
+
+        // Record answer (correct = B answer = true)
+        doc0926UserAnswers[doc0926CurrentIndex] = selectedOption.correct;
+
+        doc0926CurrentIndex++;
+
+        if (doc0926CurrentIndex < doc0926TotalQuestions) {
+          doc0926RenderQuestion();
+        } else {
+          doc0926ShowScorePopup();
+        }
+      }
+
+      function doc0926ShowScorePopup() {
+        // Count A vs B (false = A, true = B)
+        let doc0926CountA = 0;
+        let doc0926CountB = 0;
+        doc0926UserAnswers.forEach(answer => {
+          if (answer === true) {
+            doc0926CountB++;
+          } else if (answer === false) {
+            doc0926CountA++;
+          }
+        });
+
+        let searchProfile = '';
+        let feedbackMessage = '';
+
+        if (doc0926CountA > doc0926CountB) {
+          // Mostly As
+          searchProfile = 'The 2 A.M. Diagnostician';
+          feedbackMessage = `
+            One innocent symptom can turn into an entire medical investigation with you.<br><br>
+            <strong>Remember:</strong> the internet can provide information, but it can't examine you or give you a personalised diagnosis.
+          `;
+        } else {
+          // Mostly Bs (or equal)
+          searchProfile = 'The Smart Searcher';
+          feedbackMessage = `
+            You know how to use the internet without letting it become your doctor.<br><br>
+            Keep checking reliable sources and know when a real conversation with a healthcare professional is more useful.
+          `;
+        }
+
+        doc0926ScoreType.textContent = searchProfile;
+        doc0926FeedbackText.innerHTML = feedbackMessage;
+
+        doc0926PopupOverlay.classList.add('doc0926-active');
+      }
+
+      function doc0926ClosePopup() {
+        doc0926PopupOverlay.classList.remove('doc0926-active');
+        // Reset quiz
+        doc0926CurrentIndex = 0;
+        doc0926UserAnswers = new Array(doc0926TotalQuestions).fill(null);
+        doc0926RenderQuestion();
+      }
+
+      doc0926ClosePopupBtn.addEventListener('click', doc0926ClosePopup);
+
+      doc0926PopupOverlay.addEventListener('click', function(e) {
+        if (e.target === doc0926PopupOverlay) {
+          doc0926ClosePopup();
+        }
+      });
+
+      // Start quiz
+      doc0926RenderQuestion();
+    })();
+  </script>
 
 
 
