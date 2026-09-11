@@ -4392,6 +4392,11 @@ It has been a pleasure working with you and your team, and we look forward to st
 
       const button = document.querySelector('.doc0826-option-btn');
       const summaryBox = document.querySelector('.AIsummaryBox');
+      const labelEl = button.querySelector('.doc0826-option-label');   // NEW
+
+      const TEXT_DEFAULT    = 'Summarize this Newsletter';             // NEW
+      const TEXT_GENERATING = 'Generating Summary...';                 // NEW
+      const TEXT_DONE       = 'AI Summary';                            // NEW
 
       let isAnimating = false;
       let isBoxVisible = false;
@@ -4403,22 +4408,28 @@ It has been a pleasure working with you and your team, and we look forward to st
         if (isBoxVisible) {
           summaryBox.style.display = 'none';
           isBoxVisible = false;
+          labelEl.textContent = TEXT_DEFAULT;                          // NEW
           return;
         }
 
         // ---- SHOW (animate border first) ----
         isAnimating = true;
 
+        // NEW: swap label to "Generating Summary..." immediately
+        labelEl.textContent = TEXT_GENERATING;
+
         // restart animation reliably: remove class, force reflow, re-add
         button.classList.remove('animate-border');
         void button.offsetWidth;             // force reflow
         button.classList.add('animate-border');
 
-        // after animation (~750ms) → show the box
+        // after animation (~1000ms) → show the box
         setTimeout(() => {
           summaryBox.style.display = 'flex';
           isBoxVisible = true;
           isAnimating = false;
+
+          labelEl.textContent = TEXT_DONE;                             // NEW
 
           // clean up class once animation is done
           button.classList.remove('animate-border');
