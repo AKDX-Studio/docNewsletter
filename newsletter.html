@@ -3694,33 +3694,16 @@ Let's see how well you manage your daily digital habits.</b>
 
                             <div class="NewsLt-Img quiz-container" style="position:relative; overflow:hidden; height:auto; background: #fff; border-radius: 40px;">
 
-<!-- QUIZ PASTE START-->
+<!-- QUIZ IFRAME GOES HERE PASTE START-->
 
-<div class="doc0826-quiz-container" id="doc0826QuizBox">
-    
-    <div class="doc0826-progress">
-      <span id="doc0826QuestionCounter">1/5</span>
-      <div class="doc0826-progress-bar-bg">
-        <div class="doc0826-progress-fill" id="doc0826ProgressFill" style="width: 20%;"></div>
-      </div>
-      <span>5</span>
-    </div>
-
-    <div class="doc0826-question-text" id="doc0826QuestionDisplay"></div>
-
-    <div class="doc0826-options-grid" id="doc0826OptionsContainer"></div>
-  </div>
-
-  <!-- Score popup -->
-  <div class="doc0826-popup-overlay" id="doc0826PopupOverlay">
-    <div class="doc0826-score-card">
-      <div class="doc0826-score-title">Your screen habit profile</div>
-      <div class="doc0826-score-type" id="doc0826ScoreType">...</div>
-      <div class="doc0826-feedback-message" id="doc0826FeedbackText"></div>
-      
-      <button class="doc0826-close-btn" id="doc0826ClosePopupBtn">Restart quiz</button>
-    </div>
-  </div>
+<iframe 
+  src="newsletterGame.html" 
+  style="border: none; margin: 0; padding: 0; width: 100%; height: 100vh; display: block;"
+  frameborder="0"
+  scrolling="no"
+  allowfullscreen
+  title="Newsletter Game">
+</iframe>
                            
 <!-- QUIZ PASTE END-->                           
                            
@@ -4216,171 +4199,7 @@ It has been a pleasure working with you and your team, and we look forward to st
 
     </section>
 
-<!-- GAME JS SCRIPT -->
 
-
-<script>
-    (function() {
-      // ----- doc0826 prefixed JS variables -----
-      const doc0826questions = [
-        {
-          text: "What is the first thing you do when you wake up?",
-          options: [
-            { label: "Check my phone to stay up-to-date", icon: "📱", correct: false },
-            { label: "Take some time by stretching or planning out the day, before going online", icon: "🧘", correct: true }
-          ]
-        },
-        {
-          text: "When messages come in, you tend to:",
-          options: [
-            { label: "Reply instantly", icon: "⚡", correct: false },
-            { label: "Respond when it is suitable, depending on importance", icon: "📝", correct: true }
-          ]
-        },
-        {
-          text: "Screen breaks during the day are taken:",
-          options: [
-            { label: "Rarely", icon: "⏭️", correct: false },
-            { label: "Regularly and intentionally", icon: "🌿", correct: true }
-          ]
-        },
-        {
-          text: "During conversations/meal time, you:",
-          options: [
-            { label: "Often check your phone", icon: "👀", correct: false },
-            { label: "Stay present and in the moment", icon: "💬", correct: true }
-          ]
-        },
-        {
-          text: "Long screen hours make you feel:",
-          options: [
-            { label: "Drained, distracted, cause headaches", icon: "😫", correct: false },
-            { label: "Balanced, in control, no real impact", icon: "😊", correct: true }
-          ]
-        }
-      ];
-
-      // State variables doc0826
-      let doc0826CurrentIndex = 0;
-      const doc0826TotalQuestions = doc0826questions.length;
-      let doc0826UserAnswers = new Array(doc0826TotalQuestions).fill(null); // true = B (correct), false = A
-
-      // DOM elements doc0826
-      const doc0826QuestionDisplay = document.getElementById('doc0826QuestionDisplay');
-      const doc0826OptionsContainer = document.getElementById('doc0826OptionsContainer');
-      const doc0826QuestionCounter = document.getElementById('doc0826QuestionCounter');
-      const doc0826ProgressFill = document.getElementById('doc0826ProgressFill');
-      const doc0826PopupOverlay = document.getElementById('doc0826PopupOverlay');
-      const doc0826ScoreType = document.getElementById('doc0826ScoreType');
-      const doc0826FeedbackText = document.getElementById('doc0826FeedbackText');
-      const doc0826ClosePopupBtn = document.getElementById('doc0826ClosePopupBtn');
-
-      function doc0826RenderQuestion() {
-        if (doc0826CurrentIndex >= doc0826TotalQuestions) {
-          doc0826ShowScorePopup();
-          return;
-        }
-
-        const currentQ = doc0826questions[doc0826CurrentIndex];
-        doc0826QuestionDisplay.textContent = currentQ.text;
-
-        let optionsHtml = '';
-        currentQ.options.forEach((opt, idx) => {
-          optionsHtml += `
-            <div class="doc0826-option-btn" data-option-index="${idx}">
-              <div class="doc0826-option-icon">${opt.icon}</div>
-              <div class="doc0826-option-label">${opt.label}</div>
-            </div>
-          `;
-        });
-
-        doc0826OptionsContainer.innerHTML = optionsHtml;
-
-        document.querySelectorAll('.doc0826-option-btn').forEach(btn => {
-          btn.addEventListener('click', doc0826OptionClickHandler);
-        });
-
-        const progressPercent = ((doc0826CurrentIndex + 1) / doc0826TotalQuestions) * 100;
-        doc0826ProgressFill.style.width = `${progressPercent}%`;
-        doc0826QuestionCounter.textContent = `${doc0826CurrentIndex + 1}/${doc0826TotalQuestions}`;
-      }
-
-      function doc0826OptionClickHandler(e) {
-        const optionBtn = e.currentTarget;
-        const selectedIndex = parseInt(optionBtn.getAttribute('data-option-index'), 10);
-        const currentQuestionData = doc0826questions[doc0826CurrentIndex];
-        const selectedOption = currentQuestionData.options[selectedIndex];
-
-        // Record answer (correct = B answer = true)
-        doc0826UserAnswers[doc0826CurrentIndex] = selectedOption.correct;
-
-        doc0826CurrentIndex++;
-
-        if (doc0826CurrentIndex < doc0826TotalQuestions) {
-          doc0826RenderQuestion();
-        } else {
-          doc0826ShowScorePopup();
-        }
-      }
-
-      function doc0826ShowScorePopup() {
-        // Count A vs B (false = A, true = B)
-        let doc0826CountA = 0;
-        let doc0826CountB = 0;
-        doc0826UserAnswers.forEach(answer => {
-          if (answer === true) {
-            doc0826CountB++;
-          } else if (answer === false) {
-            doc0826CountA++;
-          }
-        });
-
-        let screenProfile = '';
-        let feedbackMessage = '';
-
-        if (doc0826CountA > doc0826CountB) {
-          // Mostly As
-          screenProfile = 'The screen magnet';
-          feedbackMessage = `
-            You are someone who struggles to look up from screens, often finding yourself distracted, even in situations when it matters the most.<br>
-            You might be highly connected, however it is costing your productivity and focus.<br><br>
-            <strong>Try limiting your screen time gradually and live more in the moment to feel more in control.</strong>
-          `;
-        } else {
-          // Mostly Bs (or equal)
-          screenProfile = 'The mindful screen user';
-          feedbackMessage = `
-            Your digital habits are managed well, you are able to live in the moment and not let screen time distract you.<br>
-            Protect this along with your time and attention for better productivity and overall wellbeing.
-          `;
-        }
-
-        doc0826ScoreType.textContent = screenProfile;
-        doc0826FeedbackText.innerHTML = feedbackMessage;
-
-        doc0826PopupOverlay.classList.add('doc0826-active');
-      }
-
-      function doc0826ClosePopup() {
-        doc0826PopupOverlay.classList.remove('doc0826-active');
-        // Reset quiz
-        doc0826CurrentIndex = 0;
-        doc0826UserAnswers = new Array(doc0826TotalQuestions).fill(null);
-        doc0826RenderQuestion();
-      }
-
-      doc0826ClosePopupBtn.addEventListener('click', doc0826ClosePopup);
-
-      doc0826PopupOverlay.addEventListener('click', function(e) {
-        if (e.target === doc0826PopupOverlay) {
-          doc0826ClosePopup();
-        }
-      });
-
-      // Start quiz
-      doc0826RenderQuestion();
-    })();
-  </script>
 
 
 
