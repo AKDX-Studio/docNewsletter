@@ -2730,6 +2730,247 @@ box-shadow:0 16px 24px -16px #001e33;
 
     }
 
+
+
+
+      .doc1026-quiz-container {
+      width: 100%;
+      max-width: 640px;
+      background: #ffffff;
+      border-radius: 2.8rem;
+      box-shadow: 0 25px 50px rgba(120, 65, 15, 0.12), 0 8px 20px rgba(120, 65, 15, 0.06);
+      padding: 2.4rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      transition: all 0.2s ease;
+    }
+
+    .doc1026-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .doc1026-title {
+      font-size: 1.3rem;
+      font-weight: 650;
+      color: #6b2d0a;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .doc1026-subtitle {
+      font-size: 0.9rem;
+      color: #8a5a2b;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .doc1026-progress {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #7a4418;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      margin-top: 0.2rem;
+    }
+
+    .doc1026-progress-bar-bg {
+      background: #f0e0c8;
+      height: 6px;
+      border-radius: 20px;
+      flex: 1;
+      margin: 0 1rem;
+      overflow: hidden;
+    }
+
+    .doc1026-progress-fill {
+      background: #d97917;
+      height: 100%;
+      width: 0%;
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .doc1026-question-text {
+      font-size: 1.55rem;
+      font-weight: 550;
+      line-height: 1.4;
+      color: #4a1f05;
+      margin-bottom: 0.1rem;
+    }
+
+    .doc1026-options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    .doc1026-option-btn {
+      background: #fffbf5;
+      border: 1.5px solid #ecd9bd;
+      border-radius: 1.4rem;
+      padding: 1.05rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(110, 60, 15, 0.03);
+      text-align: left;
+      color: #4a2609;
+    }
+
+    .doc1026-option-btn:hover {
+      background: #fdf3e5;
+      border-color: #e0b478;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 22px rgba(120, 65, 15, 0.09);
+    }
+
+    .doc1026-option-btn:active {
+      transform: translateY(1px);
+      background: #f8e9d3;
+    }
+
+    .doc1026-option-icon {
+      font-size: 2rem;
+      min-width: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fcefdb;
+      border-radius: 50%;
+      width: 3.1rem;
+      height: 3.1rem;
+      color: #b35f10;
+      transition: 0.2s;
+    }
+
+    .doc1026-option-btn:hover .doc1026-option-icon {
+      background: #f7dfbc;
+    }
+
+    .doc1026-option-label {
+      font-size: 1.08rem;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    /* Score popup overlay */
+    .doc1026-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(60, 25, 5, 0.6);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.2s, opacity 0.25s ease;
+      padding: 1.5rem;
+    }
+
+    .doc1026-popup-overlay.doc1026-active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .doc1026-score-card {
+      background: #ffffff;
+      border-radius: 2.8rem;
+      max-width: 500px;
+      width: 100%;
+      padding: 2.5rem 2.2rem 2.2rem;
+      box-shadow: 0 35px 55px rgba(70, 30, 8, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+      transform: scale(0.95);
+      transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
+    }
+
+    .doc1026-popup-overlay.doc1026-active .doc1026-score-card {
+      transform: scale(1);
+    }
+
+    .doc1026-score-title {
+      font-size: 2rem;
+      font-weight: 650;
+      color: #4a1f05;
+    }
+
+    .doc1026-score-number {
+      font-size: 3.2rem;
+      font-weight: 650;
+      background: #fcefdb;
+      display: inline-block;
+      padding: 0.4rem 2.2rem;
+      border-radius: 60px;
+      margin: 0 auto;
+      color: #8a4408;
+    }
+
+    .doc1026-score-type {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #b35f10;
+      letter-spacing: -0.2px;
+    }
+
+    .doc1026-feedback-message {
+      color: #4a2c12;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      background: #fdf6ec;
+      padding: 1.3rem 1.4rem;
+      border-radius: 1.6rem;
+      text-align: left;
+      font-weight: 440;
+    }
+
+    .doc1026-close-btn {
+      background: #f0cfa0;
+      border: none;
+      padding: 0.8rem 2.2rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      color: #4a1f05;
+      cursor: pointer;
+      margin-top: 0.2rem;
+      transition: 0.2s;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .doc1026-close-btn:hover {
+      background: #e6b97e;
+    }
+
+    @media (max-width: 480px) {
+      .doc1026-quiz-container {
+        padding: 1.8rem 1.3rem;
+      }
+      .doc1026-question-text {
+        font-size: 1.3rem;
+      }
+      .doc1026-option-label {
+        font-size: 1rem;
+      }
+    }
+
    
     </style>
 
@@ -3980,29 +4221,32 @@ We have all searched a symptom online. The important part is knowing when inform
 
 <!-- QUIZ IFRAME GOES HERE PASTE START-->
 
- <div class="doc0926-quiz-container" id="doc0926QuizBox">
-    
-    <div class="doc0926-progress">
-      <span id="doc0926QuestionCounter">1/5</span>
-      <div class="doc0926-progress-bar-bg">
-        <div class="doc0926-progress-fill" id="doc0926ProgressFill" style="width: 20%;"></div>
+  <div class="doc1026-quiz-container" id="doc1026QuizBox">
+    <div class="doc1026-header">
+      <div class="doc1026-title">🏹 Ramayana & Dussehra quiz</div>
+      <div class="doc1026-subtitle">From Ayodhya to Lanka — how well do you know the epic?</div>
+    </div>
+    <div class="doc1026-progress">
+      <span id="doc1026QuestionCounter">1/7</span>
+      <div class="doc1026-progress-bar-bg">
+        <div class="doc1026-progress-fill" id="doc1026ProgressFill" style="width: 14.28%;"></div>
       </div>
-      <span>5</span>
+      <span>7</span>
     </div>
 
-    <div class="doc0926-question-text" id="doc0926QuestionDisplay"></div>
+    <div class="doc1026-question-text" id="doc1026QuestionDisplay"></div>
 
-    <div class="doc0926-options-grid" id="doc0926OptionsContainer"></div>
+    <div class="doc1026-options-grid" id="doc1026OptionsContainer"></div>
   </div>
 
   <!-- Score popup -->
-  <div class="doc0926-popup-overlay" id="doc0926PopupOverlay">
-    <div class="doc0926-score-card">
-      <div class="doc0926-score-title">Your health search profile</div>
-      <div class="doc0926-score-type" id="doc0926ScoreType">...</div>
-      <div class="doc0926-feedback-message" id="doc0926FeedbackText"></div>
-      
-      <button class="doc0926-close-btn" id="doc0926ClosePopupBtn">Restart quiz</button>
+  <div class="doc1026-popup-overlay" id="doc1026PopupOverlay">
+    <div class="doc1026-score-card">
+      <div class="doc1026-score-title">Your score</div>
+      <div class="doc1026-score-number" id="doc1026ScoreValue">0/7</div>
+      <div class="doc1026-score-type" id="doc1026ScoreType">...</div>
+      <div class="doc1026-feedback-message" id="doc1026FeedbackText"></div>
+      <button class="doc1026-close-btn" id="doc1026ClosePopupBtn">Restart quiz</button>
     </div>
   </div>
 
@@ -4504,168 +4748,193 @@ It has been a pleasure working with you and your team, and we look forward to st
 <!-- GAME JS SCRIPT -->
 
 
- <script>
+  <script>
     (function() {
-      // ----- doc0926 prefixed JS variables -----
-      const doc0926questions = [
+      // ----- doc1026 prefixed JS variables -----
+      const doc1026questions = [
         {
-          text: "You notice a new symptom. Your first instinct is:",
+          text: "Why was Lord Ram sent into exile for 14 years?",
           options: [
-            { label: "Google it immediately", icon: "🔎", correct: false },
-            { label: "Observe it first and look for reliable information if needed", icon: "🧐", correct: true }
+            { label: "Dasharatha wanted to protect him from a prophecy", icon: "🔮", correct: false },
+            { label: "Kaikeyi invoked two boons granted to her by Dasharatha", icon: "👑", correct: true },
+            { label: "Ram chose to leave Ayodhya after a dispute with Bharata", icon: "🏛️", correct: false },
+            { label: "Vishwamitra asked Dasharatha to send him away", icon: "🧙", correct: false }
           ]
         },
         {
-          text: "You find a website that says your symptom could mean something serious. You:",
+          text: "Who accompanied Lord Ram into exile?",
           options: [
-            { label: "Assume the worst", icon: "😨", correct: false },
-            { label: "Remember that one symptom can have many possible causes", icon: "🧠", correct: true }
+            { label: "Sita and Bharata", icon: "👥", correct: false },
+            { label: "Sita and Lakshman", icon: "🛕", correct: true },
+            { label: "Lakshman and Shatrughna", icon: "⚔️", correct: false },
+            { label: "Sita and Hanuman", icon: "🐒", correct: false }
           ]
         },
         {
-          text: "You see a health tip on Instagram. You:",
+          text: "What was the name of the golden deer that distracted Ram and led to Sita's abduction?",
           options: [
-            { label: "Save it because it sounds convincing", icon: "💾", correct: false },
-            { label: "Check who posted it and whether it's evidence-based", icon: "✅", correct: true }
+            { label: "Maricha", icon: "🦌", correct: true },
+            { label: "Subahu", icon: "👹", correct: false },
+            { label: "Khara", icon: "🗡️", correct: false },
+            { label: "Akampana", icon: "🏹", correct: false }
           ]
         },
         {
-          text: "You find conflicting information online. You:",
+          text: "What did Hanuman present to Sita in Lanka to prove that he had come from Lord Ram?",
           options: [
-            { label: "Pick whichever answer sounds better", icon: "🤷", correct: false },
-            { label: "Look for information from reliable medical sources", icon: "🏥", correct: true }
+            { label: "Ram's bow", icon: "🏹", correct: false },
+            { label: "Ram's ring", icon: "💍", correct: true },
+            { label: "Ram's crown", icon: "👑", correct: false },
+            { label: "Ram's sword", icon: "⚔️", correct: false }
           ]
         },
         {
-          text: "After researching your symptoms for an hour, you:",
+          text: "Who advised Ravan to return Sita and avoid war?",
           options: [
-            { label: "Somehow feel more confused than when you started", icon: "😵", correct: false },
-            { label: "Know when it's time to stop searching and speak to a professional", icon: "👩‍⚕️", correct: true }
+            { label: "Kumbhakarna", icon: "😴", correct: false },
+            { label: "Vibhishana", icon: "🙏", correct: false },
+            { label: "Maricha", icon: "🦌", correct: false },
+            { label: "All of the above", icon: "✅", correct: true }
+          ]
+        },
+        {
+          text: "What was the name of the mountain Hanuman carried to obtain the life-saving herb for Lakshman?",
+          options: [
+            { label: "Mount Meru", icon: "🏔️", correct: false },
+            { label: "Dronagiri", icon: "⛰️", correct: true },
+            { label: "Mount Kailash", icon: "🗻", correct: false },
+            { label: "Gandhamadana", icon: "🌄", correct: false }
+          ]
+        },
+        {
+          text: "Which character is traditionally credited with helping design and build the bridge to Lanka?",
+          options: [
+            { label: "Hanuman", icon: "🐒", correct: false },
+            { label: "Angada", icon: "💪", correct: false },
+            { label: "Nala", icon: "🌉", correct: true },
+            { label: "Jambavan", icon: "🐻", correct: false }
           ]
         }
       ];
 
-      // State variables doc0926
-      let doc0926CurrentIndex = 0;
-      const doc0926TotalQuestions = doc0926questions.length;
-      let doc0926UserAnswers = new Array(doc0926TotalQuestions).fill(null); // true = B (correct), false = A
+      // State variables doc1026
+      let doc1026CurrentIndex = 0;
+      const doc1026TotalQuestions = doc1026questions.length;
+      let doc1026UserAnswers = new Array(doc1026TotalQuestions).fill(null); // store boolean correct
 
-      // DOM elements doc0926
-      const doc0926QuestionDisplay = document.getElementById('doc0926QuestionDisplay');
-      const doc0926OptionsContainer = document.getElementById('doc0926OptionsContainer');
-      const doc0926QuestionCounter = document.getElementById('doc0926QuestionCounter');
-      const doc0926ProgressFill = document.getElementById('doc0926ProgressFill');
-      const doc0926PopupOverlay = document.getElementById('doc0926PopupOverlay');
-      const doc0926ScoreType = document.getElementById('doc0926ScoreType');
-      const doc0926FeedbackText = document.getElementById('doc0926FeedbackText');
-      const doc0926ClosePopupBtn = document.getElementById('doc0926ClosePopupBtn');
+      // DOM elements doc1026
+      const doc1026QuestionDisplay = document.getElementById('doc1026QuestionDisplay');
+      const doc1026OptionsContainer = document.getElementById('doc1026OptionsContainer');
+      const doc1026QuestionCounter = document.getElementById('doc1026QuestionCounter');
+      const doc1026ProgressFill = document.getElementById('doc1026ProgressFill');
+      const doc1026PopupOverlay = document.getElementById('doc1026PopupOverlay');
+      const doc1026ScoreValue = document.getElementById('doc1026ScoreValue');
+      const doc1026ScoreType = document.getElementById('doc1026ScoreType');
+      const doc1026FeedbackText = document.getElementById('doc1026FeedbackText');
+      const doc1026ClosePopupBtn = document.getElementById('doc1026ClosePopupBtn');
 
-      function doc0926RenderQuestion() {
-        if (doc0926CurrentIndex >= doc0926TotalQuestions) {
-          doc0926ShowScorePopup();
+      function doc1026RenderQuestion() {
+        if (doc1026CurrentIndex >= doc1026TotalQuestions) {
+          doc1026ShowScorePopup();
           return;
         }
 
-        const currentQ = doc0926questions[doc0926CurrentIndex];
-        doc0926QuestionDisplay.textContent = currentQ.text;
+        const currentQ = doc1026questions[doc1026CurrentIndex];
+        doc1026QuestionDisplay.textContent = currentQ.text;
 
         let optionsHtml = '';
         currentQ.options.forEach((opt, idx) => {
           optionsHtml += `
-            <div class="doc0926-option-btn" data-option-index="${idx}">
-              <div class="doc0926-option-icon">${opt.icon}</div>
-              <div class="doc0926-option-label">${opt.label}</div>
+            <div class="doc1026-option-btn" data-option-index="${idx}">
+              <div class="doc1026-option-icon">${opt.icon}</div>
+              <div class="doc1026-option-label">${opt.label}</div>
             </div>
           `;
         });
 
-        doc0926OptionsContainer.innerHTML = optionsHtml;
+        doc1026OptionsContainer.innerHTML = optionsHtml;
 
-        document.querySelectorAll('.doc0926-option-btn').forEach(btn => {
-          btn.addEventListener('click', doc0926OptionClickHandler);
+        document.querySelectorAll('.doc1026-option-btn').forEach(btn => {
+          btn.addEventListener('click', doc1026OptionClickHandler);
         });
 
-        const progressPercent = ((doc0926CurrentIndex + 1) / doc0926TotalQuestions) * 100;
-        doc0926ProgressFill.style.width = `${progressPercent}%`;
-        doc0926QuestionCounter.textContent = `${doc0926CurrentIndex + 1}/${doc0926TotalQuestions}`;
+        const progressPercent = ((doc1026CurrentIndex + 1) / doc1026TotalQuestions) * 100;
+        doc1026ProgressFill.style.width = `${progressPercent}%`;
+        doc1026QuestionCounter.textContent = `${doc1026CurrentIndex + 1}/${doc1026TotalQuestions}`;
       }
 
-      function doc0926OptionClickHandler(e) {
+      function doc1026OptionClickHandler(e) {
         const optionBtn = e.currentTarget;
         const selectedIndex = parseInt(optionBtn.getAttribute('data-option-index'), 10);
-        const currentQuestionData = doc0926questions[doc0926CurrentIndex];
+        const currentQuestionData = doc1026questions[doc1026CurrentIndex];
         const selectedOption = currentQuestionData.options[selectedIndex];
 
-        // Record answer (correct = B answer = true)
-        doc0926UserAnswers[doc0926CurrentIndex] = selectedOption.correct;
+        // Record answer
+        doc1026UserAnswers[doc1026CurrentIndex] = selectedOption.correct;
 
-        doc0926CurrentIndex++;
+        doc1026CurrentIndex++;
 
-        if (doc0926CurrentIndex < doc0926TotalQuestions) {
-          doc0926RenderQuestion();
+        if (doc1026CurrentIndex < doc1026TotalQuestions) {
+          doc1026RenderQuestion();
         } else {
-          doc0926ShowScorePopup();
+          doc1026ShowScorePopup();
         }
       }
 
-      function doc0926ShowScorePopup() {
-        // Count A vs B (false = A, true = B)
-        let doc0926CountA = 0;
-        let doc0926CountB = 0;
-        doc0926UserAnswers.forEach(answer => {
-          if (answer === true) {
-            doc0926CountB++;
-          } else if (answer === false) {
-            doc0926CountA++;
-          }
+      function doc1026ShowScorePopup() {
+        // Count correct answers
+        let doc1026CorrectCount = 0;
+        doc1026UserAnswers.forEach(answer => {
+          if (answer === true) doc1026CorrectCount++;
         });
 
-        let searchProfile = '';
+        doc1026ScoreValue.textContent = `${doc1026CorrectCount}/${doc1026TotalQuestions}`;
+
+        let scoreType = '';
         let feedbackMessage = '';
 
-        if (doc0926CountA > doc0926CountB) {
-          // Mostly As
-          searchProfile = 'The 2 A.M. Diagnostician';
+        if (doc1026CorrectCount >= 4) {
+          // 4-7 correct
+          scoreType = 'The Ramayana Pro';
           feedbackMessage = `
-            One innocent symptom can turn into an entire medical investigation with you.<br><br>
-            <strong>Remember:</strong> The internet can provide information, but it can't examine you or give you a personalised diagnosis.
+            You know your Dussehra and your Ramayana! From Ayodhya to Lanka, Ravan to Hanuman, you've got the big moments and some of the trickier details down.<br><br>
+            Looks like you're more than ready for this year's Dussehra celebrations.
           `;
         } else {
-          // Mostly Bs (or equal)
-          searchProfile = 'The Smart Searcher';
+          // 0-3 correct
+          scoreType = 'The Mela Enthusiast';
           feedbackMessage = `
-            You know how to use the internet without letting it become your doctor.<br><br>
-            Keep checking reliable sources and know when a real conversation with a healthcare professional is more useful.
+            You may not remember every character, twist or Ramayana connection, but you definitely know how to enjoy Dussehra. The mela, festive food and Ravan-burning are clearly more your area of expertise.<br><br>
+            Maybe this year, it's time for a little Ramayana refresher!
           `;
         }
 
-        doc0926ScoreType.textContent = searchProfile;
-        doc0926FeedbackText.innerHTML = feedbackMessage;
+        doc1026ScoreType.textContent = scoreType;
+        doc1026FeedbackText.innerHTML = feedbackMessage;
 
-        doc0926PopupOverlay.classList.add('doc0926-active');
+        doc1026PopupOverlay.classList.add('doc1026-active');
       }
 
-      function doc0926ClosePopup() {
-        doc0926PopupOverlay.classList.remove('doc0926-active');
+      function doc1026ClosePopup() {
+        doc1026PopupOverlay.classList.remove('doc1026-active');
         // Reset quiz
-        doc0926CurrentIndex = 0;
-        doc0926UserAnswers = new Array(doc0926TotalQuestions).fill(null);
-        doc0926RenderQuestion();
+        doc1026CurrentIndex = 0;
+        doc1026UserAnswers = new Array(doc1026TotalQuestions).fill(null);
+        doc1026RenderQuestion();
       }
 
-      doc0926ClosePopupBtn.addEventListener('click', doc0926ClosePopup);
+      doc1026ClosePopupBtn.addEventListener('click', doc1026ClosePopup);
 
-      doc0926PopupOverlay.addEventListener('click', function(e) {
-        if (e.target === doc0926PopupOverlay) {
-          doc0926ClosePopup();
+      doc1026PopupOverlay.addEventListener('click', function(e) {
+        if (e.target === doc1026PopupOverlay) {
+          doc1026ClosePopup();
         }
       });
 
       // Start quiz
-      doc0926RenderQuestion();
+      doc1026RenderQuestion();
     })();
   </script>
-
 
 
 <!--AI SUMMARY JS-->
